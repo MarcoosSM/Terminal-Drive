@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: ad792a82d78ee634f94e01c3ee56dff2
+guid: abd75a3aab5226e4397000d3a0ed88e6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Character animation breathing_0
-    21300002: Character animation breathing_1
+    21300000: Character animation jumping_0
+    21300002: Character animation jumping_1
+    21300004: Character animation jumping_2
+    21300006: Character animation jumping_3
+    21300008: Character animation jumping_4
+    21300010: Character animation jumping_5
+    21300012: Character animation jumping_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -97,7 +102,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character animation breathing_0
+      name: Character animation jumping_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74996d010c713d44cb1ed31fa575475f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character animation jumping_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01317a76e9c065a4285216fd2a0e4f75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character animation jumping_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6f7141032ddf649a397cc182479965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character animation jumping_3
       rect:
         serializedVersion: 2
         x: 0
@@ -105,19 +170,59 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bf162649392c4a419541b866deed06d
+      spriteID: 6c87d71c30ddb4e439733e69e684f1b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character animation breathing_1
+      name: Character animation jumping_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347cbe5cb1554f44487e5406d3acf9e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character animation jumping_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f08ff5fbe944942bab4748252e9771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character animation jumping_6
       rect:
         serializedVersion: 2
         x: 0
@@ -125,13 +230,13 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 593fc4b0e9d8be446984424d9c847513
+      spriteID: 3635d85781340c0468f37ccb7b6f4fd1
       vertices: []
       indices: 
       edges: []
@@ -139,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6135c93e04ca95948a0ef295ba48a932
+    spriteID: 57b568dc4c8b43c428af9df8261cdc20
     vertices: []
     indices: 
     edges: []
