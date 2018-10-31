@@ -33,10 +33,7 @@ public class PlayerControl : MonoBehaviour {
 
         float h = Input.GetAxis("Horizontal");
 
-        //Sin uso
-        //------------
-        //checkFlip(h);
-        //------------
+        checkFlip(h);
 
         float absH = Mathf.Abs(h);
 
@@ -51,23 +48,6 @@ public class PlayerControl : MonoBehaviour {
             animator.SetFloat("Speed", 0);
             RB2d.velocity = new Vector2(0, RB2d.velocity.y);
         }
-        //añadido para cambio de sprites izq y der
-        //--------------------------------------------------
-        //animacion izquierda
-        if (Input.GetKeyDown("a")) {
-            animator.SetBool("isRight", false);
-        }
-        //animacion derecha
-        if (Input.GetKeyDown("d")) {
-            animator.SetBool("isRight", true);
-        }
-        //Esto hace que si se pulsan ambas teclas el personaje se pare.
-        if (Input.GetKeyDown("a") && Input.GetKeyDown("d")) {
-            animator.SetFloat("Speed", 0);
-            RB2d.velocity = new Vector2(0, RB2d.velocity.y);
-        }
-        //Aun falta arreglar que el personaje haga moonwalk
-        //--------------------------------------------------
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -80,20 +60,16 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
-    /*
-    Ahora mismo esta parte no se usa
-    ------------------------------------------------
     private void checkFlip(float h)
     {
-        //Comprueba si el personaje tiene que hacer un flip
-        if(h != 0)
-        {
-            // Si h < 0 entonces flipX = true
-            sr.flipX = h < 0;
+        if(h != 0) {
+            if(h > 0) {
+                animator.SetBool("isRight", true);
+            } else {
+                animator.SetBool("isRight", false);
+            }
         }
     }
-    ------------------------------------------------
-    */
 
     private void checkIsJumping()
     {
