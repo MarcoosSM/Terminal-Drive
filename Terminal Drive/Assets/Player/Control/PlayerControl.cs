@@ -33,7 +33,10 @@ public class PlayerControl : MonoBehaviour {
 
         float h = Input.GetAxis("Horizontal");
 
-        checkFlip(h);
+        //Sin uso
+        //------------
+        //checkFlip(h);
+        //------------
 
         float absH = Mathf.Abs(h);
 
@@ -42,12 +45,29 @@ public class PlayerControl : MonoBehaviour {
             animator.SetFloat("Speed", absH * speed);
             RB2d.velocity = new Vector2(speed * h, RB2d.velocity.y);
         }
-        else
+        else 
         {
             // Stop al jugador y a la animación
             animator.SetFloat("Speed", 0);
             RB2d.velocity = new Vector2(0, RB2d.velocity.y);
         }
+        //añadido para cambio de sprites izq y der
+        //--------------------------------------------------
+        //animacion izquierda
+        if (Input.GetKeyDown("a")) {
+            animator.SetBool("isRight", false);
+        }
+        //animacion derecha
+        if (Input.GetKeyDown("d")) {
+            animator.SetBool("isRight", true);
+        }
+        //Esto hace que si se pulsan ambas teclas el personaje se pare.
+        if (Input.GetKeyDown("a") && Input.GetKeyDown("d")) {
+            animator.SetFloat("Speed", 0);
+            RB2d.velocity = new Vector2(0, RB2d.velocity.y);
+        }
+        //Aun falta arreglar que el personaje haga moonwalk
+        //--------------------------------------------------
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -60,15 +80,20 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
+    /*
+    Ahora mismo esta parte no se usa
+    ------------------------------------------------
     private void checkFlip(float h)
     {
-        // Comprueba si el personaje tiene que hacer un flip
+        //Comprueba si el personaje tiene que hacer un flip
         if(h != 0)
         {
-            // Si h > 0 entonces flipX = true
-            sr.flipX = h > 0;
+            // Si h < 0 entonces flipX = true
+            sr.flipX = h < 0;
         }
     }
+    ------------------------------------------------
+    */
 
     private void checkIsJumping()
     {
