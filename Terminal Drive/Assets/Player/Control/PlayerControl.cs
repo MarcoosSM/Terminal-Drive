@@ -19,7 +19,17 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        checkIsJumping();
+        if (Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("JUMP!");
+            if (!animator.GetBool("isJumping"))
+            {
+                // Si no esta saltando, añade la fuerza del salto
+                RB2d.AddForce(jumpHeight, ForceMode2D.Impulse);
+                animator.SetBool("isJumping", true);
+            }
+        }
     }
 
 	void FixedUpdate()
@@ -29,8 +39,6 @@ public class PlayerControl : MonoBehaviour {
 
     private void move()
     {
-        checkIsJumping();
-
         float h = Input.GetAxis("Horizontal");
 
         checkFlip(h);
@@ -48,16 +56,7 @@ public class PlayerControl : MonoBehaviour {
             animator.SetFloat("Speed", 0);
             RB2d.velocity = new Vector2(0, RB2d.velocity.y);
         }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (!animator.GetBool("isJumping"))
-            {
-                // Si no esta saltando, añade la fuerza del salto
-                RB2d.AddForce(jumpHeight, ForceMode2D.Impulse);
-                animator.SetBool("isJumping", true);
-            }
-        }
+        
     }
 
     private void checkFlip(float h)
