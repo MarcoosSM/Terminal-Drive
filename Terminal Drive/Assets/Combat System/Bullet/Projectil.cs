@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectil : MonoBehaviour {
 
 	float damage;
+	int maxBulletTime = 5; //segs
 	
 	void Start () {
 
@@ -16,6 +17,7 @@ public class Projectil : MonoBehaviour {
 
 		rigidbody2D.AddForce(transform.right*-200);
 
+		DestroyTimeOut();
 		
 	}
 	
@@ -41,6 +43,13 @@ public class Projectil : MonoBehaviour {
 
 		//Destroy(gameObject);
     }
+
+	 IEnumerator DestroyTimeOut()
+ {
+     yield return new WaitForSeconds(maxBulletTime);
+	
+     Destroy(gameObject);
+ }
 
 	
 
