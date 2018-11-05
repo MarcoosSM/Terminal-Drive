@@ -40,6 +40,10 @@ public class HandGunController : WeaponController {
 			
 
 			GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
+			Projectil project = tempbullet.AddComponent<Projectil>();
+			project.Damage=10;
+			project.Speed=200;
+
 			--currentAmunition;
 
 		}else{

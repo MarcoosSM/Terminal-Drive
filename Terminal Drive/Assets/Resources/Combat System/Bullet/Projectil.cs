@@ -5,17 +5,17 @@ using UnityEngine;
 public class Projectil : MonoBehaviour {
 
 	float damage;
+	float speed;
 	int maxBulletTime = 5; //segs
 	
 	void Start () {
 
 		//Daño que hace a los enemigos
 
-		damage=10;
 			//Velocidad inicial
 		Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
 
-		rigidbody2D.AddForce(transform.right*-200);
+		rigidbody2D.AddForce(transform.right*-speed);
 
 		//DestroyTimeOut();
 
@@ -27,6 +27,17 @@ public class Projectil : MonoBehaviour {
 	public float Damage {
 		get{
 			return damage;
+		}
+		set{
+			damage=value;
+		}
+	}
+	public float Speed {
+		get{
+			return speed;
+		}
+		set{
+			speed=value;
 		}
 	}
 
@@ -47,10 +58,9 @@ public class Projectil : MonoBehaviour {
     }
 
 	IEnumerator DestroyTimeOut(){
-
-		Debug.Log("starttimeout");
+		
 		yield return new WaitForSeconds(maxBulletTime);
-		Debug.Log("endtimeout");
+
 		Destroy(gameObject);
  	}
 
