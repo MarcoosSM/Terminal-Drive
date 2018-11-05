@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 124072202}
   - component: {fileID: 124072201}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 280367084}
   - component: {fileID: 280367083}
   - component: {fileID: 280367082}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Suelo (test)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 787849773}
   - component: {fileID: 787849775}
   - component: {fileID: 787849774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 884679794}
   - component: {fileID: 884679797}
   - component: {fileID: 884679796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1000,7 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1757562455}
   - component: {fileID: 1757562454}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1075,7 +1075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872911875}
   - component: {fileID: 1872911876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

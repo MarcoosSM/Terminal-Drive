@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour {
 
 	[SerializeField]float health;
 	void Start () {
-		Debug.Log("star");
+		Debug.Log("start");
 		health=100;
 	}
 	
