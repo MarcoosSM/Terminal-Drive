@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 884679793}
   - component: {fileID: 884679795}
   - component: {fileID: 884679794}
+  - component: {fileID: 884679797}
   - component: {fileID: 884679796}
   m_Layer: 0
   m_Name: Player
@@ -564,9 +565,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008101821, y: -0.13698548}
+  m_Offset: {x: -0.0016598701, y: -0.010083824}
   serializedVersion: 2
-  m_Radius: 0.25419074
+  m_Radius: 0.17609766
 --- !u!61 &884679795
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -604,6 +605,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 124072200}
+--- !u!58 &884679797
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 884679788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008101791, y: -0.25412506}
+  serializedVersion: 2
+  m_Radius: 0.14681286
 --- !u!1 &1045563035
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +633,7 @@ GameObject:
   - component: {fileID: 1045563039}
   - component: {fileID: 1045563038}
   - component: {fileID: 1045563037}
+  - component: {fileID: 1045563043}
   - component: {fileID: 1045563036}
   m_Layer: 0
   m_Name: Enemy
@@ -649,9 +666,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008101821, y: -0.13698548}
+  m_Offset: {x: -0.0016598701, y: -0.010083824}
   serializedVersion: 2
-  m_Radius: 0.25419074
+  m_Radius: 0.17609766
 --- !u!61 &1045563038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -774,6 +791,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1045563043
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045563035}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008101791, y: -0.25412506}
+  serializedVersion: 2
+  m_Radius: 0.14681286
 --- !u!1 &1057604524
 GameObject:
   m_ObjectHideFlags: 0
