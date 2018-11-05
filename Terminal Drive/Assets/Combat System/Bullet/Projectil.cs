@@ -17,7 +17,9 @@ public class Projectil : MonoBehaviour {
 
 		rigidbody2D.AddForce(transform.right*-200);
 
-		DestroyTimeOut();
+		//DestroyTimeOut();
+
+		StartCoroutine(DestroyTimeOut());
 		
 	}
 	
@@ -44,12 +46,13 @@ public class Projectil : MonoBehaviour {
 		//Destroy(gameObject);
     }
 
-	 IEnumerator DestroyTimeOut()
- {
-     yield return new WaitForSeconds(maxBulletTime);
-	
-     Destroy(gameObject);
- }
+	IEnumerator DestroyTimeOut(){
+
+		Debug.Log("starttimeout");
+		yield return new WaitForSeconds(maxBulletTime);
+		Debug.Log("endtimeout");
+		Destroy(gameObject);
+ 	}
 
 	
 
