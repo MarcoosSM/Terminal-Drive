@@ -6,6 +6,8 @@ public class HandGunController : WeaponController {
 
 	bool readyToFire;
 	Vector2 RawBarrelPos;
+
+	Vector2 RawEjectorPos;
 	void Start () {
 
 		power=1;
@@ -16,7 +18,7 @@ public class HandGunController : WeaponController {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
 		RawBarrelPos=new Vector2(-0.25f,0.12f);
-
+		RawEjectorPos=new Vector2(0,0.12f);
 		
 		
 		
@@ -35,14 +37,18 @@ public class HandGunController : WeaponController {
 	protected override void  fire(){
 
 		CalcBarrelEndPos(RawBarrelPos);
+		CalcEjectorEndPos(RawEjectorPos);
 
 		if(currentAmunition>0){
 			
-
+			//Bala
 			GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 			Projectil project = tempbullet.AddComponent<Projectil>();
 			project.Damage=10;
 			project.Speed=200;
+
+			//Casquillo
+			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 
 			--currentAmunition;
 

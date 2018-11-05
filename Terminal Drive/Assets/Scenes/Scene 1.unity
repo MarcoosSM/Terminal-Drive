@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1589067156259212, guid: aca049bcd91cb2143933ecfb4291d829, type: 2}
+  cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
 --- !u!212 &787849775
 SpriteRenderer:
   m_ObjectHideFlags: 0
