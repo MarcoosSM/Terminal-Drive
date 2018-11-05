@@ -18,7 +18,7 @@ public class HandGunController : WeaponController {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
 		RawBarrelPos=new Vector2(-0.25f,0.12f);
-		RawEjectorPos=new Vector2(0,0.12f);
+		RawEjectorPos=new Vector2(0,0.15f);
 		
 		
 		
@@ -49,6 +49,7 @@ public class HandGunController : WeaponController {
 
 			//Casquillo
 			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
+			tempCap.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-20,20),70));
 
 			--currentAmunition;
 

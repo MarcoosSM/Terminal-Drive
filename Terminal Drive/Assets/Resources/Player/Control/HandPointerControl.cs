@@ -34,7 +34,7 @@ public class HandPointerControl : MonoBehaviour {
 		target.transform.position = new Vector3(pointer.x, pointer.y, 0);
 
 		//Cursor para mover el brazo
-		var dir = weapon.transform.position - target.transform.position;
+		var dir = transform.position - target.transform.position;
  		var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
  		hand.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 

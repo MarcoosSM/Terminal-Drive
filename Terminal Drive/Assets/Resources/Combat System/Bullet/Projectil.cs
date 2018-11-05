@@ -7,13 +7,13 @@ public class Projectil : MonoBehaviour {
 	float damage;
 	float speed;
 	int maxBulletTime = 5; //segs
-	
+	Rigidbody2D rigidbody2D;
 	void Start () {
 
 		//Daño que hace a los enemigos
 
 			//Velocidad inicial
-		Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+		 rigidbody2D= GetComponent<Rigidbody2D>();
 
 		rigidbody2D.AddForce(transform.right*-speed);
 
@@ -54,7 +54,7 @@ public class Projectil : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		//Destroy(gameObject);
+		rigidbody2D.gravityScale=0.1f;
     }
 
 	IEnumerator DestroyTimeOut(){
