@@ -95,3 +95,10 @@
                 idea a comentar en grupo: las protesis obtenidas por operacion a parte de "+bonus extra stats" se añade un implante a elegir no disponible en   la tienda de implantes de los implantes totales del juego</li>
             </ul>
     </ul>   
+    
+    <h3>Orden de las capas</h3>
+    	0 Background
+	1-10 Detras del jugador
+	11 Jugador
+	12 - 22 Delante del jugador 
+    
