@@ -49,9 +49,6 @@ public class PlayerControl : MonoBehaviour {
     }
 
     private void move() {
-        // Mueve al jugador, dependiendo de los valores de las variables de control
-        updateOrientation();
-
         float absHAxis = Mathf.Abs(hAxis);
         if(absHAxis > rangeStartMovement) {
             animator.SetFloat("Speed", absHAxis * moveSpeed);
@@ -65,7 +62,7 @@ public class PlayerControl : MonoBehaviour {
     }
     
     private void updateOrientation() {
-        // Cambia la dirección a la que mira el jugador dependiendo de la entrada por teclado
+        // ((NO SE USA)) Cambia la dirección a la que mira el jugador dependiendo de la entrada por teclado
         if(hAxis != 0) {
             if(hAxis > 0) {
                 animator.SetBool("isRight", true);

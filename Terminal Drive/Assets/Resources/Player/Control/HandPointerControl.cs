@@ -49,6 +49,13 @@ public class HandPointerControl : MonoBehaviour {
 			hand.GetComponent<SpriteRenderer>().sortingOrder=1;
 		}
 
+		// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
+		if(angle > -90 && angle < 90) {
+			animator.SetBool("isRight", false);
+		} else {
+			animator.SetBool("isRight", true);
+		}
+
     }
 
 		
