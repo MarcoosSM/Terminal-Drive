@@ -16,10 +16,18 @@ public class CapManager : MonoBehaviour {
 		
 	}
 
-	IEnumerator DestroyTimeOut(){
-		
-		yield return new WaitForSeconds(maxCapTime);
+	void OnCollisionEnter2D(Collision2D collision) {
+		GameObject hitObj = collision.gameObject;
 
+		if(hitObj.tag.Equals("Suelo")) {
+			// Cuando el casquillo toca el suelo, se desactiva la colisión y se queda en la posición en la que haya caído
+			gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+			gameObject.GetComponent<BoxCollider2D>().enabled = false;
+		}
+	}
+
+	IEnumerator DestroyTimeOut(){
+		yield return new WaitForSeconds(maxCapTime);
 		Destroy(gameObject);
  	}
 }
