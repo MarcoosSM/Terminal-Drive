@@ -340,6 +340,7 @@ MonoBehaviour:
   cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
   VelocidadBala: 500
   "Da\xF1oDeBala": 10
+  PPM: 60
 --- !u!212 &787849775
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -871,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: 2, z: -10}
 --- !u!1 &1435834095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,7 +1257,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1751715500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.22, y: 1.657, z: 0}
+  m_LocalPosition: {x: -16.19, y: 1.657, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
