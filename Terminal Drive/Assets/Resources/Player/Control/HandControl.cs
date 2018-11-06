@@ -13,7 +13,7 @@ public class HandControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		weapon = transform.GetChild(0).gameObject;
-		
+		animator = transform.parent.GetComponent<Animator>();
 		Cursor = GameObject.FindGameObjectWithTag("Pointer");
 		
 	}

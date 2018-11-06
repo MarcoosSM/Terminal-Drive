@@ -10,9 +10,7 @@ public class Projectil : MonoBehaviour {
 	Rigidbody2D rigidbody2D;
 	void Start () {
 
-		//Daño que hace a los enemigos
-
-			//Velocidad inicial
+		//Velocidad inicial
 		 rigidbody2D= GetComponent<Rigidbody2D>();
 
 		rigidbody2D.AddForce(transform.right*-speed);
