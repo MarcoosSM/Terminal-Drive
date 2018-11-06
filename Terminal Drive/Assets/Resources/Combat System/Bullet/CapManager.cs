@@ -10,6 +10,7 @@ public class CapManager : MonoBehaviour {
 	void Start () {
 		GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-20,20),70));
 		StartCoroutine(DestroyTimeOut());
+		checkFlip();
 	}
 	
 	// Update is called once per frame
@@ -30,4 +31,12 @@ public class CapManager : MonoBehaviour {
 		yield return new WaitForSeconds(maxCapTime);
 		Destroy(gameObject);
  	}
+
+	void checkFlip() {
+		if(GameObject.Find("Player").GetComponent<Animator>().GetBool("isRight")) {
+			GetComponent<SpriteRenderer>().sortingOrder = 14;
+		} else {
+			GetComponent<SpriteRenderer>().sortingOrder = 4;
+		}
+	}
 }

@@ -60,17 +60,6 @@ public class PlayerControl : MonoBehaviour {
         }
 
     }
-    
-    private void updateOrientation() {
-        // ((NO SE USA)) Cambia la dirección a la que mira el jugador dependiendo de la entrada por teclado
-        if(hAxis != 0) {
-            if(hAxis > 0) {
-                animator.SetBool("isRight", true);
-            } else {
-                animator.SetBool("isRight", false);
-            }
-        }
-    }
 
     private void updateIsJumping() {
         // Comprueba la velocidad del eje y del personaje y si es 0 significa que no esta saltando

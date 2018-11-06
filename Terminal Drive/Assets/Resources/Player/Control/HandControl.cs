@@ -25,18 +25,19 @@ public class HandControl : MonoBehaviour {
  		var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
  		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-		//Para ver si el brazo se encuetra detras o delante del jugador
-
-		if(animator.GetBool("isRight")){
-
-			GetComponent<SpriteRenderer>().sortingOrder=3;
-
-		}else{
-
-			GetComponent<SpriteRenderer>().sortingOrder=1;
+		// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
+		if(angle > -90 && angle < 90) {
+			animator.SetBool("isRight", false);
+		} else {
+			animator.SetBool("isRight", true);
 		}
 
-
-
+		//Para ver si el brazo se encuetra detras o delante del jugador
+		if(animator.GetBool("isRight")){
+			GetComponent<SpriteRenderer>().sortingOrder=13;
+		}else{
+			GetComponent<SpriteRenderer>().sortingOrder=5;
+		}
+		
 	}
 }

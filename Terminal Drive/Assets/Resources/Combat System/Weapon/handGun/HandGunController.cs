@@ -22,8 +22,6 @@ public class HandGunController : WeaponController {
 		RawBarrelPos=new Vector2(-0.25f,0.12f);
 		RawEjectorPos=new Vector2(0,0.15f);
 		
-		
-		
 	}
 	
 	// Update is called once per frame
@@ -41,7 +39,7 @@ public class HandGunController : WeaponController {
 		CalcBarrelEndPos(RawBarrelPos);
 		CalcEjectorEndPos(RawEjectorPos);
 
-		if(currentAmunition>0){
+		if(currentAmunition > 0) {
 			
 			//Bala
 			GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
@@ -51,7 +49,7 @@ public class HandGunController : WeaponController {
 
 			//Casquillo
 			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
-			
+
 			--currentAmunition;
 
 		}else{

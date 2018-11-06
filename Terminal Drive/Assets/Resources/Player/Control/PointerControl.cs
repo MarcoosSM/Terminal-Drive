@@ -30,13 +30,6 @@ public class PointerControl : MonoBehaviour {
 		var dir = player.transform.position - transform.position;
  		var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-		// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
-		if(angle > -90 && angle < 90) {
-			animator.SetBool("isRight", false);
-		} else {
-			animator.SetBool("isRight", true);
-		}
-
     }
 
 		

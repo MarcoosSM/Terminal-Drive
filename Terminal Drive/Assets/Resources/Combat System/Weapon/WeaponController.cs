@@ -36,14 +36,14 @@ public abstract class WeaponController : MonoBehaviour {
 		if(rot<270 & rot>90){
 			// right
 			spriteRenderer.flipY=true;
-			spriteRenderer.sortingOrder=2;
+			spriteRenderer.sortingOrder=12;
 
 			fliped = true;
 
 		}else{
 			// left
 			spriteRenderer.flipY=false;
-			spriteRenderer.sortingOrder=1;
+			spriteRenderer.sortingOrder=6;
 			fliped = false;
 
 		}
