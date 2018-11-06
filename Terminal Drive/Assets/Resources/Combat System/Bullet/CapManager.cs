@@ -16,13 +16,12 @@ public class CapManager : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
-		GameObject hitObj = collision.gameObject;
+	void OnTriggerEnter2D(Collider2D col) {
+		GameObject hitObj = col.gameObject;
 
 		if(hitObj.tag.Equals("Suelo")) {
-			// Cuando el casquillo toca el suelo, se desactiva la colisión y se queda en la posición en la que haya caído
+			// Cuando el casquillo toca el suelo, se queda en la posición en la que haya caído.
 			gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-			gameObject.GetComponent<BoxCollider2D>().enabled = false;
 		}
 	}
 
