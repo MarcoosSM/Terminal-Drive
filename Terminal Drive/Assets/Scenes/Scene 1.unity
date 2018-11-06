@@ -122,9 +122,10 @@ GameObject:
   m_Component:
   - component: {fileID: 124072202}
   - component: {fileID: 124072201}
+  - component: {fileID: 124072203}
   m_Layer: 5
   m_Name: Pointer
-  m_TagString: Untagged
+  m_TagString: Pointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,6 +189,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124072203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 124072200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1f41bb7f54cdb45b9b114f9375dedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &280367081
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1589067156259212, guid: aca049bcd91cb2143933ecfb4291d829, type: 2}
   cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
+  VelocidadBala: 200
+  "Da\xF1oDeBala": 10
 --- !u!212 &787849775
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -606,6 +620,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 124072200}
+  hand: {fileID: 0}
+  weapon: {fileID: 0}
+  mainCamera: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!58 &884679797
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1076,6 +1094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872911875}
   - component: {fileID: 1872911876}
+  - component: {fileID: 1872911877}
   m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
@@ -1143,3 +1162,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1872911877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872911874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5122905dcd51604794c9f1691bb2209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
