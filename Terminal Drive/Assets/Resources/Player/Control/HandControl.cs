@@ -20,9 +20,15 @@ public class HandControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		//Cursor para mover el brazo
-		var dir = transform.position - Cursor.transform.position;
- 		var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+		//Para mover el brazo segun el cursor
+		WeaponController weaponController = weapon.GetComponent<WeaponController>();
+
+		//El offset es para que el arma apunte al cursor y el brazo no
+		Vector2 cursorPos = Cursor.transform.position;
+		Vector2 cursorOffset = cursorPos - weaponController.RawBarrelEndPos;
+
+		Vector2 dir = ((Vector2)transform.position) - cursorOffset;
+ 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
  		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 		// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
@@ -38,6 +44,9 @@ public class HandControl : MonoBehaviour {
 		}else{
 			GetComponent<SpriteRenderer>().sortingOrder=5;
 		}
+
 		
+
 	}
+
 }
