@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 787849773}
   - component: {fileID: 787849775}
   - component: {fileID: 787849774}
+  - component: {fileID: 787849776}
   m_Layer: 8
   m_Name: Weapon
   m_TagString: Untagged
@@ -486,7 +487,7 @@ MonoBehaviour:
   cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
   VelocidadBala: 500
   "Da\xF1oDeBala": 10
-  PPM: 60
+  PPM: 120
   RecharingTime: 1
 --- !u!212 &787849775
 SpriteRenderer:
@@ -534,6 +535,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &787849776
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 787849772}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 200c93d74c2b2124fa36a6bf7e42ed4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &884679788
 GameObject:
   m_ObjectHideFlags: 0
