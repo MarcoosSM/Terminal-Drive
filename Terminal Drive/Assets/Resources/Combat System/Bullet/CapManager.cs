@@ -8,6 +8,7 @@ public class CapManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-20,20),70));
 		StartCoroutine(DestroyTimeOut());
 	}
 	

@@ -51,8 +51,7 @@ public class HandGunController : WeaponController {
 
 			//Casquillo
 			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
-			tempCap.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-20,20),70));
-
+			
 			--currentAmunition;
 
 		}else{
