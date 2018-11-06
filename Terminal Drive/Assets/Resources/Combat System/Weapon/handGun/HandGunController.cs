@@ -7,17 +7,21 @@ public class HandGunController : WeaponController {
 	[SerializeField] int VelocidadBala = 200 ;
 	[SerializeField] int DañoDeBala = 10;
 	[SerializeField] int PPM = 60; // projectiles por minuto
+	[SerializeField] int RecharingTime = 1; //en segundos
 	bool readyToFire;
+	bool recharging;
 
 
 
 	void Start () {
 
 		power=1;
-		maxAmunition = 10;
+		maxAmunition = 4;
 		currentAmunition=maxAmunition;
 
 		readyToFire=true;
+		recharging=false;
+
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
@@ -52,19 +56,35 @@ public class HandGunController : WeaponController {
 				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 
 				--currentAmunition;
+				Debug.Log(currentAmunition);
 
 			}else{
-				currentAmunition=maxAmunition;
-				Debug.Log("recargando");
+				if(!recharging){
+					StartCoroutine(rechargingDelay());
+				}
+				
 			}
 			StartCoroutine(FireDelay());
 		}
 
 
 	}
-		IEnumerator FireDelay(){
+	IEnumerator FireDelay(){
 		readyToFire=false;
 		yield return new WaitForSeconds(60/PPM);
 		readyToFire=true;
+ 	}
+	IEnumerator rechargingDelay(){
+		Debug.Log("recargando");
+		
+		recharging=true;
+
+		yield return new WaitForSeconds(RecharingTime);
+		currentAmunition=maxAmunition;
+
+		recharging=false;
+
+		Debug.Log("recargado");
+		
  	}
 }
