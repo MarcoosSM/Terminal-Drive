@@ -13,14 +13,14 @@ public class HandControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		weapon = transform.GetChild(0).gameObject;
-		animator = GetComponent<Animator>();
+		
 		Cursor = GameObject.FindGameObjectWithTag("Pointer");
 		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-				//Cursor para mover el brazo
+		//Cursor para mover el brazo
 		var dir = transform.position - Cursor.transform.position;
  		var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
  		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -36,12 +36,7 @@ public class HandControl : MonoBehaviour {
 			GetComponent<SpriteRenderer>().sortingOrder=1;
 		}
 
-		// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
-		if(angle > -90 && angle < 90) {
-			animator.SetBool("isRight", false);
-		} else {
-			animator.SetBool("isRight", true);
-		}
+
 
 	}
 }
