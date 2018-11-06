@@ -10,8 +10,11 @@ public class HandGunController : WeaponController {
 	[SerializeField] int RecharingTime = 1; //en segundos
 	bool readyToFire;
 	bool recharging;
+	private Animator animator;
 
-
+	void Awake() {
+		animator = GetComponent<Animator>();
+	}
 
 	void Start () {
 
@@ -31,9 +34,17 @@ public class HandGunController : WeaponController {
 	
 	// Update is called once per frame
 	void Update () {
-		  if (Input.GetMouseButtonDown(0)){
+		if(recharging == false) {
+		 	 //animacion normal
+			animator.SetBool("reloading", false);
+		}
+		if(currentAmunition == 0) {
+			//animacion recarga
+			animator.SetBool("reloading", true);
+		}
+		if (Input.GetMouseButtonDown(0)){
  			fire();
-		  }
+		}
 
         checkFlip();
 	
@@ -43,9 +54,9 @@ public class HandGunController : WeaponController {
 		if(readyToFire){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
-
+			
 			if(currentAmunition > 0) {
-				
+
 				//Bala
 				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 				Projectil project = tempbullet.AddComponent<Projectil>();
@@ -57,12 +68,11 @@ public class HandGunController : WeaponController {
 
 				--currentAmunition;
 				Debug.Log(currentAmunition);
-
+				
 			}else{
 				if(!recharging){
 					StartCoroutine(rechargingDelay());
 				}
-				
 			}
 			StartCoroutine(FireDelay());
 		}
@@ -78,7 +88,6 @@ public class HandGunController : WeaponController {
 		Debug.Log("recargando");
 		
 		recharging=true;
-
 		yield return new WaitForSeconds(RecharingTime);
 		currentAmunition=maxAmunition;
 
