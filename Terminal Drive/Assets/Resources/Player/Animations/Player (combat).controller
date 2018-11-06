@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Player
+  m_Name: Player (combat)
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Speed
@@ -734,7 +734,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102246279645807032}
-    m_Position: {x: 60, y: -48, z: 0}
+    m_Position: {x: 48, y: -48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102128814087476702}
     m_Position: {x: 660, y: -168, z: 0}
