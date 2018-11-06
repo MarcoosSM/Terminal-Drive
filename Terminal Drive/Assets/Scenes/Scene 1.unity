@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1589067156259212, guid: aca049bcd91cb2143933ecfb4291d829, type: 2}
   cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
-  VelocidadBala: 200
+  VelocidadBala: 1500
   "Da\xF1oDeBala": 10
 --- !u!212 &787849775
 SpriteRenderer:
@@ -490,7 +490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: adbcec55bf7cd3348b3b80214dc22c90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -619,11 +619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96470dd0d19c0ce46bd0931419721f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 124072200}
-  hand: {fileID: 0}
-  weapon: {fileID: 0}
-  mainCamera: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!58 &884679797
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -720,7 +715,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1045563035}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
