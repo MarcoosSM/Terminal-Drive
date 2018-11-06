@@ -96,9 +96,10 @@
             </ul>
     </ul>   
     
-    <h3>Orden de las capas</h3>
-    	0 Background
-	1-10 Detras del jugador
-	11 Jugador
-	12 - 22 Delante del jugador 
-    
+<h3>Orden de las capas</h3>
+	<ul>
+		<li>0 Background</li>
+		<li>1-10 Detras del jugador</li>
+		<li>11 Jugador</li>
+		<li>12 - 22 Delante del jugador</li>
+    	</ul>
