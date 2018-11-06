@@ -25,11 +25,6 @@ public class PointerControl : MonoBehaviour {
 		//Codigo para mover el cursor
 		Vector3 pointer = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 		gameObject.transform.position = new Vector3(pointer.x, pointer.y, 0);
-
-		
-		var dir = player.transform.position - transform.position;
- 		var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
     }
 
 		
