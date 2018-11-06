@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HandGunController : WeaponController {
 
+	[SerializeField] int VelocidadBala = 200 ;
+	[SerializeField] int DañoDeBala = 10;
 	bool readyToFire;
 	Vector2 RawBarrelPos;
 
@@ -44,8 +46,8 @@ public class HandGunController : WeaponController {
 			//Bala
 			GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 			Projectil project = tempbullet.AddComponent<Projectil>();
-			project.Damage=10;
-			project.Speed=200;
+			project.Damage=DañoDeBala;
+			project.Speed=VelocidadBala;
 
 			//Casquillo
 			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
