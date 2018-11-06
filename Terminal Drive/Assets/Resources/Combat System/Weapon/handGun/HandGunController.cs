@@ -6,7 +6,10 @@ public class HandGunController : WeaponController {
 
 	[SerializeField] int VelocidadBala = 200 ;
 	[SerializeField] int DañoDeBala = 10;
+	[SerializeField] int PPM = 60; // projectiles por minuto
 	bool readyToFire;
+
+
 
 	void Start () {
 
@@ -33,26 +36,35 @@ public class HandGunController : WeaponController {
 	}
 
 	protected override void  fire(){
+		if(readyToFire){
+			CalcBarrelEndPos();
+			CalcEjectorEndPos();
 
-		CalcBarrelEndPos();
-		CalcEjectorEndPos();
+			if(currentAmunition > 0) {
+				
+				//Bala
+				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
+				Projectil project = tempbullet.AddComponent<Projectil>();
+				project.Damage=DañoDeBala;
+				project.Speed=VelocidadBala;
 
-		if(currentAmunition > 0) {
-			
-			//Bala
-			GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
-			Projectil project = tempbullet.AddComponent<Projectil>();
-			project.Damage=DañoDeBala;
-			project.Speed=VelocidadBala;
+				//Casquillo
+				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 
-			//Casquillo
-			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
+				--currentAmunition;
 
-			--currentAmunition;
-
-		}else{
-			currentAmunition=maxAmunition;
-			Debug.Log("recargando");
+			}else{
+				currentAmunition=maxAmunition;
+				Debug.Log("recargando");
+			}
+			StartCoroutine(FireDelay());
 		}
+
+
 	}
+		IEnumerator FireDelay(){
+		readyToFire=false;
+		yield return new WaitForSeconds(60/PPM);
+		readyToFire=true;
+ 	}
 }
