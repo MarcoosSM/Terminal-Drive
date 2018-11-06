@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Projectil : MonoBehaviour {
 
-	float damage;
-	float speed;
-	int maxBulletTime = 5; //segs
-	Rigidbody2D rigidbody2D;
+	private float damage;
+	private float speed;
+	private int maxBulletTime = 5; //segs
+	private Rigidbody2D rigidbody2D;
 	void Start () {
 
 		//Velocidad inicial
-		 rigidbody2D= GetComponent<Rigidbody2D>();
+		rigidbody2D= GetComponent<Rigidbody2D>();
 
 		rigidbody2D.AddForce(transform.right*-speed);
 
