@@ -7,9 +7,7 @@ public class HandGunController : WeaponController {
 	[SerializeField] int VelocidadBala = 200 ;
 	[SerializeField] int DañoDeBala = 10;
 	bool readyToFire;
-	Vector2 RawBarrelPos;
 
-	Vector2 RawEjectorPos;
 	void Start () {
 
 		power=1;
@@ -19,8 +17,8 @@ public class HandGunController : WeaponController {
 		readyToFire=true;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
-		RawBarrelPos=new Vector2(-0.25f,0.12f);
-		RawEjectorPos=new Vector2(0,0.15f);
+		rawBarrelPos=new Vector2(-0.25f,0.12f);
+		rawEjectorPos=new Vector2(0,0.15f);
 		
 	}
 	
@@ -36,8 +34,8 @@ public class HandGunController : WeaponController {
 
 	protected override void  fire(){
 
-		CalcBarrelEndPos(RawBarrelPos);
-		CalcEjectorEndPos(RawEjectorPos);
+		CalcBarrelEndPos();
+		CalcEjectorEndPos();
 
 		if(currentAmunition > 0) {
 			

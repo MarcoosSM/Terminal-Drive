@@ -17,6 +17,8 @@ public abstract class WeaponController : MonoBehaviour {
 
 	protected Vector2 barrelEndPos;
 	protected Vector2 ejectorEndPos;
+	protected Vector2 rawBarrelPos;
+	protected Vector2 rawEjectorPos;
 	[SerializeField] protected  GameObject bullet;
 
 	[SerializeField] protected  GameObject cap;
@@ -49,7 +51,9 @@ public abstract class WeaponController : MonoBehaviour {
 		}
 	}
 
-	protected void CalcBarrelEndPos(Vector2 pos){
+	protected void CalcBarrelEndPos(){
+
+		Vector2 pos = rawBarrelPos;
 
 		if(fliped){
 			pos.y*=-1;
@@ -81,8 +85,9 @@ public abstract class WeaponController : MonoBehaviour {
 		barrelEndPos.y += y2;
 
 	}
-	protected void CalcEjectorEndPos(Vector2 pos){
+	protected void CalcEjectorEndPos(){
 
+		Vector2 pos = rawEjectorPos;	
 		if(fliped){
 			pos.y*=-1;
 		}
@@ -112,6 +117,17 @@ public abstract class WeaponController : MonoBehaviour {
 		ejectorEndPos.x += x2;
 		ejectorEndPos.y += y2;
 
+	}
+
+	public Vector2 BarrelEndPos{
+		get {
+			return barrelEndPos;
+		}
+	}
+	public Vector2 RawBarrelEndPos{
+		get {
+			return rawBarrelPos;
+		}
 	}
 	
 
