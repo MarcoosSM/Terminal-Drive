@@ -42,7 +42,7 @@ public class HandPointerControl : MonoBehaviour {
 
 		if(animator.GetBool("isRight")){
 
-			hand.GetComponent<SpriteRenderer>().sortingOrder=2;
+			hand.GetComponent<SpriteRenderer>().sortingOrder=3;
 
 		}else{
 
