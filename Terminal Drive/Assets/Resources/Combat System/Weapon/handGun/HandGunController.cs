@@ -64,11 +64,12 @@ public class HandGunController : WeaponController {
 				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 
 				--currentAmunition;
+				Debug.Log(currentAmunition);
 				
-				if(!recharging && currentAmunition==0){
+			}else{
+				if(!recharging){
 					StartCoroutine(rechargingDelay());
 				}
-				
 			}
 			StartCoroutine(FireDelay());
 		}
