@@ -40,7 +40,7 @@ public class HandControl : MonoBehaviour {
 
 		//Para ver si el brazo se encuetra detras o delante del jugador
 		if(animator.GetBool("isRight")){
-			GetComponent<SpriteRenderer>().sortingOrder=13;
+			GetComponent<SpriteRenderer>().sortingOrder=14;
 		}else{
 			GetComponent<SpriteRenderer>().sortingOrder=5;
 		}

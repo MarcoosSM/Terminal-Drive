@@ -34,14 +34,11 @@ public class HandGunController : WeaponController {
 	
 	// Update is called once per frame
 	void Update () {
-		if(recharging == false) {
-		 	 //animacion normal
-			animator.SetBool("reloading", false);
+		//animacion recarga
+		if (currentAmunition == 0) {
+			animator.SetInteger("ammo", 0);
 		}
-		if(currentAmunition == 0) {
-			//animacion recarga
-			animator.SetBool("reloading", true);
-		}
+		
 		if (Input.GetMouseButtonDown(0)){
  			fire();
 		}
@@ -54,7 +51,7 @@ public class HandGunController : WeaponController {
 		if(readyToFire){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
-			
+		
 			if(currentAmunition > 0) {
 
 				//Bala
@@ -87,10 +84,18 @@ public class HandGunController : WeaponController {
 	IEnumerator rechargingDelay(){
 		Debug.Log("recargando");
 		
+		
+		animator.SetBool("reloading",true);
+		//Cargador
+		GameObject tempCharger = Instantiate(charger, ejectorEndPos ,transform.parent.localRotation);
 		recharging=true;
+
 		yield return new WaitForSeconds(RecharingTime);
 		currentAmunition=maxAmunition;
-
+		
+		//animacion recargado
+		animator.SetInteger("ammo", currentAmunition);
+		animator.SetBool("reloading",false);
 		recharging=false;
 
 		Debug.Log("recargado");

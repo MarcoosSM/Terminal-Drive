@@ -23,6 +23,7 @@ public abstract class WeaponController : MonoBehaviour {
 
 	[SerializeField] protected  GameObject cap;
 
+	[SerializeField] protected  GameObject charger;
 	
 	
 	protected abstract void fire();
@@ -38,7 +39,7 @@ public abstract class WeaponController : MonoBehaviour {
 		if(rot<270 & rot>90){
 			// right
 			spriteRenderer.flipY=true;
-			spriteRenderer.sortingOrder=12;
+			spriteRenderer.sortingOrder=13;
 
 			fliped = true;
 
