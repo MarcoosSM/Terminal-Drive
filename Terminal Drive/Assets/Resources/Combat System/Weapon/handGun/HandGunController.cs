@@ -30,6 +30,7 @@ public class HandGunController : WeaponController {
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
 		
+		RawchargerPos=new Vector2(0.16f,-0.1f);
 	}
 	
 	// Update is called once per frame
@@ -51,7 +52,7 @@ public class HandGunController : WeaponController {
 		if(readyToFire){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
-		
+			
 			if(currentAmunition > 0) {
 
 				//Bala
@@ -84,10 +85,10 @@ public class HandGunController : WeaponController {
 	IEnumerator rechargingDelay(){
 		Debug.Log("recargando");
 		
-		
+		CalcChargerPos();
 		animator.SetBool("reloading",true);
 		//Cargador
-		GameObject tempCharger = Instantiate(charger, ejectorEndPos ,transform.parent.localRotation);
+		GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
 		recharging=true;
 
 		yield return new WaitForSeconds(RecharingTime);
