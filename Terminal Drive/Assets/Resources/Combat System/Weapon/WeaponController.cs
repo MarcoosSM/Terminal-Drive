@@ -52,7 +52,7 @@ public abstract class WeaponController : MonoBehaviour {
 		}
 	}
 
-	protected void CalcBarrelEndPos(){
+	public void CalcBarrelEndPos(){
 
 		Vector2 pos = rawBarrelPos;
 

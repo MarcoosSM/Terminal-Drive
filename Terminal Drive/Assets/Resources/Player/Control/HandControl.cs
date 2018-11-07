@@ -7,8 +7,6 @@ public class HandControl : MonoBehaviour {
 	GameObject Cursor ;
 	GameObject weapon;
 	private Animator animator;
-
-	
 	
 	// Use this for initialization
 	void Start () {
@@ -25,12 +23,15 @@ public class HandControl : MonoBehaviour {
 
 		//El offset es para que el arma apunte al cursor y el brazo no
 		Vector2 cursorPos = Cursor.transform.position;
-		Vector2 cursorOffset = cursorPos - weaponController.RawBarrelEndPos;
+		weaponController.CalcBarrelEndPos();
+		Vector2 WeaponTrueOffset = (Vector2)weaponController.gameObject.transform.position-weaponController.BarrelEndPos; 
+		Vector2 cursorOffset = cursorPos + WeaponTrueOffset;
 
+			//Calcular el angulo del brazo
 		Vector2 dir = ((Vector2)transform.position) - cursorOffset;
  		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
  		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
+				
 		// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
 		if(angle > -90 && angle < 90) {
 			animator.SetBool("isRight", false);
