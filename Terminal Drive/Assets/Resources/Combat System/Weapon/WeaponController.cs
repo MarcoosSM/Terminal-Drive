@@ -11,7 +11,7 @@ public abstract class WeaponController : MonoBehaviour {
 	protected int currentAmunition;
 
 	protected bool fliped=false;
-	protected int maxAmunition;
+	[SerializeField] protected int maxAmunition;
 
 	protected SpriteRenderer spriteRenderer;
 

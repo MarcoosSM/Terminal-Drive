@@ -24,6 +24,15 @@ public class ChargerManager : MonoBehaviour {
 		if(hitObj.tag.Equals("Suelo")) {
 			// Cuando el cargador toca el suelo, se queda en la posición en la que haya caído.
 			gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+			fallEffect();
+		}
+	}
+
+	void fallEffect() {
+		if(GameObject.Find("Player").GetComponent<Animator>().GetBool("isRight")) {
+			transform.Rotate(0, 0, -90);
+		} else {
+			transform.Rotate(0, 0, 90);
 		}
 	}
 
