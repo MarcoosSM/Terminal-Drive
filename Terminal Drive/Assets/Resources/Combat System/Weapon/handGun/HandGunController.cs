@@ -19,7 +19,7 @@ public class HandGunController : WeaponController {
 	void Start () {
 
 		power=1;
-		maxAmunition = 4;
+		maxAmunition = 10;
 		currentAmunition=maxAmunition;
 
 		readyToFire=true;
