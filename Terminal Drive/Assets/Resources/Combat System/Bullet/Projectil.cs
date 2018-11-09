@@ -8,6 +8,8 @@ public class Projectil : MonoBehaviour {
 	private float speed;
 	private int maxBulletTime = 5; //segs
 	private Rigidbody2D rigidbody2D;
+
+	private int numHits = 0;
 	void Start () {
 
 		//Velocidad inicial
@@ -49,6 +51,12 @@ public class Projectil : MonoBehaviour {
 			
 			enemy.Health-=damage;
 
+			Destroy(gameObject);
+		}
+
+		// Cuando rebota por segunda vez, se destruye
+		++numHits;
+		if(numHits >= 2) {
 			Destroy(gameObject);
 		}
 
