@@ -9,6 +9,7 @@ TagManager:
   - Handgun
   - SawedOffShotgun
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX

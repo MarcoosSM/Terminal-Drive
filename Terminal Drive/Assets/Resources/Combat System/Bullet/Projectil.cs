@@ -48,7 +48,11 @@ public class Projectil : MonoBehaviour {
 			ec.takeDamage(damage);
 			Destroy(gameObject); // Destruye el proyectil
 		} else {
-			++numHits;
+			// Cuando el proyectil toca a otro proyectil, no se cuenta como hit
+			if(!hittedObj.tag.Equals("Projectile")) {
+				++numHits;
+			}
+			
 			// Cuando rebota por segunda vez, se destruye
 			if(numHits >= 2) {
 				Destroy(gameObject);
