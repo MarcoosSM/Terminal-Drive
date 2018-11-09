@@ -20,7 +20,6 @@ public class Projectil : MonoBehaviour {
 		//DestroyTimeOut();
 
 		StartCoroutine(DestroyTimeOut());
-		
 	}
 	
 
@@ -41,35 +40,26 @@ public class Projectil : MonoBehaviour {
 		}
 	}
 
-		void OnCollisionEnter2D(Collision2D collision)
-    {
+	void OnCollisionEnter2D(Collision2D collision) {
 		GameObject hittedObj = collision.gameObject;
-		EnemyController enemy;
-		//Se comprueba si el objeto con el que ha colisionado tiene el componenete projectil(Solo asignado a balas) y se lo asigna a una variable
-		if((enemy = (EnemyController)hittedObj.GetComponent("EnemyController"))!=null){
-			
-			
-			enemy.Health-=damage;
 
-			Destroy(gameObject);
+		if(hittedObj.tag.Equals("Enemy")) {
+			EnemyController ec = (EnemyController) hittedObj.GetComponent("EnemyController");
+			ec.takeDamage(damage);
+			Destroy(gameObject); // Destruye el proyectil
+		} else {
+			++numHits;
+			// Cuando rebota por segunda vez, se destruye
+			if(numHits >= 2) {
+				Destroy(gameObject);
+			}
 		}
 
-		// Cuando rebota por segunda vez, se destruye
-		++numHits;
-		if(numHits >= 2) {
-			Destroy(gameObject);
-		}
-
-		rigidbody2D.gravityScale=0.1f;
     }
 
-	IEnumerator DestroyTimeOut(){
-		
+	IEnumerator DestroyTimeOut() {
 		yield return new WaitForSeconds(maxBulletTime);
-
 		Destroy(gameObject);
  	}
-
-	
 
 }

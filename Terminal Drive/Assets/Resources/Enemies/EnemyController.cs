@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
 	[SerializeField]float health;
+
 	void Start () {
-		Debug.Log("start");
 		health=100;
 	}
 	
@@ -24,5 +24,9 @@ public class EnemyController : MonoBehaviour {
 		set{
 			health = value;
 		}
+	}
+
+	public void takeDamage(float damageAmount) {
+		health -= damageAmount;
 	}
 }
