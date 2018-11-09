@@ -8,6 +8,7 @@ TagManager:
   - Pointer
   - Handgun
   - SawedOffShotgun
+  - Enemy
   layers:
   - Default
   - TransparentFX
