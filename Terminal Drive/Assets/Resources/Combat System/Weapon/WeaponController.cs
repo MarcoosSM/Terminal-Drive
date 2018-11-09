@@ -14,7 +14,7 @@ public abstract class WeaponController : MonoBehaviour {
 	[SerializeField] protected int maxAmunition;
 
 	protected SpriteRenderer spriteRenderer;
-
+	protected Transform weaponTransform;
 	protected Vector2 barrelEndPos;
 	protected Vector2 ejectorEndPos;
 	protected Vector2 rawBarrelPos;
@@ -35,20 +35,31 @@ public abstract class WeaponController : MonoBehaviour {
 	//false si esta hacia la derecha
 
 	protected void checkFlip(){
-
+		
 		float rot = transform.rotation.eulerAngles.z;
-
+		
 		if(rot<270 & rot>90){
 			// right
 			spriteRenderer.flipY=true;
 			spriteRenderer.sortingOrder=13;
-
+			if (gameObject.CompareTag("Handgun")) {
+			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.289f, -0.025f, 0);
+			}
+			if (gameObject.CompareTag("SawedOffShotgun")) {
+			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.362f, -0.021f, 0);
+			}
 			fliped = true;
 
 		}else{
 			// left
 			spriteRenderer.flipY=false;
 			spriteRenderer.sortingOrder=6;
+			if (gameObject.CompareTag("Handgun")) {
+			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.289f, 0.025f, 0);
+			}
+			if (gameObject.CompareTag("SawedOffShotgun")) {
+			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.362f, 0.021f, 0);
+			}
 			fliped = false;
 
 		}

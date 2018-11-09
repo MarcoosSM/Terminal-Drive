@@ -26,6 +26,7 @@ public class HandGunController : WeaponController {
 		recharging=false;
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		weaponTransform = GetComponent<Transform>();
 
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
@@ -45,7 +46,6 @@ public class HandGunController : WeaponController {
 		}
 
         checkFlip();
-	
 	}
 
 	protected override void  fire(){

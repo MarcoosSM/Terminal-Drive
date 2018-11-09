@@ -23,27 +23,22 @@ public class SawdOffShotGunController : WeaponController {
 	void Start () {
 
 		power=1;
-		maxAmunition = 10;
+		maxAmunition = 2;
 		currentAmunition=maxAmunition;
 
 		readyToFire=true;
 		recharging=false;
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		weaponTransform = GetComponent<Transform>();
 
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
-		RawchargerPos=new Vector2(0.16f,-0.1f);
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		//animacion recarga
-		if (currentAmunition == 0) {
-			animator.SetInteger("ammo", 0);
-		}
-		
+	void Update () {		
 		if (Input.GetMouseButtonDown(0)){
  			fire();
 		}
@@ -58,21 +53,20 @@ public class SawdOffShotGunController : WeaponController {
 			CalcEjectorEndPos();
 			
 			if(currentAmunition > 0) {
-
+				
 				//Bala
-
-				for (int i = 0; i < NumProjectil; ++i)
-				{
-					GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
+				for (int i = 0; i < NumProjectil; ++i) {
+					float angle = Mathf.Atan2(transform.right.y, transform.right.x) * Mathf.Rad2Deg;
+					float spread = Random.Range(-Dispersion, Dispersion);
+					Quaternion bulletRotation = Quaternion.Euler(new Vector3(0, 0, angle + spread));
+	
+					// Instantiate the bullet using our new rotation
+					GameObject tempbullet = Instantiate(bullet, barrelEndPos, bulletRotation);
+					//GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 					Projectil project = tempbullet.AddComponent<Projectil>();
 					project.Damage=DañoDeBala;
 					project.Speed=VelocidadBala;
 				}
-
-
-				//Casquillo
-				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
-
 				--currentAmunition;
 				Debug.Log(currentAmunition);
 				
@@ -93,18 +87,19 @@ public class SawdOffShotGunController : WeaponController {
  	}
 	IEnumerator rechargingDelay(){
 		
-		CalcChargerPos();
+		//animacion recargando
 		animator.SetBool("reloading",true);
-		//Cargador
-		//GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
+		for (int i = 0; i < maxAmunition; ++i) {
+			//Casquillo
+			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
+		}
 		recharging=true;
 
 		yield return new WaitForSeconds(RecharingTime);
 		currentAmunition=maxAmunition;
 		
 		//animacion recargado
-		//animator.SetInteger("ammo", currentAmunition);
-		//animator.SetBool("reloading",false);
+		animator.SetBool("reloading",false);
 		recharging=false;
 
 		

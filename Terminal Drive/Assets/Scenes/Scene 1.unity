@@ -209,10 +209,11 @@ GameObject:
   m_Component:
   - component: {fileID: 129209323}
   - component: {fileID: 129209325}
+  - component: {fileID: 129209326}
   - component: {fileID: 129209324}
   m_Layer: 8
   m_Name: SawedOffShotGun
-  m_TagString: Untagged
+  m_TagString: SawedOffShotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,9 +224,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129209322}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2909999, y: 0.009999983, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.362, y: -0.021, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1872911875}
   m_RootOrder: 1
@@ -241,15 +242,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3c134dbafb96d48bf9f3d52c848d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmunition: 5
-  bullet: {fileID: 1589067156259212, guid: aca049bcd91cb2143933ecfb4291d829, type: 2}
-  cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
+  maxAmunition: 2
+  bullet: {fileID: 1357413859937632, guid: 0bb0fc3586e7e594d877bf8d4f5f1e9b, type: 2}
+  cap: {fileID: 1361977442061396, guid: 1c4ef4731aa800b4ba893fa3e609b39b, type: 2}
   charger: {fileID: 0}
-  VelocidadBala: 500
+  VelocidadBala: 300
   "Da\xF1oDeBala": 10
   PPM: 30
-  RecharingTime: 2
-  Dispersion: 1
+  RecharingTime: 1
+  Dispersion: 20
   NumProjectil: 5
 --- !u!212 &129209325
 SpriteRenderer:
@@ -285,11 +286,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: c862cf7d1e29ce94e83d7014f3ba9d1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
+  m_FlipX: 1
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
@@ -297,6 +298,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &129209326
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129209322}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 200c93d74c2b2124fa36a6bf7e42ed4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &171136810
 GameObject:
   m_ObjectHideFlags: 3
@@ -531,7 +550,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 694968246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.79, y: 0.74000007, z: -12.359}
+  m_LocalPosition: {x: -5.7900004, y: 0.74000007, z: -12.359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 171136811}
@@ -551,7 +570,7 @@ GameObject:
   - component: {fileID: 787849776}
   m_Layer: 8
   m_Name: Handgun
-  m_TagString: Untagged
+  m_TagString: Handgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,7 +582,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787849772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.291, y: 0.01, z: 0}
+  m_LocalPosition: {x: -0.289, y: -0.025, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1872911875}
@@ -626,7 +645,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 987b16e4c3cd25548adbbbf7737a235c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -643,7 +662,7 @@ Animator:
   m_GameObject: {fileID: 787849772}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 200c93d74c2b2124fa36a6bf7e42ed4e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 59f73a5e9e19d2c48b2db5901abbee84, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1119,7 +1138,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057604524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.79, y: 0.74000007, z: -12.359}
+  m_LocalPosition: {x: -5.7900004, y: 0.74000007, z: -12.359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
