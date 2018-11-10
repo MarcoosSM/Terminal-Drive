@@ -246,10 +246,10 @@ MonoBehaviour:
   bullet: {fileID: 1357413859937632, guid: 0bb0fc3586e7e594d877bf8d4f5f1e9b, type: 2}
   cap: {fileID: 1361977442061396, guid: 1c4ef4731aa800b4ba893fa3e609b39b, type: 2}
   charger: {fileID: 0}
-  VelocidadBala: 300
+  VelocidadBala: 600
   "Da\xF1oDeBala": 10
-  PPM: 30
-  RecharingTime: 1
+  PPM: 90
+  RecharingTime: 1.5
   Dispersion: 20
   NumProjectil: 5
 --- !u!212 &129209325

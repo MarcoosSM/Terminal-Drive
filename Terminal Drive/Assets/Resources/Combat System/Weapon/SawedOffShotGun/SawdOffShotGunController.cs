@@ -5,10 +5,10 @@ using UnityEngine;
 public class SawdOffShotGunController : WeaponController {
 
 	
-	[SerializeField] int VelocidadBala = 200 ;
+	[SerializeField] int VelocidadBala = 600 ;
 	[SerializeField] int DañoDeBala = 10;
-	[SerializeField] int PPM = 30; // projectiles por minuto
-	[SerializeField] int RecharingTime = 2; //en segundos
+	[SerializeField] int PPM = 90; // projectiles por minuto
+	[SerializeField] float RecharingTime = 1.5f; //en segundos
 	[SerializeField] int Dispersion = 1; //
 	[SerializeField] int NumProjectil = 5; //
 
