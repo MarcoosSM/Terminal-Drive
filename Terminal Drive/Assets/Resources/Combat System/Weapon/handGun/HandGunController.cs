@@ -41,7 +41,7 @@ public class HandGunController : WeaponController {
 			animator.SetInteger("ammo", 0);
 		}
 		
-		if (Input.GetMouseButtonDown(0)){
+		if(Input.GetButtonDown("Fire1")) {
  			fire();
 		}
 
@@ -67,6 +67,11 @@ public class HandGunController : WeaponController {
 				--currentAmunition;
 				Debug.Log(currentAmunition);
 				
+				if(currentAmunition == 0) {
+					if(!recharging) {
+						StartCoroutine(rechargingDelay());
+					}
+				}
 			}else{
 				if(!recharging){
 					StartCoroutine(rechargingDelay());

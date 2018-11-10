@@ -39,7 +39,7 @@ public class SawdOffShotGunController : WeaponController {
 	
 	// Update is called once per frame
 	void Update () {		
-		if (Input.GetMouseButtonDown(0)){
+		if(Input.GetButtonDown("Fire1")) {
  			fire();
 		}
 
@@ -70,6 +70,11 @@ public class SawdOffShotGunController : WeaponController {
 				--currentAmunition;
 				Debug.Log(currentAmunition);
 				
+				if(currentAmunition == 0) {
+					if(!recharging){
+						StartCoroutine(rechargingDelay());
+					}
+				}
 			}else{
 				if(!recharging){
 					StartCoroutine(rechargingDelay());
