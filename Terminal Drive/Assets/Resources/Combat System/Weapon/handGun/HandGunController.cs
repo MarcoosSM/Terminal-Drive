@@ -57,7 +57,7 @@ public class HandGunController : WeaponController {
 
 				//Bala
 				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
-				Projectil project = tempbullet.AddComponent<Projectil>();
+				Projectil project = tempbullet.GetComponent<Projectil>();
 				project.Damage=DañoDeBala;
 				project.Speed=VelocidadBala;
 

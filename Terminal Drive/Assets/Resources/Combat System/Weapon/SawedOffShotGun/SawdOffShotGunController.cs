@@ -63,7 +63,7 @@ public class SawdOffShotGunController : WeaponController {
 					// Instantiate the bullet using our new rotation
 					GameObject tempbullet = Instantiate(bullet, barrelEndPos, bulletRotation);
 					//GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
-					Projectil project = tempbullet.AddComponent<Projectil>();
+					Projectil project = tempbullet.GetComponent<Projectil>();
 					project.Damage=DañoDeBala;
 					project.Speed=VelocidadBala;
 				}
