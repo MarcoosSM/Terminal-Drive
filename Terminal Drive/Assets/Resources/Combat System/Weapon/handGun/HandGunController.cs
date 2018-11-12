@@ -12,6 +12,8 @@ public class HandGunController : WeaponController {
 	bool recharging;
 	private Animator animator;
 
+	AudioSource audioSource ;
+
 	void Awake() {
 		animator = GetComponent<Animator>();
 	}
@@ -27,6 +29,7 @@ public class HandGunController : WeaponController {
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		weaponTransform = GetComponent<Transform>();
+		audioSource = GetComponent<AudioSource>();
 
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
@@ -64,14 +67,18 @@ public class HandGunController : WeaponController {
 				//Casquillo
 				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 
+				//Resta de la cantidad de municion
 				--currentAmunition;
-				Debug.Log(currentAmunition);
+				
+				//Sonido
+				audioSource.Play();
 				
 				if(currentAmunition == 0) {
 					if(!recharging) {
 						StartCoroutine(rechargingDelay());
 					}
 				}
+
 			}else{
 				if(!recharging){
 					StartCoroutine(rechargingDelay());

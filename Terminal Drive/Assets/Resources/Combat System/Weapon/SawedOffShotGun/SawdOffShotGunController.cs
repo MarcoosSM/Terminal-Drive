@@ -16,6 +16,8 @@ public class SawdOffShotGunController : WeaponController {
 	bool recharging;
 	private Animator animator;
 
+	private AudioSource audioSource;
+
 	void Awake() {
 		animator = GetComponent<Animator>();
 	}
@@ -31,6 +33,7 @@ public class SawdOffShotGunController : WeaponController {
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		weaponTransform = GetComponent<Transform>();
+		audioSource = GetComponent<AudioSource>();
 
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
@@ -67,6 +70,9 @@ public class SawdOffShotGunController : WeaponController {
 					project.Damage=DañoDeBala;
 					project.Speed=VelocidadBala;
 				}
+				//Sonido
+				audioSource.Play();
+
 				--currentAmunition;
 				Debug.Log(currentAmunition);
 				
