@@ -4,36 +4,20 @@ using UnityEngine;
 
 public class HandGunController : WeaponController {
 
-	[SerializeField] int VelocidadBala = 200 ;
-	[SerializeField] int DañoDeBala = 10;
-	[SerializeField] int PPM = 60; // projectiles por minuto
-	[SerializeField] int RecharingTime = 1; //en segundos
-	bool readyToFire;
-	bool recharging;
-	private Animator animator;
-
-	AudioSource audioSource ;
-
 	void Awake() {
-		animator = GetComponent<Animator>();
+		getAllComponents();
 	}
 
 	void Start () {
 
-		power=1;
 		maxAmunition = 10;
 		currentAmunition=maxAmunition;
 
 		readyToFire=true;
 		recharging=false;
 
-		spriteRenderer = GetComponent<SpriteRenderer>();
-		weaponTransform = GetComponent<Transform>();
-		audioSource = GetComponent<AudioSource>();
-
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
-		
 		RawchargerPos=new Vector2(0.16f,-0.1f);
 	}
 	
@@ -61,8 +45,8 @@ public class HandGunController : WeaponController {
 				//Bala
 				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 				Projectil project = tempbullet.GetComponent<Projectil>();
-				project.Damage=DañoDeBala;
-				project.Speed=VelocidadBala;
+				project.Damage=ProjDamage;
+				project.Speed=ProjSpeed;
 
 				//Casquillo
 				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
@@ -71,7 +55,7 @@ public class HandGunController : WeaponController {
 				--currentAmunition;
 				
 				//Sonido
-				audioSource.Play();
+				SourceAudio.Play();
 				
 				if(currentAmunition == 0) {
 					if(!recharging) {
@@ -89,12 +73,12 @@ public class HandGunController : WeaponController {
 
 
 	}
-	IEnumerator FireDelay(){
+	override protected IEnumerator FireDelay(){
 		readyToFire=false;
 		yield return new WaitForSeconds(60/PPM);
 		readyToFire=true;
  	}
-	IEnumerator rechargingDelay(){
+	override protected IEnumerator rechargingDelay(){
 		Debug.Log("recargando");
 		
 		CalcChargerPos();
@@ -114,4 +98,6 @@ public class HandGunController : WeaponController {
 		Debug.Log("recargado");
 		
  	}
+
+	 
 }

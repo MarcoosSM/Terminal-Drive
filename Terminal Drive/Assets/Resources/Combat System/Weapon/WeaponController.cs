@@ -6,21 +6,40 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public abstract class WeaponController : MonoBehaviour {
 
-	
-	protected float power ;
-	protected int currentAmunition;
+	//Audio
+	protected AudioSource SourceAudio ;
 
+	//Variables para cosas visuales
 	protected bool fliped=false;
-	[SerializeField] protected int maxAmunition;
-
+	protected Animator animator;
 	protected SpriteRenderer spriteRenderer;
+	
+	//Variables para con respecto la municion
+	protected int currentAmunition;
+	[SerializeField]protected int maxAmunition;
+	[SerializeField]protected float RecharingTime ; //en segundos
+	
+	protected bool readyToFire;
+	protected bool recharging;
+
+
 	protected Transform weaponTransform;
+
 	protected Vector2 barrelEndPos;
 	protected Vector2 ejectorEndPos;
 	protected Vector2 rawBarrelPos;
 	protected Vector2 rawEjectorPos;
-	/*PRUEBA*/ protected Vector2 RawchargerPos; /*PRUEBA*/
+
+	//Parametros de la bala
+	[SerializeField]protected int PPM; // projectiles por minuto
+	[SerializeField]protected int ProjDamage; 
+	[SerializeField]protected int ProjSpeed;
+
+
+	//Posicionamiento de el cargador
+	protected Vector2 RawchargerPos;
 	protected Vector2 FinalchargerPos;
+
 	[SerializeField] protected  GameObject bullet;
 
 	[SerializeField] protected  GameObject cap;
@@ -28,7 +47,11 @@ public abstract class WeaponController : MonoBehaviour {
 	[SerializeField] protected  GameObject charger;
 	
 	
+	
 	protected abstract void fire();
+
+	protected abstract IEnumerator FireDelay();
+	protected abstract IEnumerator rechargingDelay();
 
 	//Este metodo compurbea la posicion del arma para evitar que este hacia abajo 
 	//true si esta hacia la izquierda
@@ -176,5 +199,14 @@ public abstract class WeaponController : MonoBehaviour {
 		get {
 			return rawBarrelPos;
 		}
+	}
+
+	protected void getAllComponents(){
+
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		weaponTransform = GetComponent<Transform>();
+		SourceAudio = GetComponent<AudioSource>();
+		animator = GetComponent<Animator>();
+
 	}
 }
