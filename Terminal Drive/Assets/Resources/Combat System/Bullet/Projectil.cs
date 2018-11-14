@@ -7,15 +7,15 @@ public class Projectil : MonoBehaviour {
 	private float damage;
 	private float speed;
 	private int maxBulletTime = 5; //segs
-	private Rigidbody2D rigidbody2D;
+	private Rigidbody2D rigidbody2d;
 
 	private int numHits = 0;
 	void Start () {
 
 		//Velocidad inicial
-		rigidbody2D= GetComponent<Rigidbody2D>();
+		rigidbody2d= GetComponent<Rigidbody2D>();
 
-		rigidbody2D.AddForce(transform.right*-speed);
+		rigidbody2d.AddForce(transform.right*-speed);
 
 		//DestroyTimeOut();
 

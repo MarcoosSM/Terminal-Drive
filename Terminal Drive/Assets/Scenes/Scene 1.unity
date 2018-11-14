@@ -244,14 +244,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmunition: 2
+  RecharingTime: 1.5
+  PPM: 90
+  ProjDamage: 10
+  ProjSpeed: 800
   bullet: {fileID: 1357413859937632, guid: 0bb0fc3586e7e594d877bf8d4f5f1e9b, type: 2}
   cap: {fileID: 1361977442061396, guid: 1c4ef4731aa800b4ba893fa3e609b39b, type: 2}
   charger: {fileID: 0}
-  VelocidadBala: 600
-  "Da\xF1oDeBala": 10
-  PPM: 90
-  RecharingTime: 1.5
-  Dispersion: 20
+  Dispersion: 40
   NumProjectil: 5
 --- !u!212 &129209325
 SpriteRenderer:
@@ -646,7 +646,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 694968246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.79, y: 0.74000007, z: -12.359}
+  m_LocalPosition: {x: -5.7900004, y: 0.74000007, z: -12.359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 171136811}
@@ -696,14 +696,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edccff806bb3fc34997d7827722ef74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmunition: 0
+  maxAmunition: 10
+  RecharingTime: 1
+  PPM: 120
+  ProjDamage: 10
+  ProjSpeed: 1000
   bullet: {fileID: 1589067156259212, guid: aca049bcd91cb2143933ecfb4291d829, type: 2}
   cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
   charger: {fileID: 1776106174615102, guid: 1a8099a80dc7d424586f5971580c9f42, type: 2}
-  VelocidadBala: 500
-  "Da\xF1oDeBala": 10
-  PPM: 120
-  RecharingTime: 1
 --- !u!212 &787849775
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1330,7 +1330,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057604524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.79, y: 0.74000007, z: -12.359}
+  m_LocalPosition: {x: -5.7900004, y: 0.74000007, z: -12.359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 1872911877}
   m_Layer: 8
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: Arm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
