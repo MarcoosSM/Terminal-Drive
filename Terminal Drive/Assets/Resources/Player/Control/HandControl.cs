@@ -6,20 +6,27 @@ public class HandControl : MonoBehaviour {
 
 	GameObject Cursor ;
 	GameObject weapon;
+	WeaponController weaponController;
 	private Animator animator;
 	
 	// Use this for initialization
 	void Start () {
 		weapon = transform.GetChild(0).gameObject;
+		weaponController = weapon.GetComponent<WeaponController>();;
+
 		animator = transform.parent.GetComponent<Animator>();
 		Cursor = GameObject.FindGameObjectWithTag("Pointer");
 		
+		
+	}
+
+	public void resetWeaponReference(GameObject newGun){
+		weapon = newGun;
+		weaponController = weapon.GetComponent<WeaponController>();;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		//Para mover el brazo segun el cursor
-		WeaponController weaponController = weapon.GetComponent<WeaponController>();
 
 		//El offset es para que el arma apunte al cursor y el brazo no
 		Vector2 cursorPos = Cursor.transform.position;
