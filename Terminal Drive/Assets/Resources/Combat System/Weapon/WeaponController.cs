@@ -66,10 +66,13 @@ public abstract class WeaponController : MonoBehaviour {
 			spriteRenderer.flipY=true;
 			spriteRenderer.sortingOrder=13;
 			if (gameObject.CompareTag("Handgun")) {
-			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.289f, -0.025f, 0);
+				weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.289f, -0.025f, 0);
 			}
 			if (gameObject.CompareTag("SawedOffShotgun")) {
-			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.362f, -0.021f, 0);
+				weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.362f, -0.021f, 0);
+			}
+			if (gameObject.CompareTag("SubmachineGun")) {
+				weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.384f, -0.0215f, 0);
 			}
 			fliped = true;
 
@@ -78,10 +81,13 @@ public abstract class WeaponController : MonoBehaviour {
 			spriteRenderer.flipY=false;
 			spriteRenderer.sortingOrder=6;
 			if (gameObject.CompareTag("Handgun")) {
-			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.289f, 0.025f, 0);
+				weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.289f, 0.025f, 0);
 			}
 			if (gameObject.CompareTag("SawedOffShotgun")) {
-			weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.362f, 0.021f, 0);
+				weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.362f, 0.021f, 0);
+			}
+			if (gameObject.CompareTag("SubmachineGun")) {
+				weaponTransform.position = gameObject.transform.parent.TransformPoint(-0.384f, 0.0215f, 0);
 			}
 			fliped = false;
 

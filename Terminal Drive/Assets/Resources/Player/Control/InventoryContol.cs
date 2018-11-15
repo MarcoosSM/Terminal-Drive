@@ -15,6 +15,7 @@ public class InventoryContol : MonoBehaviour {
 		//Se cargargan las armas desde los prefab
 		objects.Add(Resources.Load<GameObject>("Combat System/Weapon/handGun/Handgun"));
 		objects.Add(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"));	
+		objects.Add(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"));
 
 		hand =  transform.GetChild(0).gameObject;
 		handControl = hand.GetComponent<HandControl>();
@@ -31,6 +32,10 @@ public class InventoryContol : MonoBehaviour {
 
 			changeWeapon(objects[1]);
 
+		}else if(Input.GetKeyDown("3")){
+
+			changeWeapon(objects[2]);
+
 		}
 	}
 
@@ -38,8 +43,7 @@ public class InventoryContol : MonoBehaviour {
 		if(!(NewWeapon.GetComponent<WeaponController>()==currentGun.GetComponent<WeaponController>())){
 			Destroy(currentGun);
 			currentGun = Instantiate(NewWeapon,hand.transform);
-			handControl.resetWeaponReference(NewWeapon);
-			
+			handControl.resetWeaponReference(NewWeapon);	
 		}
 	}
 }
