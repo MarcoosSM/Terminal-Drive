@@ -26,8 +26,6 @@ public class PlayerControl : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Start() {
-        handgun = GameObject.FindGameObjectWithTag("Handgun");
-        so_shotgun = GameObject.FindGameObjectWithTag("SawedOffShotgun");
     }
 
     void Update() {
@@ -41,7 +39,9 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (stealth) {
+        if (stealth) {            
+            handgun = GameObject.FindGameObjectWithTag("Handgun");
+            so_shotgun = GameObject.FindGameObjectWithTag("SawedOffShotgun");
             if (!animator.GetBool("isStealth")) {
                 animator.SetBool("isStealth", true);
                 moveSpeed = 3;
