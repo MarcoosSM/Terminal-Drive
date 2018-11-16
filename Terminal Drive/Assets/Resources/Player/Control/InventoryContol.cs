@@ -11,17 +11,26 @@ public class InventoryContol : MonoBehaviour {
 	
 	void Start () {
 		objects = new List<GameObject>();
-
-		//Se cargargan las armas desde los prefab
-		objects.Add(Resources.Load<GameObject>("Combat System/Weapon/handGun/Handgun"));
-		objects.Add(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"));	
-		objects.Add(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"));
-
+		
 		hand =  transform.GetChild(0).gameObject;
+		
+		//Se cargargan las armas desde los prefab
+		objects.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/handGun/Handgun"),hand.transform));
+		objects.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"),hand.transform));	
+		objects.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"),hand.transform));
+
+		Debug.Log(objects.Capacity);
+
 		handControl = hand.GetComponent<HandControl>();
 
-		currentGun =  Instantiate(objects[0],hand.transform);
-		
+		currentGun =  objects[0];
+
+		foreach (GameObject weapon in objects)
+		{
+			weapon.SetActive(false);
+		}
+		currentGun.SetActive(true);
+				
 	}
 	void Update () {
 		if (Input.GetKeyDown("1"))
@@ -41,8 +50,9 @@ public class InventoryContol : MonoBehaviour {
 
 	void changeWeapon (GameObject NewWeapon) {
 		if(!(NewWeapon.GetComponent<WeaponController>()==currentGun.GetComponent<WeaponController>())){
-			Destroy(currentGun);
-			currentGun = Instantiate(NewWeapon,hand.transform);
+			currentGun.SetActive(false);			
+			currentGun = NewWeapon;
+			currentGun.SetActive(true);
 			handControl.resetWeaponReference(NewWeapon);	
 		}
 	}

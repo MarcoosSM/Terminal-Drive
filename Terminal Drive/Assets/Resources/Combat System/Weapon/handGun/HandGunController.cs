@@ -9,7 +9,7 @@ public class HandGunController : WeaponController {
 	}
 
 	void Start () {
-
+	
 		maxAmunition = 10;
 		currentAmunition=maxAmunition;
 
@@ -108,6 +108,9 @@ public class HandGunController : WeaponController {
 		
 		
  	}
-
+	void OnEnable(){
+		Debug.Log("enable");
+		checkEnableAmunition();
+	}
 	 
 }

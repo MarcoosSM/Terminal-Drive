@@ -218,4 +218,13 @@ public abstract class WeaponController : MonoBehaviour {
 		animator = GetComponent<Animator>();
 
 	}
+
+	protected void checkEnableAmunition(){
+		//para evitar que si se desactiva el arma mientras recarga no se bloquee.
+	
+		if(currentAmunition==0){
+			
+			StartCoroutine(rechargingDelay());
+		}
+	}
 }

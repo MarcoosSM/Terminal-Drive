@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4458057580449322
 Transform:
   m_ObjectHideFlags: 1
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmunition: 2
   RecharingTime: 1.5
+  TotalBullets: 0
   PPM: 90
   ProjDamage: 10
   ProjSpeed: 800
