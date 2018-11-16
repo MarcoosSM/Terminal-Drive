@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
 	[SerializeField]float health;
+	private Animator animator;
+	private Transform target;
+	private bool skipMove;
 
 	void Start () {
 		health=100;
