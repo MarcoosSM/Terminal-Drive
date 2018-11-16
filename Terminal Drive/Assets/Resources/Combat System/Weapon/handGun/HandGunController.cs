@@ -79,23 +79,33 @@ public class HandGunController : WeaponController {
 		readyToFire=true;
  	}
 	override protected IEnumerator rechargingDelay(){
-		Debug.Log("recargando");
-		
-		CalcChargerPos();
-		animator.SetBool("reloading",true);
-		//Cargador
-		GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
-		recharging=true;
+		if(TotalBullets>0){
+			CalcChargerPos();
+			animator.SetBool("reloading",true);
+			//Cargador
+			GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
+			recharging=true;
 
-		yield return new WaitForSeconds(RecharingTime);
-		currentAmunition=maxAmunition;
-		
-		//animacion recargado
-		animator.SetInteger("ammo", currentAmunition);
-		animator.SetBool("reloading",false);
-		recharging=false;
+			yield return new WaitForSeconds(RecharingTime);
+			if(TotalBullets>=maxAmunition){
+				currentAmunition=maxAmunition;
+				TotalBullets-=maxAmunition;
+			}else{
+				currentAmunition=TotalBullets;
+				TotalBullets=0;
+			}
+			
+			
+			//animacion recargado
+			animator.SetInteger("ammo", currentAmunition);
+			animator.SetBool("reloading",false);
+			recharging=false;
 
-		Debug.Log("recargado");
+			Debug.Log("recargado");
+		}else{
+			animator.SetBool("reloading",true);
+		}
+		
 		
  	}
 

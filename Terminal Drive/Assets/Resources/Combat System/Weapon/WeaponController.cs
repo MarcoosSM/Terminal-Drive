@@ -18,13 +18,16 @@ public abstract class WeaponController : MonoBehaviour {
 	protected int currentAmunition;
 	[SerializeField]protected int maxAmunition;
 	[SerializeField]protected float RecharingTime ; //en segundos
+	[SerializeField]protected int TotalBullets;//Catidad de balas total
 	
+	//Boleanos para control de disparo
 	protected bool readyToFire;
 	protected bool recharging;
 
 
 	protected Transform weaponTransform;
 
+	//Posicionamiento de distintos componentes
 	protected Vector2 barrelEndPos;
 	protected Vector2 ejectorEndPos;
 	protected Vector2 rawBarrelPos;
