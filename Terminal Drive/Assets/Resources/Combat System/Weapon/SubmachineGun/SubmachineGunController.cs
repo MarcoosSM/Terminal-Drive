@@ -30,6 +30,10 @@ void Awake() {
         checkFlip();
 	}
 
+	protected override void reload() {
+		
+	}
+	
 	protected override void fire(){
 		if(readyToFire){
 			CalcBarrelEndPos();

@@ -20,23 +20,21 @@ public class HandGunController : WeaponController {
 		rawEjectorPos=new Vector2(0,0.15f);
 		RawchargerPos=new Vector2(0.16f,-0.1f);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		//animacion recarga
-		if (currentAmunition == 0) {
-			animator.SetInteger("ammo", 0);
-		}
-		
-		if(Input.GetButtonDown("Fire1")) {
- 			fire();
-		}
 
-        checkFlip();
+	protected override void reload() {
+		if(TotalBullets>0){
+			CalcChargerPos();
+			//Cargador
+			GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
+
+			StartCoroutine(rechargingDelay());
+
+			Debug.Log("recargado");
+		}
 	}
 
 	protected override void  fire(){
-		if(readyToFire){
+		if(readyToFire && !recharging){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
 			
@@ -59,13 +57,13 @@ public class HandGunController : WeaponController {
 				
 				if(currentAmunition == 0) {
 					if(!recharging) {
-						StartCoroutine(rechargingDelay());
+						reload();
 					}
 				}
 
 			}else{
-				if(!recharging){
-					StartCoroutine(rechargingDelay());
+				if(!recharging) {
+					reload();
 				}
 			}
 			StartCoroutine(FireDelay());
@@ -79,34 +77,18 @@ public class HandGunController : WeaponController {
 		readyToFire=true;
  	}
 	override protected IEnumerator rechargingDelay(){
-		if(TotalBullets>0){
-			CalcChargerPos();
-			animator.SetBool("reloading",true);
-			//Cargador
-			GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
-			recharging=true;
-
-			yield return new WaitForSeconds(RecharingTime);
-			if(TotalBullets>=maxAmunition){
-				currentAmunition=maxAmunition;
-				TotalBullets-=maxAmunition;
-			}else{
-				currentAmunition=TotalBullets;
-				TotalBullets=0;
-			}
-			
-			
-			//animacion recargado
-			animator.SetInteger("ammo", currentAmunition);
-			animator.SetBool("reloading",false);
-			recharging=false;
-
-			Debug.Log("recargado");
+		recharging=true;
+		animator.SetBool("reloading", true);
+		yield return new WaitForSeconds(RecharingTime);
+		if(TotalBullets>=maxAmunition){
+			currentAmunition=maxAmunition;
+			TotalBullets-=maxAmunition;
 		}else{
-			animator.SetBool("reloading",true);
+			currentAmunition=TotalBullets;
+			TotalBullets=0;
 		}
-		
-		
+		recharging=false;
+		animator.SetBool("reloading", false);
  	}
 	void OnEnable(){
 		Debug.Log("enable");

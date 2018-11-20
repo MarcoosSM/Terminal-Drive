@@ -25,17 +25,11 @@ public class SawdOffShotGunController : WeaponController {
 		rawEjectorPos=new Vector2(0,0.15f);
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {		
-		if(Input.GetButtonDown("Fire1")) {
- 			fire();
-		}
 
-        checkFlip();
-	
+	protected override void reload() {
+		
 	}
-
+	
 	protected override void  fire(){
 		if(readyToFire){
 			CalcBarrelEndPos();
