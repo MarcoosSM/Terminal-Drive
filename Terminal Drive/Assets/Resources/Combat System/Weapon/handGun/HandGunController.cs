@@ -22,14 +22,26 @@ public class HandGunController : WeaponController {
 	}
 
 	protected override void reload() {
+		if(recharging) {
+			return;
+			// No se hace nada si ya está en proceso de recarga
+		}
+
+		if(currentAmunition == maxAmunition) {
+			return;
+			// No se hace nada si el cargador está lleno
+		}
+
 		if(TotalBullets>0){
-			CalcChargerPos();
 			//Cargador
-			GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
-
+			CalcChargerPos();
+			Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
 			StartCoroutine(rechargingDelay());
-
 			Debug.Log("recargado");
+		} else {
+			// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
+			recharging = true;
+			animator.SetBool("reloading", true);
 		}
 	}
 
@@ -56,15 +68,11 @@ public class HandGunController : WeaponController {
 				SourceAudio.Play();
 				
 				if(currentAmunition == 0) {
-					if(!recharging) {
-						reload();
-					}
+					reload();
 				}
 
 			}else{
-				if(!recharging) {
-					reload();
-				}
+				reload();
 			}
 			StartCoroutine(FireDelay());
 		}
@@ -76,20 +84,24 @@ public class HandGunController : WeaponController {
 		yield return new WaitForSeconds(60/PPM);
 		readyToFire=true;
  	}
-	override protected IEnumerator rechargingDelay(){
+	override protected IEnumerator rechargingDelay() {
 		recharging=true;
 		animator.SetBool("reloading", true);
 		yield return new WaitForSeconds(RecharingTime);
-		if(TotalBullets>=maxAmunition){
-			currentAmunition=maxAmunition;
-			TotalBullets-=maxAmunition;
-		}else{
-			currentAmunition=TotalBullets;
-			TotalBullets=0;
+
+		int neededBullets = maxAmunition - currentAmunition;
+
+		if(TotalBullets >= neededBullets) {
+			currentAmunition = maxAmunition;
+			TotalBullets -= neededBullets;
+		} else {
+			currentAmunition += TotalBullets;
+			TotalBullets = 0;
 		}
 		recharging=false;
 		animator.SetBool("reloading", false);
  	}
+
 	void OnEnable(){
 		Debug.Log("enable");
 		checkEnableAmunition();

@@ -15,7 +15,7 @@ public abstract class WeaponController : MonoBehaviour {
 	protected SpriteRenderer spriteRenderer;
 	
 	//Variables para con respecto la municion
-	protected int currentAmunition;
+	[SerializeField]protected int currentAmunition;
 	[SerializeField]protected int maxAmunition;
 	[SerializeField]protected float RecharingTime ; //en segundos
 	[SerializeField]protected int TotalBullets;//Catidad de balas total
