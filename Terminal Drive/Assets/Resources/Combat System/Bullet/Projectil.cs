@@ -51,7 +51,7 @@ public class Projectil : MonoBehaviour {
 			
 		}
 		
-		if(!hittedObj.tag.Equals("Projectile")){
+		if(!(hittedObj.tag.Equals("Projectile") || hittedObj.tag.Equals("L2"))){
 			Destroy(gameObject); // Destruye el proyectil si colisiona con algo que no sea otro projectil para evitar problemas con la escopeta
 		}
 
