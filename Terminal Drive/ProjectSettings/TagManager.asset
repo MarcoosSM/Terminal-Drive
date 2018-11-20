@@ -12,6 +12,7 @@ TagManager:
   - Projectile
   - Arm
   - SubmachineGun
+  - L2
   layers:
   - Default
   - TransparentFX
