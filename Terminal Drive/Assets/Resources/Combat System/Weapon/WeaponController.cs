@@ -233,10 +233,10 @@ public abstract class WeaponController : MonoBehaviour {
 
 	protected void checkEnableAmunition(){
 		//para evitar que si se desactiva el arma mientras recarga no se bloquee.
-	
-		if(currentAmunition==0){
-			
-			StartCoroutine(rechargingDelay());
+		recharging = false;
+		animator.SetBool("reloading", false);
+		if(currentAmunition == 0) {
+			reload();
 		}
 	}
 }
