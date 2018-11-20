@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class L1TDown : MonoBehaviour {
+public class Stairs : MonoBehaviour {
 
 	[SerializeField] GameObject floor;
 	[SerializeField] bool open;
