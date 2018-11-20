@@ -5,10 +5,11 @@ using UnityEngine;
 public class Teleport : MonoBehaviour {
 
 	[SerializeField] Transform dest;
-
+	[SerializeField] Sprite sp;
+	SpriteRenderer sr;
 	// Use this for initialization
 	void Start () {
-		
+		sr = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -19,7 +20,7 @@ public class Teleport : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.tag == "Player" && Input.GetKeyDown("e")){
 			other.transform.position = dest.position;
-			Debug.Log("It work!");
+			sr.sprite = sp;
 		}
 	}
 
