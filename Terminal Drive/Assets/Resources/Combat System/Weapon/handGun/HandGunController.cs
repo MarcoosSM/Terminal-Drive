@@ -6,15 +6,14 @@ public class HandGunController : WeaponController {
 
 	void Awake() {
 		getAllComponents();
-	}
-
-	void Start () {
-	
 		maxAmunition = 10;
 		currentAmunition=maxAmunition;
 
 		readyToFire=true;
 		recharging=false;
+	}
+
+	void Start () {
 
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
