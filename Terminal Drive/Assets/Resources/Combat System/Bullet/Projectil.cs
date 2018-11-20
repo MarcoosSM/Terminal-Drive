@@ -40,24 +40,22 @@ public class Projectil : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision) {
-		GameObject hittedObj = collision.gameObject;
+	void OnTriggerEnter2D(Collider2D col) {
+		
+		GameObject hittedObj = col.gameObject;
+		Debug.Log(hittedObj.name);
 
 		if(hittedObj.tag.Equals("Enemy")) {
 			EnemyController ec = (EnemyController) hittedObj.GetComponent("EnemyController");
 			ec.takeDamage(damage);
-			Destroy(gameObject); // Destruye el proyectil
-		} else {
-			// Cuando el proyectil toca a otro proyectil, no se cuenta como hit
-			if(!hittedObj.tag.Equals("Projectile")) {
-				++numHits;
-			}
 			
-			// Cuando rebota por segunda vez, se destruye
-			if(numHits >= 2) {
-				Destroy(gameObject);
-			}
 		}
+		
+		if(!hittedObj.tag.Equals("Projectile")){
+			Destroy(gameObject); // Destruye el proyectil si colisiona con algo que no sea otro projectil para evitar problemas con la escopeta
+		}
+
+		
 
     }
 
