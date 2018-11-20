@@ -45,7 +45,7 @@ public class HandGunController : WeaponController {
 		}
 	}
 
-	protected override void  fire(){
+	protected override void fire(){
 		if(readyToFire && !recharging){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
