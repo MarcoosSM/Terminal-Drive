@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmunition: 2
   RecharingTime: 1.5
-  TotalBullets: 0
+  TotalBullets: 20
   PPM: 90
   ProjDamage: 10
   ProjSpeed: 800
