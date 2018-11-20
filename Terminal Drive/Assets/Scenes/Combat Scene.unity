@@ -574,7 +574,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300002, guid: fd8df9400c5caee4994f71c521ed89ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dest: {fileID: 983000127}
+  sp: {fileID: 0}
 --- !u!61 &106753088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7751,6 +7752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3c134dbafb96d48bf9f3d52c848d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAmunition: 0
   maxAmunition: 2
   RecharingTime: 1.5
   TotalBullets: 0
@@ -7954,7 +7956,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300002, guid: fd8df9400c5caee4994f71c521ed89ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7972,7 +7974,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 619325978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.121891, y: -3.891666, z: 0.48828125}
+  m_LocalPosition: {x: 7.121891, y: -3.97, z: 0.48828125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1410602965}
@@ -8015,6 +8017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dest: {fileID: 1690339381}
+  sp: {fileID: 21300002, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
 --- !u!1 &790978077
 GameObject:
   m_ObjectHideFlags: 0
@@ -8147,7 +8150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300002, guid: fd8df9400c5caee4994f71c521ed89ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8170,6 +8173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dest: {fileID: 106753085}
+  sp: {fileID: 0}
 --- !u!61 &983000130
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8351,6 +8355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edccff806bb3fc34997d7827722ef74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAmunition: 0
   maxAmunition: 10
   RecharingTime: 1
   TotalBullets: 0
@@ -15585,7 +15590,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300002, guid: fd8df9400c5caee4994f71c521ed89ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15608,6 +15613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dest: {fileID: 619325980}
+  sp: {fileID: 21300002, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
 --- !u!61 &1690339384
 BoxCollider2D:
   m_ObjectHideFlags: 0
