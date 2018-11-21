@@ -6,8 +6,8 @@ public class HandGunController : WeaponController {
 
 	void Awake() {
 		getAllComponents();
-		maxAmunition = 10;
-		currentAmunition=maxAmunition;
+		magazineSize = 10;
+		currentMagazineAmmo=magazineSize;
 
 		readyToFire=true;
 		recharging=false;
@@ -26,21 +26,23 @@ public class HandGunController : WeaponController {
 			// No se hace nada si ya está en proceso de recarga
 		}
 
-		if(currentAmunition == maxAmunition) {
+		if(currentMagazineAmmo == magazineSize) {
 			return;
 			// No se hace nada si el cargador está lleno
 		}
 
-		if(TotalBullets>0){
+		if(reserveAmmo > 0){
 			//Cargador
 			CalcChargerPos();
 			Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
 			StartCoroutine(rechargingDelay());
 			Debug.Log("recargado");
 		} else {
-			// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
-			recharging = true;
-			animator.SetBool("reloading", true);
+			if(currentMagazineAmmo == 0) {
+				// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
+				recharging = true;
+				animator.SetBool("reloading", true);
+			}	
 		}
 	}
 
@@ -49,7 +51,7 @@ public class HandGunController : WeaponController {
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
 			
-			if(currentAmunition > 0) {
+			if(currentMagazineAmmo > 0) {
 
 				//Bala
 				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
@@ -61,12 +63,12 @@ public class HandGunController : WeaponController {
 				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 
 				//Resta de la cantidad de municion
-				--currentAmunition;
+				--currentMagazineAmmo;
 				
 				//Sonido
 				SourceAudio.Play();
 				
-				if(currentAmunition == 0) {
+				if(currentMagazineAmmo == 0) {
 					reload();
 				}
 
@@ -78,24 +80,20 @@ public class HandGunController : WeaponController {
 
 
 	}
-	override protected IEnumerator FireDelay(){
-		readyToFire=false;
-		yield return new WaitForSeconds(60/PPM);
-		readyToFire=true;
- 	}
+	
 	override protected IEnumerator rechargingDelay() {
 		recharging=true;
 		animator.SetBool("reloading", true);
 		yield return new WaitForSeconds(RecharingTime);
 
-		int neededBullets = maxAmunition - currentAmunition;
+		int neededAmmo = magazineSize - currentMagazineAmmo;
 
-		if(TotalBullets >= neededBullets) {
-			currentAmunition = maxAmunition;
-			TotalBullets -= neededBullets;
+		if(reserveAmmo >= neededAmmo) {
+			currentMagazineAmmo = magazineSize;
+			reserveAmmo -= neededAmmo;
 		} else {
-			currentAmunition += TotalBullets;
-			TotalBullets = 0;
+			currentMagazineAmmo += reserveAmmo;
+			reserveAmmo = 0;
 		}
 		recharging=false;
 		animator.SetBool("reloading", false);
