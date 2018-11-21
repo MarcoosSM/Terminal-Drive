@@ -88,15 +88,7 @@ public class SubmachineGunController : WeaponController {
 			}
 			StartCoroutine(FireDelay());
 		}
-
-
 	}
-
-	override protected IEnumerator FireDelay(){
-		readyToFire=false;
-		yield return new WaitForSeconds(60/PPM);
-		readyToFire=true;
- 	}
 
 	override protected IEnumerator rechargingDelay(){
 		recharging=true;

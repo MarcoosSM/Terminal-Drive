@@ -65,7 +65,12 @@ public abstract class WeaponController : MonoBehaviour {
 
 	protected abstract void reload();
 
-	protected abstract IEnumerator FireDelay();
+	protected IEnumerator FireDelay() {
+		readyToFire=false;
+		yield return new WaitForSeconds(60/PPM);
+		readyToFire=true;
+ 	}
+	 
 	protected abstract IEnumerator rechargingDelay();
 
 	//Este metodo compurbea la posicion del arma para evitar que este hacia abajo 

@@ -78,11 +78,7 @@ public class HandGunController : WeaponController {
 
 
 	}
-	override protected IEnumerator FireDelay(){
-		readyToFire=false;
-		yield return new WaitForSeconds(60/PPM);
-		readyToFire=true;
- 	}
+	
 	override protected IEnumerator rechargingDelay() {
 		recharging=true;
 		animator.SetBool("reloading", true);
