@@ -38,9 +38,11 @@ public class HandGunController : WeaponController {
 			StartCoroutine(rechargingDelay());
 			Debug.Log("recargado");
 		} else {
-			// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
-			recharging = true;
-			animator.SetBool("reloading", true);
+			if(currentMagazineAmmo == 0) {
+				// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
+				recharging = true;
+				animator.SetBool("reloading", true);
+			}	
 		}
 	}
 
