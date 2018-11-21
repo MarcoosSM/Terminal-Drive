@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryContol : MonoBehaviour {
+public class InventoryControl : MonoBehaviour {
 
 	[SerializeField] List<GameObject> objects ;
 	GameObject currentGun;
