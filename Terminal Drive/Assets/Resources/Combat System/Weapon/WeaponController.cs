@@ -231,6 +231,11 @@ public abstract class WeaponController : MonoBehaviour {
 
 	}
 
+	void OnEnable(){
+		Debug.Log("enable");
+		checkEnableAmunition();
+	}
+	
 	protected void checkEnableAmunition(){
 		//para evitar que si se desactiva el arma mientras recarga no se bloquee.
 		recharging = false;

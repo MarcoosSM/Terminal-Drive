@@ -100,10 +100,5 @@ public class HandGunController : WeaponController {
 		recharging=false;
 		animator.SetBool("reloading", false);
  	}
-
-	void OnEnable(){
-		Debug.Log("enable");
-		checkEnableAmunition();
-	}
 	 
 }

@@ -4,34 +4,49 @@ using UnityEngine;
 
 public class SawdOffShotGunController : WeaponController {
 
-	
 	[SerializeField] int Dispersion = 1; //
 	[SerializeField] int NumProjectil = 5; //
 
-
 	void Awake() {
 		getAllComponents();
+		maxAmunition = 2;
+		currentAmunition=maxAmunition;
+		readyToFire=true;
+		recharging=false;
 	}
 
 	void Start () {
-
-		maxAmunition = 2;
-		currentAmunition=maxAmunition;
-
-		readyToFire=true;
-		recharging=false;
-
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
-		
 	}
 
 	protected override void reload() {
-		
+		if(recharging) {
+			return;
+			// No se hace nada si ya está en proceso de recarga
+		}
+
+		if(currentAmunition == maxAmunition) {
+			return;
+			// No se hace nada si el cargador está lleno
+		}
+
+		if(TotalBullets>0) {
+			for (int i = 0; i < maxAmunition; ++i) {
+				//Casquillo
+				Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
+			}
+			StartCoroutine(rechargingDelay());
+			Debug.Log("recargado");
+		} else {
+			// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
+			recharging = true;
+			animator.SetBool("reloading", true);
+		}
 	}
 	
-	protected override void  fire(){
-		if(readyToFire){
+	protected override void fire(){
+		if(readyToFire && !recharging){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
 			
@@ -55,15 +70,14 @@ public class SawdOffShotGunController : WeaponController {
 
 				--currentAmunition;
 
-				
 				if(currentAmunition == 0) {
 					if(!recharging){
-						StartCoroutine(rechargingDelay());
+						reload();
 					}
 				}
 			}else{
 				if(!recharging){
-					StartCoroutine(rechargingDelay());
+					reload();
 				}
 			}
 			StartCoroutine(FireDelay());
@@ -71,29 +85,32 @@ public class SawdOffShotGunController : WeaponController {
 
 
 	}
+
 	override protected IEnumerator FireDelay(){
 		readyToFire=false;
 		yield return new WaitForSeconds(60/PPM);
 		readyToFire=true;
  	}
+
 	override protected IEnumerator rechargingDelay(){
-		
 		//animacion recargando
 		animator.SetBool("reloading",true);
-		for (int i = 0; i < maxAmunition; ++i) {
-			//Casquillo
-			GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
-		}
 		recharging=true;
 
 		yield return new WaitForSeconds(RecharingTime);
-		currentAmunition=maxAmunition;
-		
+
+		int neededBullets = maxAmunition - currentAmunition;
+
+		if(TotalBullets >= neededBullets) {
+			currentAmunition = maxAmunition;
+			TotalBullets -= neededBullets;
+		} else {
+			currentAmunition += TotalBullets;
+			TotalBullets = 0;
+		}
+
 		//animacion recargado
 		animator.SetBool("reloading",false);
 		recharging=false;
-
-		
-		
  	}
 }
