@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class SubmachineGunController : WeaponController {
 
-void Awake() {
+	void Awake() {
 		getAllComponents();
+		maxAmunition = 25;
+		currentAmunition=maxAmunition;
+		readyToFire=true;
+		recharging=false;
 	}
 
 	void Start () {
-
-		maxAmunition = 25;
-		currentAmunition=maxAmunition;
-
-		readyToFire=true;
-		recharging=false;
-
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
 		RawchargerPos=new Vector2(0.03f,-0.1f);
@@ -23,24 +20,46 @@ void Awake() {
 	
 	// Update is called once per frame
 	void Update () {
+		// Override porque el Fire1 cambia
 		if(Input.GetButton("Fire1")) {
  			fire();
 		}
-
+		if(Input.GetButtonDown("Reload")) {
+ 			reload();
+		}
         checkFlip();
 	}
 
 	protected override void reload() {
-		
+		if(recharging) {
+			return;
+			// No se hace nada si ya está en proceso de recarga
+		}
+
+		if(currentAmunition == maxAmunition) {
+			return;
+			// No se hace nada si el cargador está lleno
+		}
+
+		if(TotalBullets>0){
+			//Cargador
+			CalcChargerPos();
+			Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
+			StartCoroutine(rechargingDelay());
+			Debug.Log("recargado");
+		} else {
+			// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
+			recharging = true;
+			animator.SetBool("reloading", true);
+		}
 	}
 	
 	protected override void fire(){
-		if(readyToFire){
+		if(readyToFire && !recharging){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
 			
 			if(currentAmunition > 0) {
-
 				//Bala
 				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 				Projectil project = tempbullet.GetComponent<Projectil>();
@@ -58,13 +77,13 @@ void Awake() {
 				
 				if(currentAmunition == 0) {
 					if(!recharging) {
-						StartCoroutine(rechargingDelay());
+						reload();
 					}
 				}
 
 			}else{
 				if(!recharging){
-					StartCoroutine(rechargingDelay());
+					reload();
 				}
 			}
 			StartCoroutine(FireDelay());
@@ -72,29 +91,28 @@ void Awake() {
 
 
 	}
+
 	override protected IEnumerator FireDelay(){
 		readyToFire=false;
 		yield return new WaitForSeconds(60/PPM);
 		readyToFire=true;
  	}
+
 	override protected IEnumerator rechargingDelay(){
-		Debug.Log("recargando");
-		
-		CalcChargerPos();
-		animator.SetBool("reloading",true);
-		//Cargador
-		GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
 		recharging=true;
-
+		animator.SetBool("reloading", true);
 		yield return new WaitForSeconds(RecharingTime);
-		currentAmunition=maxAmunition;
-		
-		//animacion recargado
-		animator.SetInteger("ammo", currentAmunition);
-		animator.SetBool("reloading",false);
-		recharging=false;
 
-		Debug.Log("recargado");
-		
+		int neededBullets = maxAmunition - currentAmunition;
+
+		if(TotalBullets >= neededBullets) {
+			currentAmunition = maxAmunition;
+			TotalBullets -= neededBullets;
+		} else {
+			currentAmunition += TotalBullets;
+			TotalBullets = 0;
+		}
+		recharging=false;
+		animator.SetBool("reloading", false);
  	} 
 }
