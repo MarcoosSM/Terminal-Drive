@@ -9,7 +9,7 @@ public class InventoryContol : MonoBehaviour {
 	GameObject hand;
 	HandControl handControl;
 	
-	void Start () {
+	void Awake () {
 		objects = new List<GameObject>();
 		
 		hand =  transform.GetChild(0).gameObject;

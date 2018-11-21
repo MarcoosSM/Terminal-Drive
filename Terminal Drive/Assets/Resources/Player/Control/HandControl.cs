@@ -16,8 +16,6 @@ public class HandControl : MonoBehaviour {
 
 		animator = transform.parent.GetComponent<Animator>();
 		Cursor = GameObject.FindGameObjectWithTag("Pointer");
-		
-		
 	}
 
 	public void resetWeaponReference(GameObject newGun){
