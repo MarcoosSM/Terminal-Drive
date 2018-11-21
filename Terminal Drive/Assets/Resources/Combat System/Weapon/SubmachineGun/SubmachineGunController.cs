@@ -6,8 +6,8 @@ public class SubmachineGunController : WeaponController {
 
 	void Awake() {
 		getAllComponents();
-		maxAmunition = 25;
-		currentAmunition=maxAmunition;
+		magazineSize = 25;
+		currentMagazineAmmo = magazineSize;
 		readyToFire=true;
 		recharging=false;
 	}
@@ -36,12 +36,12 @@ public class SubmachineGunController : WeaponController {
 			// No se hace nada si ya está en proceso de recarga
 		}
 
-		if(currentAmunition == maxAmunition) {
+		if(currentMagazineAmmo == magazineSize) {
 			return;
 			// No se hace nada si el cargador está lleno
 		}
 
-		if(TotalBullets>0){
+		if(reserveAmmo > 0){
 			//Cargador
 			CalcChargerPos();
 			Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
@@ -54,12 +54,12 @@ public class SubmachineGunController : WeaponController {
 		}
 	}
 	
-	protected override void fire(){
-		if(readyToFire && !recharging){
+	protected override void fire() {
+		if(readyToFire && !recharging) {
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
 			
-			if(currentAmunition > 0) {
+			if(currentMagazineAmmo > 0) {
 				//Bala
 				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 				Projectil project = tempbullet.GetComponent<Projectil>();
@@ -70,19 +70,19 @@ public class SubmachineGunController : WeaponController {
 				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 
 				//Resta de la cantidad de municion
-				--currentAmunition;
+				--currentMagazineAmmo;
 				
 				//Sonido
 				SourceAudio.Play();
 				
-				if(currentAmunition == 0) {
+				if(currentMagazineAmmo == 0) {
 					if(!recharging) {
 						reload();
 					}
 				}
 
-			}else{
-				if(!recharging){
+			} else {
+				if(!recharging) {
 					reload();
 				}
 			}
@@ -95,14 +95,14 @@ public class SubmachineGunController : WeaponController {
 		animator.SetBool("reloading", true);
 		yield return new WaitForSeconds(RecharingTime);
 
-		int neededBullets = maxAmunition - currentAmunition;
+		int neededAmmo = magazineSize - currentMagazineAmmo;
 
-		if(TotalBullets >= neededBullets) {
-			currentAmunition = maxAmunition;
-			TotalBullets -= neededBullets;
+		if(reserveAmmo >= neededAmmo) {
+			currentMagazineAmmo = magazineSize;
+			reserveAmmo -= neededAmmo;
 		} else {
-			currentAmunition += TotalBullets;
-			TotalBullets = 0;
+			currentMagazineAmmo += reserveAmmo;
+			reserveAmmo = 0;
 		}
 		recharging=false;
 		animator.SetBool("reloading", false);

@@ -9,8 +9,8 @@ public class SawdOffShotGunController : WeaponController {
 
 	void Awake() {
 		getAllComponents();
-		maxAmunition = 2;
-		currentAmunition=maxAmunition;
+		magazineSize = 2;
+		currentMagazineAmmo=magazineSize;
 		readyToFire=true;
 		recharging=false;
 	}
@@ -26,13 +26,13 @@ public class SawdOffShotGunController : WeaponController {
 			// No se hace nada si ya está en proceso de recarga
 		}
 
-		if(currentAmunition == maxAmunition) {
+		if(currentMagazineAmmo == magazineSize) {
 			return;
 			// No se hace nada si el cargador está lleno
 		}
 
-		if(TotalBullets>0) {
-			for (int i = 0; i < maxAmunition; ++i) {
+		if(reserveAmmo>0) {
+			for (int i = 0; i < magazineSize; ++i) {
 				//Casquillo
 				Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
 			}
@@ -50,7 +50,7 @@ public class SawdOffShotGunController : WeaponController {
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
 			
-			if(currentAmunition > 0) {
+			if(currentMagazineAmmo > 0) {
 				
 				//Bala
 				for (int i = 0; i < NumProjectil; ++i) {
@@ -68,9 +68,9 @@ public class SawdOffShotGunController : WeaponController {
 				//Sonido
 				SourceAudio.Play();
 
-				--currentAmunition;
+				--currentMagazineAmmo;
 
-				if(currentAmunition == 0) {
+				if(currentMagazineAmmo == 0) {
 					if(!recharging){
 						reload();
 					}
@@ -82,10 +82,8 @@ public class SawdOffShotGunController : WeaponController {
 			}
 			StartCoroutine(FireDelay());
 		}
-
-
 	}
-	
+
 	override protected IEnumerator rechargingDelay(){
 		//animacion recargando
 		animator.SetBool("reloading",true);
@@ -93,14 +91,14 @@ public class SawdOffShotGunController : WeaponController {
 
 		yield return new WaitForSeconds(RecharingTime);
 
-		int neededBullets = maxAmunition - currentAmunition;
+		int neededAmmo = magazineSize - currentMagazineAmmo;
 
-		if(TotalBullets >= neededBullets) {
-			currentAmunition = maxAmunition;
-			TotalBullets -= neededBullets;
+		if(reserveAmmo >= neededAmmo) {
+			currentMagazineAmmo = magazineSize;
+			reserveAmmo -= neededAmmo;
 		} else {
-			currentAmunition += TotalBullets;
-			TotalBullets = 0;
+			currentMagazineAmmo += reserveAmmo;
+			reserveAmmo = 0;
 		}
 
 		//animacion recargado

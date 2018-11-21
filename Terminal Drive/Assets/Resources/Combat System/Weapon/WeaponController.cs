@@ -15,10 +15,10 @@ public abstract class WeaponController : MonoBehaviour {
 	protected SpriteRenderer spriteRenderer;
 	
 	//Variables para con respecto la municion
-	[SerializeField]protected int currentAmunition;
-	[SerializeField]protected int maxAmunition;
-	[SerializeField]protected float RecharingTime ; //en segundos
-	[SerializeField]protected int TotalBullets;//Catidad de balas total
+	[SerializeField]protected int currentMagazineAmmo;
+	[SerializeField]protected int magazineSize;
+	[SerializeField]protected float RecharingTime; //en segundos
+	[SerializeField]protected int reserveAmmo; //Catidad de balas total
 	
 	//Boleanos para control de disparo
 	protected bool readyToFire;
@@ -70,7 +70,7 @@ public abstract class WeaponController : MonoBehaviour {
 		yield return new WaitForSeconds(60/PPM);
 		readyToFire=true;
  	}
-	 
+
 	protected abstract IEnumerator rechargingDelay();
 
 	//Este metodo compurbea la posicion del arma para evitar que este hacia abajo 
@@ -245,7 +245,7 @@ public abstract class WeaponController : MonoBehaviour {
 		//para evitar que si se desactiva el arma mientras recarga no se bloquee.
 		recharging = false;
 		animator.SetBool("reloading", false);
-		if(currentAmunition == 0) {
+		if(currentMagazineAmmo == 0) {
 			reload();
 		}
 	}

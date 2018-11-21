@@ -167,9 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a97899ce9b379948ba963eb53fa50c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmunition: 25
+  currentMagazineAmmo: 0
+  magazineSize: 30
   RecharingTime: 1
-  TotalBullets: 90
+  reserveAmmo: 90
   PPM: 90
   ProjDamage: 3
   ProjSpeed: 1000
