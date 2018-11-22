@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class SubmachineGunController : WeaponController {
 
-	void Awake() {
+void Awake() {
 		getAllComponents();
-		magazineSize = 25;
-		currentMagazineAmmo = magazineSize;
-		readyToFire=true;
-		recharging=false;
 	}
 
 	void Start () {
+
+		reserveAmmo = 25;
+		currentMagazineAmmo=reserveAmmo;
+
+		readyToFire=true;
+		recharging=false;
+
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
 		RawchargerPos=new Vector2(0.03f,-0.1f);
@@ -20,48 +23,20 @@ public class SubmachineGunController : WeaponController {
 	
 	// Update is called once per frame
 	void Update () {
-		// Override porque el Fire1 cambia
 		if(Input.GetButton("Fire1")) {
  			fire();
 		}
-		if(Input.GetButtonDown("Reload")) {
- 			reload();
-		}
+
         checkFlip();
 	}
 
-	protected override void reload() {
-		if(recharging) {
-			return;
-			// No se hace nada si ya está en proceso de recarga
-		}
-
-		if(currentMagazineAmmo == magazineSize) {
-			return;
-			// No se hace nada si el cargador está lleno
-		}
-
-		if(reserveAmmo > 0){
-			//Cargador
-			CalcChargerPos();
-			Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
-			StartCoroutine(rechargingDelay());
-			Debug.Log("recargado");
-		} else {
-			if(currentMagazineAmmo == 0) {
-				// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
-				recharging = true;
-				animator.SetBool("reloading", true);
-			}
-		}
-	}
-	
-	protected override void fire() {
-		if(readyToFire && !recharging) {
+	protected override void fire(){
+		if(readyToFire){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
 			
 			if(currentMagazineAmmo > 0) {
+
 				//Bala
 				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 				Projectil project = tempbullet.GetComponent<Projectil>();
@@ -79,34 +54,49 @@ public class SubmachineGunController : WeaponController {
 				
 				if(currentMagazineAmmo == 0) {
 					if(!recharging) {
-						reload();
+						StartCoroutine(rechargingDelay());
 					}
 				}
 
-			} else {
-				if(!recharging) {
-					reload();
+			}else{
+				if(!recharging){
+					StartCoroutine(rechargingDelay());
 				}
 			}
 			StartCoroutine(FireDelay());
 		}
+
+
 	}
-
+	/* override protected IEnumerator FireDelay(){
+		readyToFire=false;
+		yield return new WaitForSeconds(60/PPM);
+		readyToFire=true;
+ 	}*/
 	override protected IEnumerator rechargingDelay(){
+		Debug.Log("recargando");
+		
+		CalcChargerPos();
+		animator.SetBool("reloading",true);
+		//Cargador
+		GameObject tempCharger = Instantiate(charger, FinalchargerPos,transform.parent.localRotation);
 		recharging=true;
-		animator.SetBool("reloading", true);
+
 		yield return new WaitForSeconds(RecharingTime);
-
-		int neededAmmo = magazineSize - currentMagazineAmmo;
-
-		if(reserveAmmo >= neededAmmo) {
-			currentMagazineAmmo = magazineSize;
-			reserveAmmo -= neededAmmo;
-		} else {
-			currentMagazineAmmo += reserveAmmo;
-			reserveAmmo = 0;
-		}
+		currentMagazineAmmo=reserveAmmo;
+		
+		//animacion recargado
+		animator.SetInteger("ammo", currentMagazineAmmo);
+		animator.SetBool("reloading",false);
 		recharging=false;
-		animator.SetBool("reloading", false);
- 	} 
+
+		Debug.Log("recargado");
+		
+ 	}
+
+    protected override void reload()
+    {
+        throw new System.NotImplementedException();
+    }
+	
 }

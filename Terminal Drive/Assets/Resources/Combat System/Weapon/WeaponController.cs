@@ -8,6 +8,8 @@ public abstract class WeaponController : MonoBehaviour {
 
 	//Audio
 	protected AudioSource SourceAudio ;
+	[SerializeField]protected AudioClip FireSound;
+	[SerializeField]protected AudioClip ReloadSound;
 
 	//Variables para cosas visuales
 	protected bool fliped=false;

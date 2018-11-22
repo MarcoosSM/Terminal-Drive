@@ -11,6 +11,8 @@ public class HandGunController : WeaponController {
 
 		readyToFire=true;
 		recharging=false;
+
+		SourceAudio.clip = FireSound;
 	}
 
 	void Start () {
@@ -66,6 +68,7 @@ public class HandGunController : WeaponController {
 				--currentMagazineAmmo;
 				
 				//Sonido
+				
 				SourceAudio.Play();
 				
 				if(currentMagazineAmmo == 0) {
@@ -82,6 +85,10 @@ public class HandGunController : WeaponController {
 	}
 	
 	override protected IEnumerator rechargingDelay() {
+		//Sonido
+		SourceAudio.clip = ReloadSound;
+		SourceAudio.Play();
+
 		recharging=true;
 		animator.SetBool("reloading", true);
 		yield return new WaitForSeconds(RecharingTime);
@@ -97,6 +104,14 @@ public class HandGunController : WeaponController {
 		}
 		recharging=false;
 		animator.SetBool("reloading", false);
+
+			SourceAudio.clip = FireSound;
  	}
+    void OnDisable()
+    {
+      	SourceAudio.Stop();
+		SourceAudio.clip=FireSound;	  
+    }
+
 	 
 }
