@@ -5,7 +5,8 @@ using UnityEngine;
 public class Teleport : MonoBehaviour {
 
 	[SerializeField] Transform dest;
-	[SerializeField] Sprite sp;
+	[SerializeField] Sprite open;
+	[SerializeField] Sprite close;
 	SpriteRenderer sr;
 	// Use this for initialization
 	void Start () {
@@ -19,9 +20,16 @@ public class Teleport : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.tag == "Player" && Input.GetKeyDown("e")){
-			other.transform.position = dest.position;
-			sr.sprite = sp;
+			sr.sprite = open;
+			StartCoroutine(pause(other));
 		}
+	}
+
+	IEnumerator pause(Collider2D other){
+		yield return new WaitForSeconds(1);
+		sr.sprite = close;
+		other.transform.position = dest.position;
+		
 	}
 
 }
