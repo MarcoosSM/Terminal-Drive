@@ -144,8 +144,8 @@ public abstract class WeaponController : MonoBehaviour {
 
 		barrelEndPos = transform.position;
 
-		barrelEndPos.x += x2;
-		barrelEndPos.y += y2;
+		barrelEndPos.x += 0;
+		barrelEndPos.y += 0;
 
 	}
 	protected void CalcEjectorEndPos(){
