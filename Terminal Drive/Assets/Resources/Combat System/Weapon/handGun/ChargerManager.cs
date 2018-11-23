@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChargerManager : MonoBehaviour {
 
+	
 	public int maxChargerTime = 10;
 
 	// Use this for initialization

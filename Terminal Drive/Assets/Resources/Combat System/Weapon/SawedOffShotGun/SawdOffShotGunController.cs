@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SawdOffShotGunController : WeaponController {
-
-	[SerializeField] int Dispersion = 1; //
-	[SerializeField] int NumProjectil = 5; //
+	[SerializeField] AudioClip startReloadSound ; 
+	[SerializeField] AudioClip endReloadSound ; 
+	[SerializeField] AudioClip fireSound;
+	[SerializeField] int Dispersion = 1; 
+	[SerializeField] int NumProjectil = 5; 
 
 	void Awake() {
 		getAllComponents();
@@ -18,6 +20,7 @@ public class SawdOffShotGunController : WeaponController {
 	void Start () {
 		rawBarrelPos=new Vector2(-0.25f,0.12f);
 		rawEjectorPos=new Vector2(0,0.15f);
+
 	}
 
 	protected override void reload() {
@@ -51,6 +54,7 @@ public class SawdOffShotGunController : WeaponController {
 		if(readyToFire && !recharging){
 			CalcBarrelEndPos();
 			CalcEjectorEndPos();
+
 			
 			if(currentMagazineAmmo > 0) {
 				
@@ -87,11 +91,27 @@ public class SawdOffShotGunController : WeaponController {
 	}
 
 	override protected IEnumerator rechargingDelay(){
-		//animacion recargando
-		animator.SetBool("reloading",true);
+		
 		recharging=true;
 
-		yield return new WaitForSeconds(RecharingTime);
+		yield return new WaitForSeconds(0.25f);
+
+		SourceAudio.clip = startReloadSound;
+		SourceAudio.Play();
+
+		//animacion recargando
+		animator.SetBool("reloading",true);
+		
+
+		float endRecharingDelay = 0.15f;
+		yield return new WaitForSeconds(RecharingTime-endRecharingDelay);
+
+		if(reserveAmmo>0){
+			SourceAudio.clip = endReloadSound;
+			SourceAudio.Play();
+		}
+		yield return new WaitForSeconds(endRecharingDelay);
+
 
 		int neededAmmo = magazineSize - currentMagazineAmmo;
 
@@ -102,6 +122,10 @@ public class SawdOffShotGunController : WeaponController {
 			currentMagazineAmmo += reserveAmmo;
 			reserveAmmo = 0;
 		}
+
+		SourceAudio.clip = fireSound;
+		
+
 
 		//animacion recargado
 		animator.SetBool("reloading",false);
