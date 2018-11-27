@@ -80,6 +80,8 @@ public abstract class WeaponController : MonoBehaviour {
 
 	protected void checkFlip(){
 		
+		
+
 		float rot = transform.rotation.eulerAngles.z;
 		
 		if(rot<270 & rot>90){
@@ -112,6 +114,14 @@ public abstract class WeaponController : MonoBehaviour {
 			}
 			fliped = false;
 
+		}
+
+		if(fliped){
+			float temp = Mathf.Abs(barrelEnd.localPosition.y)*-1;
+			barrelEnd.localPosition = new Vector3(barrelEnd.localPosition.x,temp,0);
+		}else{
+			float temp = Mathf.Abs(barrelEnd.localPosition.y);
+			barrelEnd.localPosition = new Vector3(barrelEnd.localPosition.x,temp,0);
 		}
 	}
 
