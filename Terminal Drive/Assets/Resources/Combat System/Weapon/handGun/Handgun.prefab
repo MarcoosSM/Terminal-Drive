@@ -81,9 +81,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64511a61b4e9712489bd48c241d98796, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a3bdc665a9a25e5428c21c7207bd1290, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 3
   Loop: 0
   Mute: 0
@@ -196,8 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edccff806bb3fc34997d7827722ef74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireSound: {fileID: 8300000, guid: a3bdc665a9a25e5428c21c7207bd1290, type: 3}
-  ReloadSound: {fileID: 8300000, guid: cf3908e4a9fa920428fd0cf425ac69b9, type: 3}
   currentMagazineAmmo: 0
   magazineSize: 10
   RecharingTime: 1

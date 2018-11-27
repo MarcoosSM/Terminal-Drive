@@ -177,6 +177,9 @@ MonoBehaviour:
   bullet: {fileID: 1357413859937632, guid: 0bb0fc3586e7e594d877bf8d4f5f1e9b, type: 2}
   cap: {fileID: 1361977442061396, guid: 1c4ef4731aa800b4ba893fa3e609b39b, type: 2}
   charger: {fileID: 0}
+  startReloadSound: {fileID: 8300000, guid: 8e82c611ba21a97488e742b3a3243005, type: 3}
+  endReloadSound: {fileID: 8300000, guid: c0d0b68655c3af54e9ee99ea3580b26c, type: 3}
+  fireSound: {fileID: 8300000, guid: e92289e3d677d3f4983da9b10ae3eef8, type: 3}
   Dispersion: 40
   NumProjectil: 5
 --- !u!212 &212566771846347872
