@@ -22,7 +22,7 @@ public class HandGunController : WeaponController {
 	}
 
 	protected override void reload() {
-		if(recharging) {
+		if(recharging && reserveAmmo == 0) {
 			return;
 			// No se hace nada si ya está en proceso de recarga
 		}
