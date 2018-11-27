@@ -22,7 +22,7 @@ public class HandGunController : WeaponController {
 	}
 
 	protected override void reload() {
-		if(recharging) {
+		if(recharging && reserveAmmo == 0) {
 			return;
 			// No se hace nada si ya está en proceso de recarga
 		}
@@ -55,7 +55,7 @@ public class HandGunController : WeaponController {
 			if(currentMagazineAmmo > 0) {
 
 				//Bala
-				GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
+				GameObject tempbullet = Instantiate(bullet,barrelEnd.position ,transform.parent.localRotation);
 				Projectil project = tempbullet.GetComponent<Projectil>();
 				project.Damage=ProjDamage;
 				project.Speed=ProjSpeed;

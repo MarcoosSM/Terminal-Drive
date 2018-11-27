@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4506465231491126}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: BarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620244028512194}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.114, y: -0.326, z: 0}
+  m_LocalPosition: {x: -0.45, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4201522791652352}
@@ -200,6 +200,7 @@ MonoBehaviour:
   magazineSize: 10
   RecharingTime: 1
   reserveAmmo: 30
+  maxReserveAmmo: 120
   PPM: 120
   ProjDamage: 10
   ProjSpeed: 1000

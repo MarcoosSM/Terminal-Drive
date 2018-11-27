@@ -18,7 +18,8 @@ public abstract class WeaponController : MonoBehaviour {
 	[SerializeField]protected int currentMagazineAmmo;
 	[SerializeField]protected int magazineSize;
 	[SerializeField]protected float RecharingTime; //en segundos
-	[SerializeField]protected int reserveAmmo; //Catidad de balas total
+	public int reserveAmmo; //Catidad de balas total
+	public int maxReserveAmmo; // Cantidad máxima de balas total
 	
 	//Boleanos para control de disparo
 	protected bool readyToFire;
@@ -26,11 +27,10 @@ public abstract class WeaponController : MonoBehaviour {
 
 
 	protected Transform weaponTransform;
+	protected Transform barrelEnd;
 
 	//Posicionamiento de distintos componentes
-	protected Vector2 barrelEndPos;
 	protected Vector2 ejectorEndPos;
-	protected Vector2 rawBarrelPos;
 	protected Vector2 rawEjectorPos;
 
 	//Parametros de la bala
@@ -42,6 +42,8 @@ public abstract class WeaponController : MonoBehaviour {
 	//Posicionamiento de el cargador
 	protected Vector2 RawchargerPos;
 	protected Vector2 FinalchargerPos;
+	protected Vector2 barrelEndPos;
+	protected Vector2 rawBarrelPos;
 
 	[SerializeField] protected  GameObject bullet;
 
@@ -79,6 +81,8 @@ public abstract class WeaponController : MonoBehaviour {
 
 	protected void checkFlip(){
 		
+		
+
 		float rot = transform.rotation.eulerAngles.z;
 		
 		if(rot<270 & rot>90){
@@ -111,6 +115,14 @@ public abstract class WeaponController : MonoBehaviour {
 			}
 			fliped = false;
 
+		}
+
+		if(fliped){
+			float temp = Mathf.Abs(barrelEnd.localPosition.y)*-1;
+			barrelEnd.localPosition = new Vector3(barrelEnd.localPosition.x,temp,0);
+		}else{
+			float temp = Mathf.Abs(barrelEnd.localPosition.y);
+			barrelEnd.localPosition = new Vector3(barrelEnd.localPosition.x,temp,0);
 		}
 	}
 
@@ -233,6 +245,8 @@ public abstract class WeaponController : MonoBehaviour {
 		weaponTransform = GetComponent<Transform>();
 		SourceAudio = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
+
+		barrelEnd = barrelEnd = gameObject.transform.Find("BarrelEnd");
 
 	}
 
