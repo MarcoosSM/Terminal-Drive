@@ -27,11 +27,10 @@ public abstract class WeaponController : MonoBehaviour {
 
 
 	protected Transform weaponTransform;
+	protected Transform barrelEnd;
 
 	//Posicionamiento de distintos componentes
-	protected Vector2 barrelEndPos;
 	protected Vector2 ejectorEndPos;
-	protected Vector2 rawBarrelPos;
 	protected Vector2 rawEjectorPos;
 
 	//Parametros de la bala
@@ -43,6 +42,8 @@ public abstract class WeaponController : MonoBehaviour {
 	//Posicionamiento de el cargador
 	protected Vector2 RawchargerPos;
 	protected Vector2 FinalchargerPos;
+	protected Vector2 barrelEndPos;
+	protected Vector2 rawBarrelPos;
 
 	[SerializeField] protected  GameObject bullet;
 
@@ -234,6 +235,8 @@ public abstract class WeaponController : MonoBehaviour {
 		weaponTransform = GetComponent<Transform>();
 		SourceAudio = GetComponent<AudioSource>();
 		animator = GetComponent<Animator>();
+
+		barrelEnd = barrelEnd = gameObject.transform.Find("BarrelEnd");
 
 	}
 
