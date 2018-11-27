@@ -26,7 +26,7 @@ public class Teleport : MonoBehaviour {
 	}
 
 	IEnumerator pause(Collider2D other){
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(0.5f);
 		sr.sprite = close;
 		other.transform.position = dest.position;
 		

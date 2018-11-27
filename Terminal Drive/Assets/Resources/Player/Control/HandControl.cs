@@ -33,26 +33,18 @@ public class HandControl : MonoBehaviour {
 		Vector2 cursorOffset = cursorPos + WeaponTrueOffset;
 
 		Vector2 playerPos = GameObject.Find("Player").transform.position;
-		Debug.Log("Cursor " + (playerPos - cursorPos).magnitude);
-		Debug.Log("Brazo " + (playerPos - (Vector2) weaponController.gameObject.transform.position).magnitude);
 
-		if((playerPos - cursorPos).magnitude > (playerPos - (Vector2) weaponController.gameObject.transform.position).magnitude) {
+		// if = death zone
+		if((playerPos - cursorPos).magnitude > (playerPos - (Vector2) weapon.transform.position).magnitude) {
 			//Calcular el angulo del brazo
 			Vector2 dir = ((Vector2)transform.position) - cursorOffset;
 			float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 			// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
-			if(angle > -90 && angle < 90) {
-				animator.SetBool("isRight", false);
-			} else {
-				animator.SetBool("isRight", true);
-			}
+			animator.SetBool("isRight", (angle < -90 || angle > 90));
 		}
 		
-				
-		
-
 		//Para ver si el brazo se encuetra detras o delante del jugador
 		if(animator.GetBool("isRight")){
 			GetComponent<SpriteRenderer>().sortingOrder=14;
