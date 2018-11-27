@@ -42,16 +42,9 @@ public class HandControl : MonoBehaviour {
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 			// Comprueba si hace falta hacer flip al personaje dependiendo de dónde esté apuntando
-			if(angle > -90 && angle < 90) {
-				animator.SetBool("isRight", false);
-			} else {
-				animator.SetBool("isRight", true);
-			}
+			animator.SetBool("isRight", (angle < -90 || angle > 90));
 		}
 		
-				
-		
-
 		//Para ver si el brazo se encuetra detras o delante del jugador
 		if(animator.GetBool("isRight")){
 			GetComponent<SpriteRenderer>().sortingOrder=14;
