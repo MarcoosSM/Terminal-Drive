@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class InventoryControl : MonoBehaviour {
 
-	[SerializeField] List<GameObject> objects ;
+	public List<GameObject> guns;
 	GameObject currentGun;
 	GameObject hand;
 	HandControl handControl;
 	
 	void Awake () {
-		objects = new List<GameObject>();
+		guns = new List<GameObject>();
 		
 		hand =  transform.GetChild(0).gameObject;
 		
 		//Se cargargan las armas desde los prefab
-		objects.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/handGun/Handgun"),hand.transform));
-		objects.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"),hand.transform));	
-		objects.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"),hand.transform));
+		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/handGun/Handgun"),hand.transform));
+		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"),hand.transform));	
+		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"),hand.transform));
 
-		Debug.Log(objects.Capacity);
+		Debug.Log(guns.Capacity);
 
 		handControl = hand.GetComponent<HandControl>();
 
-		currentGun =  objects[0];
+		currentGun =  guns[0];
 
-		foreach (GameObject weapon in objects)
+		foreach (GameObject weapon in guns)
 		{
 			weapon.SetActive(false);
 		}
@@ -35,15 +35,15 @@ public class InventoryControl : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown("1"))
         {
-            changeWeapon(objects[0]);
+            changeWeapon(guns[0]);
 
         }else if(Input.GetKeyDown("2")){
 
-			changeWeapon(objects[1]);
+			changeWeapon(guns[1]);
 
 		}else if(Input.GetKeyDown("3")){
 
-			changeWeapon(objects[2]);
+			changeWeapon(guns[2]);
 
 		}
 	}

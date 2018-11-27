@@ -24,7 +24,7 @@ public class SawdOffShotGunController : WeaponController {
 	}
 
 	protected override void reload() {
-		if(recharging) {
+		if(recharging && reserveAmmo == 0) {
 			return;
 			// No se hace nada si ya está en proceso de recarga
 		}
@@ -65,7 +65,7 @@ public class SawdOffShotGunController : WeaponController {
 					Quaternion bulletRotation = Quaternion.Euler(new Vector3(0, 0, angle + spread));
 	
 					// Instantiate the bullet using our new rotation
-					GameObject tempbullet = Instantiate(bullet, barrelEndPos, bulletRotation);
+					GameObject tempbullet = Instantiate(bullet, barrelEnd.position, bulletRotation);
 					//GameObject tempbullet = Instantiate(bullet,barrelEndPos ,transform.parent.localRotation);
 					Projectil project = tempbullet.GetComponent<Projectil>();
 					project.Damage=ProjDamage;
