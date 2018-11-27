@@ -5,6 +5,8 @@ TextureImporter:
     21300000: Tileset ladrillo pared_0
     21300002: Tileset ladrillo pared_1
     21300004: Tileset ladrillo pared_2
+    21300006: Tileset ladrillo pared_3
+    21300008: Tileset ladrillo pared_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -102,6 +104,66 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27614073f66535d4eaa26bf53a4a1e78
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset ladrillo pared_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa1052025000a0940ab7957afdbc1156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset ladrillo pared_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203b6cc5eb3d4ca4eb92c880b2e6a2e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset ladrillo pared_3
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 8
         width: 8
         height: 8
@@ -112,13 +174,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cdc3f22a328b1f4ca5e89930df2f4fb
+      spriteID: 1ff4b4291f750704dbc4a5bb2a8d81f8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tileset ladrillo pared_1
+      name: Tileset ladrillo pared_4
       rect:
         serializedVersion: 2
         x: 8
@@ -132,27 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd8025a99c4cc5e45a5c356b7b341c9f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tileset ladrillo pared_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa0021f13efa4b843b933e99b1603f98
+      spriteID: 5934d89e30de4184998961f3b4b0f833
       vertices: []
       indices: 
       edges: []
