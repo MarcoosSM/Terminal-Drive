@@ -171,6 +171,7 @@ MonoBehaviour:
   magazineSize: 30
   RecharingTime: 1
   reserveAmmo: 90
+  maxReserveAmmo: 360
   PPM: 90
   ProjDamage: 3
   ProjSpeed: 1000

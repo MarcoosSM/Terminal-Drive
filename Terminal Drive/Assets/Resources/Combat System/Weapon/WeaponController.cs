@@ -18,7 +18,8 @@ public abstract class WeaponController : MonoBehaviour {
 	[SerializeField]protected int currentMagazineAmmo;
 	[SerializeField]protected int magazineSize;
 	[SerializeField]protected float RecharingTime; //en segundos
-	[SerializeField]protected int reserveAmmo; //Catidad de balas total
+	public int reserveAmmo; //Catidad de balas total
+	public int maxReserveAmmo; // Cantidad máxima de balas total
 	
 	//Boleanos para control de disparo
 	protected bool readyToFire;
