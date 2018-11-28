@@ -24,6 +24,7 @@ public abstract class WeaponController : MonoBehaviour {
 	//Boleanos para control de disparo
 	protected bool readyToFire;
 	protected bool recharging;
+	protected bool empty;
 
 
 	protected Transform weaponTransform;

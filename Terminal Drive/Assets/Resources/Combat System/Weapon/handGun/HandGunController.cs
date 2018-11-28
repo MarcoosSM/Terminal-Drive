@@ -22,7 +22,14 @@ public class HandGunController : WeaponController {
 	}
 
 	protected override void reload() {
-		if(recharging && reserveAmmo == 0) {
+		if(empty && reserveAmmo > 0) {
+			// Si el arma estaba en estado "vacío" y ahora tiene balas, deja de estar en estado vacío
+			empty = false;
+			recharging = false;
+			animator.SetBool("reloading", false);
+		}
+
+		if(recharging) {
 			return;
 			// No se hace nada si ya está en proceso de recarga
 		}
@@ -41,6 +48,7 @@ public class HandGunController : WeaponController {
 		} else {
 			if(currentMagazineAmmo == 0) {
 				// Si no tiene balas y se ha intentado recargar, se queda en un estado de recarga constante (sin cargador y en rojo)
+				empty = true;
 				recharging = true;
 				animator.SetBool("reloading", true);
 			}	
