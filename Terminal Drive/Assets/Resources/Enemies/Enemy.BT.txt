@@ -1,0 +1,7 @@
+tree("Root")
+	parallel
+		tree("Move")
+
+tree("Move")
+	sequence
+		MoveToPlayer()		

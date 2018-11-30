@@ -5,12 +5,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
 	[SerializeField]float health;
+	[SerializeField]float speed = 0;
+	public float rangeStartMovement = 0.3f;
 	private Animator animator;
 	private Transform target;
 	private bool skipMove;
 
-	void Start () {
-		health=100;
+	void Awake() {
+		animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -18,6 +20,10 @@ public class EnemyController : MonoBehaviour {
 		if(health<=0){
 			Destroy(gameObject);
 		}
+	}
+
+	void FixedUpdate() {
+		move();
 	}
 
 	public float Health{
@@ -28,6 +34,24 @@ public class EnemyController : MonoBehaviour {
 			health = value;
 		}
 	}
+
+	public float Speed{
+		get{
+			return speed;
+		}
+		set{
+			speed = value;
+		}
+	}
+
+ 	 private void move() {
+        if(speed > rangeStartMovement) {
+			animator.SetFloat("Speed", speed);
+        } else {
+            animator.SetFloat("Speed", 0);
+        }
+
+    }
 
 	public void takeDamage(float damageAmount) {
 		health -= damageAmount;

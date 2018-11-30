@@ -46,9 +46,8 @@ public class Projectil : MonoBehaviour {
 		Debug.Log(hittedObj.name);
 
 		if(hittedObj.tag.Equals("Enemy")) {
-			EnemyController ec = (EnemyController) hittedObj.GetComponent("EnemyController");
-			ec.takeDamage(damage);
-			
+			EnemyAI eAI = (EnemyAI) hittedObj.GetComponent("EnemyAI");
+			eAI.takeDamage(damage);
 		}
 		
 		if(!(hittedObj.tag.Equals("Projectile") || hittedObj.tag.Equals("L2"))){
