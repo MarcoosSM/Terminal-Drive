@@ -54,7 +54,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226714678681160}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -184,6 +184,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   speed: 4
+  stopRange: 2
+  VisionRange: 10
+  playerSeen: 0
+  folowingplayer: 0
 --- !u!212 &212366694488502200
 SpriteRenderer:
   m_ObjectHideFlags: 1
