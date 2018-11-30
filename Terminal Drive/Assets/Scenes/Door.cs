@@ -6,9 +6,13 @@ public class Door : MonoBehaviour {
 
 	[SerializeField] Sprite sp;
 	SpriteRenderer sr;
+	AudioSource audioSource;
+	bool opened;
 	// Use this for initialization
 	void Start () {
+		opened=false;
 		sr = GetComponent<SpriteRenderer>();
+		audioSource= gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +23,11 @@ public class Door : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.tag == ("Player")){
 			sr.sprite = sp;
+			if(!opened){
+				audioSource.Play();
+				opened=true;
+			}
+			
 		}
 	}
 }

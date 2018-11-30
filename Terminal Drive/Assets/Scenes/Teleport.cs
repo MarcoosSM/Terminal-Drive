@@ -8,9 +8,11 @@ public class Teleport : MonoBehaviour {
 	[SerializeField] Sprite open;
 	[SerializeField] Sprite close;
 	SpriteRenderer sr;
+	AudioSource audioSource;
 	// Use this for initialization
 	void Start () {
 		sr = GetComponent<SpriteRenderer>();
+		audioSource =  GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -21,7 +23,9 @@ public class Teleport : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.tag == "Player" && Input.GetKeyDown("e")){
 			sr.sprite = open;
+			audioSource.Play();
 			StartCoroutine(pause(other));
+			
 		}
 	}
 
