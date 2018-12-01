@@ -9,6 +9,8 @@ public class Projectil : MonoBehaviour {
 	private int maxBulletTime = 5; //segs
 	private Rigidbody2D rigidbody2d;
 
+	private string targerTag;
+
 	private int numHits = 0;
 	void Start () {
 
@@ -40,14 +42,26 @@ public class Projectil : MonoBehaviour {
 		}
 	}
 
+	public string TargerTag{
+		get{
+			return targerTag;
+		}
+		set{
+			targerTag=value;
+		}
+	}
+
 	void OnTriggerEnter2D(Collider2D col) {
 		
 		GameObject hittedObj = col.gameObject;
 		Debug.Log(hittedObj.name);
 
-		if(hittedObj.tag.Equals("Enemy")) {
+		if(hittedObj.tag.Equals("Enemy")&&hittedObj.tag.Equals(targerTag)) {
 			EnemyAI eAI = (EnemyAI) hittedObj.GetComponent("EnemyAI");
 			eAI.takeDamage(damage);
+		}
+		if(hittedObj.tag.Equals("Player")&&hittedObj.tag.Equals(targerTag)) {
+
 		}
 		
 		if(!(hittedObj.tag.Equals("Projectile") || hittedObj.tag.Equals("L2"))){

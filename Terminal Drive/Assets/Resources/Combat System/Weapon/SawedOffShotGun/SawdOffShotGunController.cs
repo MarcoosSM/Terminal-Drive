@@ -78,6 +78,7 @@ public class SawdOffShotGunController : WeaponController {
 					Projectil project = tempbullet.GetComponent<Projectil>();
 					project.Damage=ProjDamage;
 					project.Speed=ProjSpeed;
+					project.TargerTag=bulletTargetTag;
 				}
 				//Sonido
 				SourceAudio.Play();

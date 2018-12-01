@@ -46,6 +46,7 @@ public abstract class WeaponController : MonoBehaviour {
 	protected Vector2 barrelEndPos;
 	protected Vector2 rawBarrelPos;
 
+	[SerializeField] protected  string bulletTargetTag;
 	[SerializeField] protected  GameObject bullet;
 
 	[SerializeField] protected  GameObject cap;
@@ -237,6 +238,15 @@ public abstract class WeaponController : MonoBehaviour {
 	public Vector2 RawBarrelEndPos{
 		get {
 			return rawBarrelPos;
+		}
+	}
+
+	public string BulletTargetTag{
+		get{
+			return bulletTargetTag;
+		}
+		set{
+			bulletTargetTag=value;
 		}
 	}
 

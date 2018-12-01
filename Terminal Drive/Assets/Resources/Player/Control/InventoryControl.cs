@@ -19,6 +19,12 @@ public class InventoryControl : MonoBehaviour {
 		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"),hand.transform));	
 		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"),hand.transform));
 
+		foreach (GameObject gun in guns)
+		{
+			gun.GetComponent<WeaponController>().BulletTargetTag="Enemy";
+			
+		}
+
 		Debug.Log(guns.Capacity);
 
 		handControl = hand.GetComponent<HandControl>();

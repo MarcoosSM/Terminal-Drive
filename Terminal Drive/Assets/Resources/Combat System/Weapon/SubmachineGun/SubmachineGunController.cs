@@ -75,6 +75,7 @@ public class SubmachineGunController : WeaponController {
 				Projectil project = tempbullet.GetComponent<Projectil>();
 				project.Damage=ProjDamage;
 				project.Speed=ProjSpeed;
+				project.TargerTag=bulletTargetTag;
 
 				//Casquillo
 				GameObject tempCap = Instantiate(cap, ejectorEndPos ,transform.parent.localRotation);
