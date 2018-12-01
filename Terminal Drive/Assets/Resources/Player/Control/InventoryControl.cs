@@ -8,7 +8,7 @@ public class InventoryControl : MonoBehaviour {
 	GameObject currentGun;
 	GameObject hand;
 	HandControl handControl;
-	
+	[SerializeField]float health;	
 	void Awake () {
 		guns = new List<GameObject>();
 		
@@ -60,6 +60,19 @@ public class InventoryControl : MonoBehaviour {
 			currentGun = NewWeapon;
 			currentGun.SetActive(true);
 			handControl.resetWeaponReference(NewWeapon);	
+		}
+	}
+
+	public void takeDamage(float damage){
+		health-=damage;
+	}
+
+	public float Health{
+		get{
+			return health;
+		}
+		set{
+			health=value;
 		}
 	}
 }

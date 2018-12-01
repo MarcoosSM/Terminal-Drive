@@ -20,12 +20,12 @@ public class EnemyAI : MonoBehaviour {
 	private bool folowingplayer;
 
 	void Awake() {
-		Debug.Log(weapon);
 		arm = transform.GetChild(0).gameObject;
 		playerSeen=false;
 		folowingplayer=false;
 		animator = GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
+		weapon.BulletTargetTag = "Player";
 	}
 
 	// Update is called once per frame
@@ -79,6 +79,7 @@ public class EnemyAI : MonoBehaviour {
 	[Task]
 	void MoveToPlayer()
 	{
+		float armOffset = 180;	
 		playerSeen=false;
   		RaycastHit2D[] hits;
 		Vector3 destination = player.transform.position;
@@ -120,8 +121,11 @@ public class EnemyAI : MonoBehaviour {
 				folowingplayer=false;
 			}
 
-			arm.transform.LookAt(destination);
-			Debug.Log(weapon);
+			Vector2 dir = (Vector2)(transform.position-player.transform.position);
+			float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+			angle-=armOffset;
+			arm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
 			weapon.fire();
 				
 		}else{

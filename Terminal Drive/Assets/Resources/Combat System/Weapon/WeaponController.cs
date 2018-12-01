@@ -54,15 +54,17 @@ public abstract class WeaponController : MonoBehaviour {
 	[SerializeField] protected  GameObject charger;
 	
 	// Update is called once per frame
-	void Update () {	
-		if(Input.GetButtonDown("Fire1")) {
- 			fire();
-		}
-		if(Input.GetButtonDown("Reload")) {
- 			reload();
-		}
+	void Update () {
+		if(gameObject.tag.Equals("Player")){	
+			if(Input.GetButtonDown("Fire1")) {
+				fire();
+			}
+			if(Input.GetButtonDown("Reload")) {
+				reload();
+			}
 
-        checkFlip();
+			checkFlip();
+		}	
 	}
 	
 	public abstract void fire();

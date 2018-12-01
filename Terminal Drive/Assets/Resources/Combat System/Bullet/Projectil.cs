@@ -59,12 +59,15 @@ public class Projectil : MonoBehaviour {
 		if(hittedObj.tag.Equals("Enemy")&&hittedObj.tag.Equals(targerTag)) {
 			EnemyAI eAI = (EnemyAI) hittedObj.GetComponent("EnemyAI");
 			eAI.takeDamage(damage);
+			Destroy(gameObject);
 		}
 		if(hittedObj.tag.Equals("Player")&&hittedObj.tag.Equals(targerTag)) {
-
+			InventoryControl IC = hittedObj.GetComponent<InventoryControl>();
+			IC.takeDamage(damage);
+			Destroy(gameObject);
 		}
 		
-		if(!(hittedObj.tag.Equals("Projectile") || hittedObj.tag.Equals("L2"))){
+		if(!(hittedObj.tag.Equals("Projectile") || hittedObj.tag.Equals("L2") || hittedObj.tag.Equals("Enemy") || hittedObj.tag.Equals("Player"))){
 			Destroy(gameObject); // Destruye el proyectil si colisiona con algo que no sea otro projectil para evitar problemas con la escopeta
 		}
 
