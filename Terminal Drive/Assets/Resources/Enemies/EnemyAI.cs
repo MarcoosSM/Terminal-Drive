@@ -9,10 +9,21 @@ public class EnemyAI : MonoBehaviour {
 	private Animator animator;
 	[SerializeField]float health;
 	[SerializeField]float speed;
+	GameObject arm;
+	[SerializeField]WeaponController weapon;
+
 	private float rangeStartMovement = 0.3f;
+	//Distancia a la que el enemigo para de perseguir al jugador(de cerca)
+	[SerializeField]float stopRange;
 	[SerializeField]private float VisionRange;
+	private bool playerSeen;
+	private bool folowingplayer;
 
 	void Awake() {
+		Debug.Log(weapon);
+		arm = transform.GetChild(0).gameObject;
+		playerSeen=false;
+		folowingplayer=false;
 		animator = GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
@@ -47,7 +58,7 @@ public class EnemyAI : MonoBehaviour {
 	}
 
  	 private void move() {
-        if(speed > rangeStartMovement) {
+        if(folowingplayer) {
 			animator.SetFloat("Speed", speed);
         } else {
             animator.SetFloat("Speed", 0);
@@ -68,7 +79,7 @@ public class EnemyAI : MonoBehaviour {
 	[Task]
 	void MoveToPlayer()
 	{
-		bool playerSeen=false;
+		playerSeen=false;
   		RaycastHit2D[] hits;
 		Vector3 destination = player.transform.position;
 		Vector3 delta = (destination - transform.position);
@@ -79,27 +90,42 @@ public class EnemyAI : MonoBehaviour {
 					playerSeen=true;
 				}
 		}
+		
 	   	
 		
 		if(playerSeen){	
-	  	
-			Vector3 velocity = speed*delta.normalized;
+			if(delta.magnitude>stopRange){
+				folowingplayer=true;
 
-			transform.position = transform.position + velocity * Time.deltaTime;
+				Vector3 velocity = speed*delta.normalized;
 
-			Vector3 newDelta = (destination - transform.position);
-			float d = newDelta.magnitude;
+				transform.position = transform.position + velocity * Time.deltaTime;
 
-			if (Task.isInspected)
-				Task.current.debugInfo = string.Format("d={0:0.000}", d);
+				Vector3 newDelta = (destination - transform.position);
+				float d = newDelta.magnitude;
 
-			if ( Vector3.Dot(delta, newDelta) <= 0.0f || d < 1e-3)
+				if (Task.isInspected)
+					Task.current.debugInfo = string.Format("d={0:0.000}", d);
+
+				if ( Vector3.Dot(delta, newDelta) <= 0.0f || d < 1e-3)
+				{
+					transform.position = destination;
+					Task.current.Succeed();
+					d = 0.0f;
+					Task.current.debugInfo = "d=0.000";
+				}
+				
+			}else
 			{
-				transform.position = destination;
-				Task.current.Succeed();
-				d = 0.0f;
-				Task.current.debugInfo = "d=0.000";
+				folowingplayer=false;
 			}
+
+			arm.transform.LookAt(destination);
+			Debug.Log(weapon);
+			weapon.fire();
+				
+		}else{
+			folowingplayer=false;
 		}
 	}
 }

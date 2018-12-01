@@ -64,7 +64,7 @@ public abstract class WeaponController : MonoBehaviour {
         checkFlip();
 	}
 	
-	protected abstract void fire();
+	public abstract void fire();
 
 	protected abstract void reload();
 
