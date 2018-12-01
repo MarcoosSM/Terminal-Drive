@@ -54,7 +54,7 @@ public class Projectil : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 		
 		GameObject hittedObj = col.gameObject;
-		Debug.Log(hittedObj.name);
+		//Debug.Log(hittedObj.name);
 
 		if(hittedObj.tag.Equals("Enemy")&&hittedObj.tag.Equals(targerTag)) {
 			EnemyAI eAI = (EnemyAI) hittedObj.GetComponent("EnemyAI");
