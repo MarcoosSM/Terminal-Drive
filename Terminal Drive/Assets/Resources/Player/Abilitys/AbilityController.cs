@@ -19,11 +19,18 @@ public class AbilityController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(Input.GetButton("Ability") &&  currentEnergy>currentAbility.PowerConsuptionPerSeg){
-			currentAbility.activate();
-			AbilityActivated=true;
+			//Para que solo se active una vez
+			if(!AbilityActivated){
+				currentAbility.activate();
+				AbilityActivated=true;
+			}
+			
 		}else{
-			currentAbility.desactivate();
-			AbilityActivated=false;
+			if(AbilityActivated){
+				currentAbility.desactivate();
+				AbilityActivated=false;
+			}
+			
 		}
 	}
 	IEnumerator EnergyControl() 
@@ -34,7 +41,6 @@ public class AbilityController : MonoBehaviour {
 		while(true){
 			if(AbilityActivated){
 				currentEnergy -= currentAbility.PowerConsuptionPerSeg*segs;
-				Debug.Log(currentAbility.PowerConsuptionPerSeg);
 			}else{
 				if(currentEnergy>=MaxEnergy){
 					currentEnergy=MaxEnergy;
