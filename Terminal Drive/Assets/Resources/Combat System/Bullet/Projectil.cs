@@ -6,8 +6,10 @@ public class Projectil : MonoBehaviour {
 
 	private float damage;
 	private float speed;
-	private int maxBulletTime = 5; //segs
+	private int maxBulletTime = 60; //segs
 	private Rigidbody2D rigidbody2d;
+
+	private float minSpeedToDoDamage=10;
 
 	private string targerTag;
 
@@ -62,8 +64,12 @@ public class Projectil : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		if(hittedObj.tag.Equals("Player")&&hittedObj.tag.Equals(targerTag)) {
-			InventoryControl IC = hittedObj.GetComponent<InventoryControl>();
-			IC.takeDamage(damage);
+			
+			if(rigidbody2d.velocity.magnitude>minSpeedToDoDamage){
+				InventoryControl IC = hittedObj.GetComponent<InventoryControl>();
+				IC.takeDamage(damage);
+			}
+			
 			Destroy(gameObject);
 		}
 		
