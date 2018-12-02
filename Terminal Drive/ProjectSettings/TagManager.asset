@@ -13,6 +13,7 @@ TagManager:
   - Arm
   - SubmachineGun
   - L2
+  - LevelEnd
   layers:
   - Default
   - TransparentFX
