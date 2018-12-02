@@ -32,6 +32,8 @@ public class EnemyAI : MonoBehaviour {
 	void Update () {
 		if(health<=0){
 			Destroy(gameObject);
+		}if(weapon.reserveAmmo<100){
+			weapon.reserveAmmo+=100;
 		}
 	}
 
