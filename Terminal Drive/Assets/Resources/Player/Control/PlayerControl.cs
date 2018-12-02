@@ -12,6 +12,9 @@ public class PlayerControl : MonoBehaviour {
     public float rangeStartMovement = 0.3f;
     // FIN variables públicas
 
+    //Variables sonido
+    private  AudioSource audioSource;
+
     // Variables de control del jugador
     private float hAxis;
     private bool jumpKeyPressed;
@@ -21,6 +24,7 @@ public class PlayerControl : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Start() {
     }
@@ -52,10 +56,17 @@ public class PlayerControl : MonoBehaviour {
         if(absHAxis > rangeStartMovement) {
             animator.SetFloat("Speed", absHAxis * moveSpeed);
             rb2d.velocity = new Vector2(moveSpeed * hAxis, rb2d.velocity.y);
+            if(!audioSource.isPlaying){
+                audioSource.Play();
+            }
+
         } else {
             // Si no hay suficiente movimiento en el hAxis, para al jugador
             animator.SetFloat("Speed", 0);
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            if(audioSource.isPlaying){
+                audioSource.Stop();
+            }
         }
 
     }
@@ -64,6 +75,10 @@ public class PlayerControl : MonoBehaviour {
         // Comprueba la velocidad del eje y del personaje y si es 0 significa que no esta saltando
         if(rb2d.velocity.y == 0) {
             animator.SetBool("isJumping", false);
+        }else{
+            if(audioSource.isPlaying){
+                audioSource.Stop();
+            }
         }
     }
 }
