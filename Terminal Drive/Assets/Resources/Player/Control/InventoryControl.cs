@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryControl : MonoBehaviour {
 
@@ -8,7 +9,8 @@ public class InventoryControl : MonoBehaviour {
 	GameObject currentGun;
 	GameObject hand;
 	HandControl handControl;
-	[SerializeField]float health;	
+	[SerializeField]float health;
+	[SerializeField]Object GameOverScene;	
 	void Awake () {
 		guns = new List<GameObject>();
 		
@@ -52,6 +54,7 @@ public class InventoryControl : MonoBehaviour {
 			changeWeapon(guns[2]);
 
 		}
+		checkLife();
 	}
 
 	void changeWeapon (GameObject NewWeapon) {
@@ -73,6 +76,12 @@ public class InventoryControl : MonoBehaviour {
 		}
 		set{
 			health=value;
+		}
+	}
+	private void checkLife(){
+		if (health<=0){
+			//Activar para que el jugador pueda morir: 
+			//SceneManager.LoadScene(GameOverScene.name);
 		}
 	}
 }
