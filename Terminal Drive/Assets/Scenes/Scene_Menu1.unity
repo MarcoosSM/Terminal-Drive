@@ -688,7 +688,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choosenScene: {fileID: 102900000, guid: 708c99072309f054b98ae0bd02244441, type: 3}
-  clickedButton: {fileID: 913653415}
 --- !u!1 &1057604524
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +776,7 @@ GameObject:
   - component: {fileID: 1258863310}
   - component: {fileID: 1258863309}
   - component: {fileID: 1258863308}
+  - component: {fileID: 1258863311}
   m_Layer: 5
   m_Name: Button_LoadGame
   m_TagString: Untagged
@@ -841,7 +841,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1258863309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1258863311}
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1258863309
@@ -878,6 +889,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1258863306}
   m_CullTransparentMesh: 0
+--- !u!114 &1258863311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258863306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581900d3ed4b9644abadbf58508f2fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choosenScene: {fileID: 102900000, guid: c40737c3a49868b428b44873d174134d, type: 3}
 --- !u!1 &1372471802
 GameObject:
   m_ObjectHideFlags: 0

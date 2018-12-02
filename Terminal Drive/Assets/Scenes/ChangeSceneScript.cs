@@ -7,6 +7,6 @@ public class ChangeSceneScript : MonoBehaviour {
 
 	public void ChangeScene() {
 		SceneManager.LoadScene(choosenScene.name);
-		Debug.Log("Scene loaded");
+		Debug.Log(choosenScene.name);
 	}
 }
