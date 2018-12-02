@@ -125,11 +125,18 @@ public class EnemyAI : MonoBehaviour {
 
 			Vector2 dir = (Vector2)(transform.position-player.transform.position);
 			float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-			angle-=armOffset;
+			angle -= armOffset;
 			arm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			animator.SetBool("isRight", (angle > -90 || angle < -270));
+			weapon.GetComponent<SpriteRenderer>().flipY = animator.GetBool("isRight");
 
-			weapon.fire();
-				
+			//Para ver si el brazo se encuetra detras o delante del enemigo
+			if(animator.GetBool("isRight")) {
+				arm.GetComponent<SpriteRenderer>().sortingOrder=14;
+			} else {
+				arm.GetComponent<SpriteRenderer>().sortingOrder=5;
+			}
+			weapon.fire();	
 		}else{
 			folowingplayer=false;
 		}
