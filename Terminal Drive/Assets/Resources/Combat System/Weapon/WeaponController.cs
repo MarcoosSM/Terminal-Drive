@@ -55,13 +55,13 @@ public abstract class WeaponController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(gameObject.tag);	
+		//Debug.Log(gameObject.tag);	
 		//Comprobar si el que tiene el arma es el jugador o no
 		if(gameObject.transform.parent.parent.tag.Equals("Player")){
 		
 			if(Input.GetButtonDown("Fire1")) {
 				fire();
-					Debug.Log("Fire");	
+				//Debug.Log("Fire");	
 			}
 			if(Input.GetButtonDown("Reload")) {
 				reload();

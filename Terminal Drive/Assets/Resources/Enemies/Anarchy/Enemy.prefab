@@ -418,7 +418,7 @@ MonoBehaviour:
   health: 100
   speed: 4
   weapon: {fileID: 114293906787374186}
-  stopRange: 2
+  stopRange: 7
   VisionRange: 10
 --- !u!212 &212210100730860938
 SpriteRenderer:
