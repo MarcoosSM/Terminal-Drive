@@ -92,22 +92,22 @@ public class EnemyAI : MonoBehaviour {
 		{
 			GameObject colliderGO = hit.collider.gameObject;
 				if(colliderGO.Equals(player)){
-					Debug.Log("player");
+
 					playerSeen=true;
 					break;
 
 				}else if(hit.collider.isTrigger){
-					Debug.Log("estriger");
+					
 					if(colliderGO.GetComponent<Door>()){
-							Debug.Log("tiene peurta");
+							
 						if(!colliderGO.GetComponent<Door>().Opened){
-							Debug.Log("puerta cerrada");
+							
 							break;
 						}
 					}	
 					
 				}else{
-					Debug.Log(colliderGO.name);
+				
 					break;
 				}
 		}
