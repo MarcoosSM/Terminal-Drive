@@ -83,7 +83,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e92289e3d677d3f4983da9b10ae3eef8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   PPM: 90
   ProjDamage: 10
   ProjSpeed: 800
+  bulletTargetTag: 
   bullet: {fileID: 1357413859937632, guid: 0bb0fc3586e7e594d877bf8d4f5f1e9b, type: 2}
   cap: {fileID: 1361977442061396, guid: 1c4ef4731aa800b4ba893fa3e609b39b, type: 2}
   charger: {fileID: 0}
