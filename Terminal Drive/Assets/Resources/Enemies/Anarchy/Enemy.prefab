@@ -419,7 +419,7 @@ MonoBehaviour:
   speed: 4
   weapon: {fileID: 114293906787374186}
   stopRange: 3
-  VisionRange: 5
+  VisionRange: 10
 --- !u!212 &212210100730860938
 SpriteRenderer:
   m_ObjectHideFlags: 1
