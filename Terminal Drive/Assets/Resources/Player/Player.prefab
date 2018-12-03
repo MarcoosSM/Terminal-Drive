@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEnergy: 100
   EnergyRegen: 2
-  MaxEnergy: 100
+  maxEnergy: 100
 --- !u!114 &114410277279370888
 MonoBehaviour:
   m_ObjectHideFlags: 1

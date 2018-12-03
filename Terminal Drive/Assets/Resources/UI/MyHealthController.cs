@@ -22,7 +22,7 @@ public class MyHealthController : MonoBehaviour {
 		
 		int index = (int)((sprites.Length-1)*(1-percentOfLife));
 		if(index>=0 & index<sprites.Length){
-			Debug.Log(index);
+//			Debug.Log(index);
 			myImage.sprite = sprites[index];
 		}
 	
