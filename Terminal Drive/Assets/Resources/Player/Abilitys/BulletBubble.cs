@@ -30,6 +30,7 @@ public class BulletBubble : Ability {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.CompareTag("Projectile")) {
+			col.gameObject.GetComponent<Projectil>().Damage = 0;
 			Rigidbody2D projRB = col.gameObject.GetComponent<Rigidbody2D>();
 			projRB.velocity = Vector2.zero;
 			//se añade al array para uso mas tarde

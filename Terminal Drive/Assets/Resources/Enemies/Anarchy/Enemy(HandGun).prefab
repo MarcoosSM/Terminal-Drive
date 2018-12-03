@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114815122086513222}
   - component: {fileID: 114932457408506328}
   m_Layer: 0
-  m_Name: Enemy (3)
+  m_Name: Enemy(HandGun)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scripts:
-  - {fileID: 4900000, guid: 9405115a1a595984ab04d2f726b7c7b7, type: 3}
+  - {fileID: 0}
   autoReset: 1
   tickOn: 0
   sourceInfos:
