@@ -59,7 +59,7 @@ public class HandGunController : WeaponController {
 			if (currentMagazineAmmo > 0) {
 
 				//Bala
-				GameObject tempbullet = Instantiate(bullet, barrelEnd.position, transform.parent.localRotation);
+				GameObject tempbullet = Instantiate(bullet, barrelEnd.position, barrelEnd.rotation);
 				Projectil project = tempbullet.GetComponent<Projectil>();
 				project.Damage = ProjDamage;
 				project.Speed = ProjSpeed;

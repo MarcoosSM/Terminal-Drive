@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour {
     public float moveSpeed = 5;
     public Vector2 jumpHeight = new Vector2(0, 10);
     public float rangeStartMovement = 0.3f;
+    public bool canMove;
     // FIN variables públicas
 
     //Variables sonido
@@ -25,12 +26,13 @@ public class PlayerControl : MonoBehaviour {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        canMove = true;
     }
 
     void Update() {
         updateKeyInput();
         updateIsJumping();
-        if (jumpKeyPressed) {
+        if (jumpKeyPressed && canMove) {
             if (!animator.GetBool("isJumping")) {
                 rb2d.AddForce(jumpHeight, ForceMode2D.Impulse);
                 animator.SetBool("isJumping", true);
@@ -50,7 +52,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void move() {
         float absHAxis = Mathf.Abs(hAxis);
-        if (absHAxis > rangeStartMovement) {
+        if (absHAxis > rangeStartMovement && canMove) {
             animator.SetFloat("Speed", absHAxis * moveSpeed);
             rb2d.velocity = new Vector2(moveSpeed * hAxis, rb2d.velocity.y);
             if (!audioSource.isPlaying) {

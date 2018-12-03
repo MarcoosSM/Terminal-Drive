@@ -21,13 +21,15 @@ public class SubmachineGunController : WeaponController {
 	// Update is called once per frame
 	void Update() {
 		// Override porque el Fire1 cambia
-		if (Input.GetButton("Fire1")) {
-			fire();
+		if (gameObject.transform.parent.parent.tag.Equals("Player")) {
+			if (Input.GetButton("Fire1")) {
+				fire();
+			}
+			if (Input.GetButtonDown("Reload")) {
+				reload();
+			}
+			checkFlip();
 		}
-		if (Input.GetButtonDown("Reload")) {
-			reload();
-		}
-		checkFlip();
 	}
 
 	protected override void reload() {
@@ -70,7 +72,8 @@ public class SubmachineGunController : WeaponController {
 
 			if (currentMagazineAmmo > 0) {
 				//Bala
-				GameObject tempbullet = Instantiate(bullet, barrelEnd.position, transform.parent.localRotation);
+				GameObject tempbullet = Instantiate(bullet, barrelEnd.position, barrelEnd.rotation);
+				
 				Projectil project = tempbullet.GetComponent<Projectil>();
 				project.Damage = ProjDamage;
 				project.Speed = ProjSpeed;
