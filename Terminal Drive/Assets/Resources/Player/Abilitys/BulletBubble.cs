@@ -6,15 +6,18 @@ public class BulletBubble : Ability {
 
 	Collider2D shield;
 	List<Rigidbody2D> projectilesRB;
+	GameObject player;
 
 	void Awake() {
 		shield = GetComponent<Collider2D>();
 		shield.enabled = false;
 		projectilesRB = new List<Rigidbody2D>();
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	public override void activate() {
 		shield.enabled = true;
+		player.GetComponent<PlayerControl>().canMove = false;
 	}
 
 	public override void desactivate() {
@@ -26,6 +29,7 @@ public class BulletBubble : Ability {
 		}
 		projectilesRB.Clear();
 		shield.enabled = false;
+		player.GetComponent<PlayerControl>().canMove = true;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -37,4 +41,5 @@ public class BulletBubble : Ability {
 			projectilesRB.Add(projRB);
 		}
 	}
+
 }
