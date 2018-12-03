@@ -607,6 +607,10 @@ Prefab:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
   m_IsPrefabAsset: 0
@@ -21483,6 +21487,10 @@ Prefab:
       propertyPath: m_Name
       value: Enemy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
   m_IsPrefabAsset: 0
@@ -22178,6 +22186,10 @@ Prefab:
       propertyPath: m_FlipY
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1421749245304386, guid: a1fdb35313c7e79428717fb174155fb7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1fdb35313c7e79428717fb174155fb7, type: 2}
   m_IsPrefabAsset: 0
@@ -22429,6 +22441,10 @@ Prefab:
     - target: {fileID: 4998517387727362, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
@@ -23394,6 +23410,10 @@ Prefab:
     - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
@@ -24617,6 +24637,10 @@ Prefab:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
   m_IsPrefabAsset: 0
@@ -24677,6 +24701,10 @@ Prefab:
     - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
       propertyPath: m_Name
       value: Enemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226714678681160, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95eed00546cb9444cb24a11f15024f56, type: 2}
@@ -25029,6 +25057,10 @@ Prefab:
     - target: {fileID: 1421749245304386, guid: a1fdb35313c7e79428717fb174155fb7, type: 2}
       propertyPath: m_Name
       value: Enemy(MachineGun) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421749245304386, guid: a1fdb35313c7e79428717fb174155fb7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1fdb35313c7e79428717fb174155fb7, type: 2}
@@ -57200,6 +57232,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1199284905025034, guid: 854987f107a5886468262a90899805a1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854987f107a5886468262a90899805a1, type: 2}
   m_IsPrefabAsset: 0
@@ -57672,6 +57708,10 @@ Prefab:
       propertyPath: m_Name
       value: Enemy(MachineGun) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1421749245304386, guid: a1fdb35313c7e79428717fb174155fb7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1fdb35313c7e79428717fb174155fb7, type: 2}
   m_IsPrefabAsset: 0
@@ -57947,7 +57987,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4527600987101688, guid: 3d8fba034ad6c44409514bbfafe643ba, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1547507179492164, guid: 3d8fba034ad6c44409514bbfafe643ba, type: 2}
       propertyPath: m_Name
@@ -57992,7 +58032,7 @@ Transform:
   - {fileID: 1717143302}
   - {fileID: 1819297352}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2112013590
 Prefab:

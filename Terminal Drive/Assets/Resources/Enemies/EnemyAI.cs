@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour {
 	private bool folowingplayer;
 
 	void Awake() {
+	
 		arm = transform.GetChild(0).gameObject;
 		playerSeen = false;
 		folowingplayer = false;
@@ -78,6 +79,7 @@ public class EnemyAI : MonoBehaviour {
 	 */
 	[Task]
 	void MoveToPlayer() {
+		Debug.Log(gameObject.name);
 		float armOffset = 180;
 		playerSeen = false;
 		RaycastHit2D[] hits;
@@ -88,7 +90,7 @@ public class EnemyAI : MonoBehaviour {
 		foreach (RaycastHit2D hit in hits) {
 			GameObject colliderGO = hit.collider.gameObject;
 			if (colliderGO.Equals(player)) {
-
+				Debug.Log("Player seen");
 				playerSeen = true;
 				break;
 
@@ -103,6 +105,7 @@ public class EnemyAI : MonoBehaviour {
 				}
 
 			} else {
+				
 				break;
 			}
 		}
