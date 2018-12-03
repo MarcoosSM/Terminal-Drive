@@ -42,6 +42,7 @@ public class SawdOffShotGunController : WeaponController {
 		}
 
 		if (reserveAmmo > 0) {
+			CalcEjectorEndPos();
 			for (int i = 0; i < magazineSize; ++i) {
 				//Casquillo
 				Instantiate(cap, ejectorEndPos, transform.parent.localRotation);
