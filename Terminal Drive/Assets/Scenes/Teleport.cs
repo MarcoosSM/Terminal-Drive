@@ -9,31 +9,24 @@ public class Teleport : MonoBehaviour {
 	[SerializeField] Sprite close;
 	SpriteRenderer sr;
 	AudioSource audioSource;
-	// Use this for initialization
-	void Start () {
-		sr = GetComponent<SpriteRenderer>();
-		audioSource =  GetComponent<AudioSource>();
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void Start() {
+		sr = GetComponent<SpriteRenderer>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
-	void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.tag == "Player" && Input.GetKeyDown("e")){
+	void OnTriggerStay2D(Collider2D other) {
+		if (Input.GetButtonDown("Use") && other.gameObject.tag == "Player") {
 			sr.sprite = open;
 			audioSource.Play();
 			StartCoroutine(pause(other));
-			
 		}
 	}
 
-	IEnumerator pause(Collider2D other){
+	IEnumerator pause(Collider2D other) {
 		yield return new WaitForSeconds(0.5f);
 		sr.sprite = close;
 		other.transform.position = dest.position;
-		
 	}
 
 }

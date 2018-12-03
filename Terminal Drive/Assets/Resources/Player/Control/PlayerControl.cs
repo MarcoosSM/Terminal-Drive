@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour {
     // FIN variables públicas
 
     //Variables sonido
-    private  AudioSource audioSource;
+    private AudioSource audioSource;
 
     // Variables de control del jugador
     private float hAxis;
@@ -26,15 +26,12 @@ public class PlayerControl : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
     }
-    void Start() {
-    }
 
     void Update() {
         updateKeyInput();
-
         updateIsJumping();
-        if(jumpKeyPressed) {
-            if(! animator.GetBool("isJumping")) {
+        if (jumpKeyPressed) {
+            if (!animator.GetBool("isJumping")) {
                 rb2d.AddForce(jumpHeight, ForceMode2D.Impulse);
                 animator.SetBool("isJumping", true);
             }
@@ -42,7 +39,7 @@ public class PlayerControl : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        move();   
+        move();
     }
 
     private void updateKeyInput() {
@@ -53,18 +50,17 @@ public class PlayerControl : MonoBehaviour {
 
     private void move() {
         float absHAxis = Mathf.Abs(hAxis);
-        if(absHAxis > rangeStartMovement) {
+        if (absHAxis > rangeStartMovement) {
             animator.SetFloat("Speed", absHAxis * moveSpeed);
             rb2d.velocity = new Vector2(moveSpeed * hAxis, rb2d.velocity.y);
-            if(!audioSource.isPlaying){
+            if (!audioSource.isPlaying) {
                 audioSource.Play();
             }
-
         } else {
             // Si no hay suficiente movimiento en el hAxis, para al jugador
             animator.SetFloat("Speed", 0);
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-            if(audioSource.isPlaying){
+            if (audioSource.isPlaying) {
                 audioSource.Stop();
             }
         }
@@ -73,10 +69,10 @@ public class PlayerControl : MonoBehaviour {
 
     private void updateIsJumping() {
         // Comprueba la velocidad del eje y del personaje y si es 0 significa que no esta saltando
-        if(rb2d.velocity.y == 0) {
+        if (rb2d.velocity.y == 0) {
             animator.SetBool("isJumping", false);
-        }else{
-            if(audioSource.isPlaying){
+        } else {
+            if (audioSource.isPlaying) {
                 audioSource.Stop();
             }
         }

@@ -9,47 +9,42 @@ public class InventoryControl : MonoBehaviour {
 	GameObject currentGun;
 	GameObject hand;
 	HandControl handControl;
-	[SerializeField]float health;
-	[SerializeField]Object GameOverScene;	
-	void Awake () {
+	[SerializeField] float health;
+	[SerializeField] Object GameOverScene;
+
+	void Awake() {
 		guns = new List<GameObject>();
-		
-		hand =  transform.GetChild(0).gameObject;
-		
+		hand = transform.GetChild(0).gameObject;
+
 		//Se cargargan las armas desde los prefab
-		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/handGun/Handgun"),hand.transform));
-		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"),hand.transform));	
-		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"),hand.transform));
+		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/handGun/Handgun"), hand.transform));
+		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SawedOffShotGun/SawedOffShotGun"), hand.transform));
+		guns.Add(Instantiate(Resources.Load<GameObject>("Combat System/Weapon/SubmachineGun/SubmachineGun"), hand.transform));
 
-		foreach (GameObject gun in guns)
-		{
-			gun.GetComponent<WeaponController>().BulletTargetTag="Enemy";
-			
+		foreach (GameObject gun in guns) {
+			gun.GetComponent<WeaponController>().BulletTargetTag = "Enemy";
+
 		}
-
-		Debug.Log(guns.Capacity);
 
 		handControl = hand.GetComponent<HandControl>();
 
-		currentGun =  guns[0];
+		currentGun = guns[0];
 
-		foreach (GameObject weapon in guns)
-		{
+		foreach (GameObject weapon in guns) {
 			weapon.SetActive(false);
 		}
 		currentGun.SetActive(true);
-				
-	}
-	void Update () {
-		if (Input.GetKeyDown("1"))
-        {
-            changeWeapon(guns[0]);
 
-        }else if(Input.GetKeyDown("2")){
+	}
+	void Update() {
+		if (Input.GetKeyDown("1")) {
+			changeWeapon(guns[0]);
+
+		} else if (Input.GetKeyDown("2")) {
 
 			changeWeapon(guns[1]);
 
-		}else if(Input.GetKeyDown("3")){
+		} else if (Input.GetKeyDown("3")) {
 
 			changeWeapon(guns[2]);
 
@@ -57,29 +52,29 @@ public class InventoryControl : MonoBehaviour {
 		checkLife();
 	}
 
-	void changeWeapon (GameObject NewWeapon) {
-		if(!(NewWeapon.GetComponent<WeaponController>()==currentGun.GetComponent<WeaponController>())){
-			currentGun.SetActive(false);			
+	void changeWeapon(GameObject NewWeapon) {
+		if (!(NewWeapon.GetComponent<WeaponController>() == currentGun.GetComponent<WeaponController>())) {
+			currentGun.SetActive(false);
 			currentGun = NewWeapon;
 			currentGun.SetActive(true);
-			handControl.resetWeaponReference(NewWeapon);	
+			handControl.resetWeaponReference(NewWeapon);
 		}
 	}
 
-	public void takeDamage(float damage){
-		health-=damage;
+	public void takeDamage(float damage) {
+		health -= damage;
 	}
 
-	public float Health{
-		get{
+	public float Health {
+		get {
 			return health;
 		}
-		set{
-			health=value;
+		set {
+			health = value;
 		}
 	}
-	private void checkLife(){
-		if (health<=0){
+	private void checkLife() {
+		if (health <= 0) {
 			//Activar para que el jugador pueda morir: 
 			//SceneManager.LoadScene(GameOverScene.name);
 		}

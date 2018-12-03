@@ -8,30 +8,26 @@ public class Door : MonoBehaviour {
 	SpriteRenderer sr;
 	AudioSource audioSource;
 	bool opened;
-	// Use this for initialization
-	void Start () {
-		opened=false;
+
+	void Start() {
+		opened = false;
 		sr = GetComponent<SpriteRenderer>();
-		audioSource= gameObject.GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		audioSource = gameObject.GetComponent<AudioSource>();
 	}
 
-	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == ("Player")){
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.tag == ("Player")) {
 			sr.sprite = sp;
-			if(!opened){
+			if (!opened) {
 				audioSource.Play();
-				opened=true;
+				opened = true;
 			}
-			
+
 		}
 	}
-	public bool Opened{
-		get{
+	
+	public bool Opened {
+		get {
 			return opened;
 		}
 	}
