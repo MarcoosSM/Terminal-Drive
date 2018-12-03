@@ -7,6 +7,7 @@ public abstract class WeaponController : MonoBehaviour {
 
 	//Audio
 	protected AudioSource SourceAudio;
+	[SerializeField]protected BulletPanelController bulletPanelController;
 
 	//Variables para cosas visuales
 	protected bool fliped = false;
@@ -14,8 +15,8 @@ public abstract class WeaponController : MonoBehaviour {
 	protected SpriteRenderer spriteRenderer;
 
 	//Variables para con respecto la municion
-	[SerializeField] protected int currentMagazineAmmo;
-	[SerializeField] protected int magazineSize;
+	[SerializeField] public int currentMagazineAmmo;
+	[SerializeField] public int magazineSize;
 	[SerializeField] protected float RecharingTime; //en segundos
 	public int reserveAmmo; //Catidad de balas total
 	public int maxReserveAmmo; // Cantidad máxima de balas total
@@ -50,7 +51,8 @@ public abstract class WeaponController : MonoBehaviour {
 		//Comprobar si el que tiene el arma es el jugador o no
 		if (gameObject.transform.parent.parent.tag.Equals("Player")) {
 			if (Input.GetButtonDown("Fire1")) {
-				fire();	
+				fire();
+				bulletPanelController.checkCurrentBullets();	
 			}
 			if (Input.GetButtonDown("Reload")) {
 				reload();
@@ -64,6 +66,7 @@ public abstract class WeaponController : MonoBehaviour {
 	protected abstract void reload();
 
 	protected IEnumerator FireDelay() {
+		bulletPanelController.checkCurrentBullets();
 		readyToFire = false;
 		yield return new WaitForSeconds(60 / PPM);
 		readyToFire = true;
@@ -243,6 +246,8 @@ public abstract class WeaponController : MonoBehaviour {
 	}
 
 	protected void getAllComponents() {
+
+		bulletPanelController = GameObject.FindGameObjectWithTag("BulletPanel").GetComponent<BulletPanelController>();
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		weaponTransform = GetComponent<Transform>();

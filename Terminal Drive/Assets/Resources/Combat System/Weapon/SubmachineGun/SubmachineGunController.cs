@@ -33,6 +33,7 @@ public class SubmachineGunController : WeaponController {
 	}
 
 	protected override void reload() {
+		
 		if (empty && reserveAmmo > 0) {
 			// Si el arma estaba en estado "vacío" y ahora tiene balas para recargar, deja de estar en estado vacío
 			empty = false;
@@ -63,6 +64,7 @@ public class SubmachineGunController : WeaponController {
 				animator.SetBool("reloading", true);
 			}
 		}
+
 	}
 
 	public override void fire() {
@@ -100,6 +102,7 @@ public class SubmachineGunController : WeaponController {
 				}
 			}
 			StartCoroutine(FireDelay());
+			bulletPanelController.checkCurrentBullets();	
 		}
 	}
 
@@ -119,5 +122,6 @@ public class SubmachineGunController : WeaponController {
 		}
 		recharging = false;
 		animator.SetBool("reloading", false);
+		bulletPanelController.checkCurrentBullets();
 	}
 }

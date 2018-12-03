@@ -14,6 +14,8 @@ TagManager:
   - SubmachineGun
   - L2
   - LevelEnd
+  - Power
+  - BulletPanel
   layers:
   - Default
   - TransparentFX

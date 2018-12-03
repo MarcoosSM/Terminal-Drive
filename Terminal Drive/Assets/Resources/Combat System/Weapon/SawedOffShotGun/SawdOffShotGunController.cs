@@ -134,5 +134,6 @@ public class SawdOffShotGunController : WeaponController {
 		//animacion recargado
 		animator.SetBool("reloading", false);
 		recharging = false;
+		bulletPanelController.checkCurrentBullets();
 	}
 }

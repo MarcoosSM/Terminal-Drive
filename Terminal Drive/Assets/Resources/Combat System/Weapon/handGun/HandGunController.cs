@@ -89,7 +89,7 @@ public class HandGunController : WeaponController {
 
 	override protected IEnumerator rechargingDelay() {
 		//Sonido
-
+		
 		recharging = true;
 		animator.SetBool("reloading", true);
 		yield return new WaitForSeconds(RecharingTime);
@@ -105,6 +105,7 @@ public class HandGunController : WeaponController {
 		}
 		recharging = false;
 		animator.SetBool("reloading", false);
+		bulletPanelController.checkCurrentBullets();
 	}
 
 }

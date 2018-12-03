@@ -20006,36 +20006,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 61374161552166582, guid: c0b3423c93a16c544a0475b365f8ebe0,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61149551291495602, guid: c0b3423c93a16c544a0475b365f8ebe0,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 58174584663729290, guid: c0b3423c93a16c544a0475b365f8ebe0,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 70614468486141464, guid: c0b3423c93a16c544a0475b365f8ebe0,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114410277279370888, guid: c0b3423c93a16c544a0475b365f8ebe0,
-        type: 2}
-      propertyPath: health
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114410277279370888, guid: c0b3423c93a16c544a0475b365f8ebe0,
-        type: 2}
-      propertyPath: maxHealth
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0b3423c93a16c544a0475b365f8ebe0, type: 2}
   m_IsPrefabAsset: 0
@@ -23881,28 +23851,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06337c50786b9834e9433f5be09c2d43, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1114519399 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1244375135097990, guid: b179f8539ae0e9a468d2dd803aaacbb7,
-    type: 2}
-  m_PrefabInternal: {fileID: 871348230}
---- !u!114 &1114519403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1114519399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e941d24a11449548a2ecc426c139588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
-  - {fileID: 21300002, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
-  - {fileID: 21300004, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
-  - {fileID: 21300006, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
-  - {fileID: 21300008, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
 --- !u!1001 &1126425266
 Prefab:
   m_ObjectHideFlags: 0

@@ -12,8 +12,11 @@ public class InventoryControl : MonoBehaviour {
 	[SerializeField] float health;
 	[SerializeField] float maxHealth;
 	[SerializeField] Object GameOverScene;
+	BulletPanelController bulletPanelController;
 
 	void Awake() {
+		bulletPanelController = GameObject.FindGameObjectWithTag("BulletPanel").GetComponent<BulletPanelController>();
+
 		guns = new List<GameObject>();
 		hand = transform.GetChild(0).gameObject;
 
@@ -35,6 +38,8 @@ public class InventoryControl : MonoBehaviour {
 			weapon.SetActive(false);
 		}
 		currentGun.SetActive(true);
+
+		bulletPanelController.checkCurrentWeapon(currentGun.GetComponent<WeaponController>());
 
 	}
 	void Update() {
@@ -59,6 +64,8 @@ public class InventoryControl : MonoBehaviour {
 			currentGun = NewWeapon;
 			currentGun.SetActive(true);
 			handControl.resetWeaponReference(NewWeapon);
+			bulletPanelController.checkCurrentWeapon(NewWeapon.GetComponent<WeaponController>());
+
 		}
 	}
 
@@ -74,12 +81,21 @@ public class InventoryControl : MonoBehaviour {
 			health = value;
 		}
 	}
-		public float MaxHealth {
+	public float MaxHealth {
 		get {
 			return maxHealth;
 		}
 		set {
 			maxHealth = value;
+		}
+	}
+
+	public GameObject CurrentGun {
+		get {
+			return currentGun;
+		}
+		set {
+			currentGun = value;
 		}
 	}
 
