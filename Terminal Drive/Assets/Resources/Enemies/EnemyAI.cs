@@ -87,10 +87,28 @@ public class EnemyAI : MonoBehaviour {
 		Vector3 destination = player.transform.position;
 		Vector3 delta = (destination - transform.position);
 		hits=Physics2D.RaycastAll(transform.position,delta,VisionRange);
+
 		foreach (RaycastHit2D hit in hits)
 		{
-				if(hit.collider.gameObject.Equals(player)){
+			GameObject colliderGO = hit.collider.gameObject;
+				if(colliderGO.Equals(player)){
+					Debug.Log("player");
 					playerSeen=true;
+					break;
+
+				}else if(hit.collider.isTrigger){
+					Debug.Log("estriger");
+					if(colliderGO.GetComponent<Door>()){
+							Debug.Log("tiene peurta");
+						if(!colliderGO.GetComponent<Door>().Opened){
+							Debug.Log("puerta cerrada");
+							break;
+						}
+					}	
+					
+				}else{
+					Debug.Log(colliderGO.name);
+					break;
 				}
 		}
 		

@@ -30,4 +30,9 @@ public class Door : MonoBehaviour {
 			
 		}
 	}
+	public bool Opened{
+		get{
+			return opened;
+		}
+	}
 }
