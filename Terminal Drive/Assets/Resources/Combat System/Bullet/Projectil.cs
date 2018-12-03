@@ -72,8 +72,14 @@ public class Projectil : MonoBehaviour {
 			
 			Destroy(gameObject);
 		}
+		//Comprobar si la puerta esta abierta o cerrada
+		if(hittedObj.GetComponent<Door>()){
+			if(!hittedObj.GetComponent<Door>().Opened){
+					Destroy(gameObject);
+			}
+		}
 		
-		if(!(hittedObj.tag.Equals("Projectile") || hittedObj.tag.Equals("L2") || hittedObj.tag.Equals("Power") )){
+		if(!(hittedObj.tag.Equals("Projectile") || hittedObj.tag.Equals("L2") || hittedObj.tag.Equals("Power") || hittedObj.GetComponent<Door>())){
 			Destroy(gameObject); // Destruye el proyectil si colisiona con algo que no sea otro projectil para evitar problemas con la escopeta
 		}
 
