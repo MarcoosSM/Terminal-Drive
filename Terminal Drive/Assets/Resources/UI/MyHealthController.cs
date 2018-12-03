@@ -21,9 +21,9 @@ public class MyHealthController : MonoBehaviour {
 		float percentOfLife = playerhealt.Health/playerhealt.MaxHealth;
 		
 		int index = (int)((sprites.Length-1)*(1-percentOfLife));
-		if(index>=0){
+		if(index>=0 & index<sprites.Length){
+			Debug.Log(index);
 			myImage.sprite = sprites[index];
-
 		}
 	
 		
