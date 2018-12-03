@@ -141,10 +141,10 @@ public class EnemyAI : MonoBehaviour {
 			arm.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 			animator.SetBool("isRight", (angle > -90 || angle < -270));
 			
-			if(weapon.tag == "SubmachineGun") {
-				weapon.GetComponent<SpriteRenderer>().flipY = !animator.GetBool("isRight");
-			} else {
+			if(weapon.tag == "SawedOffShotgun") {
 				weapon.GetComponent<SpriteRenderer>().flipY = animator.GetBool("isRight");
+			} else {
+				weapon.GetComponent<SpriteRenderer>().flipY = !animator.GetBool("isRight");
 			}
 
 			//Para ver si el brazo se encuetra detras o delante del enemigo
