@@ -103,7 +103,7 @@ public class InventoryControl : MonoBehaviour {
 	private void checkLife() {
 		if (health <= 0) {
 			//Activar para que el jugador pueda morir: 
-			//SceneManager.LoadScene(GameOverScene.name);
+			SceneManager.LoadScene(GameOverScene.name);
 		}if(health>MaxHealth){
 			health=MaxHealth;
 		}

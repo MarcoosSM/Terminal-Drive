@@ -296,4 +296,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581900d3ed4b9644abadbf58508f2fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenScene: {fileID: 102900000, guid: 2a018e699082cb84ca47fcd2d70dbe63, type: 3}
+  choosenScene: {fileID: 102900000, guid: c3a3b74f07def5a4f949242c8f504404, type: 3}
