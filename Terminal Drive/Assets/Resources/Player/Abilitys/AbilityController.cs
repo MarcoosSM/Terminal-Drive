@@ -17,7 +17,7 @@ public class AbilityController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (Input.GetButton("Ability") && currentEnergy > currentAbility.PowerConsuptionPerSeg) {
+		if (Input.GetButton("Ability") && currentEnergy >= currentAbility.PowerConsuptionPerSeg) {
 			//Para que solo se active una vez
 			if (!AbilityActivated) {
 				currentAbility.activate();
@@ -34,7 +34,7 @@ public class AbilityController : MonoBehaviour {
 	}
 	IEnumerator EnergyControl() {
 		//Precision de la energia (Menos segundos mas precision)
-		float segs = 0.25f;
+		float segs = 0.01f;
 		//For ever
 		while (true) {
 			if (AbilityActivated) {

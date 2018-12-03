@@ -376,8 +376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guns: []
-  health: 1000
-  maxHealth: 1000
+  health: 500
+  maxHealth: 500
   GameOverScene: {fileID: 102900000, guid: 119cba08eca00724e9f24623c72d5e84, type: 3}
 --- !u!114 &114771525791694250
 MonoBehaviour:
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c0ab9dd9d6d184fb803535c5fc7a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerConsuptionPerSeg: 5
+  powerConsuptionPerSeg: 20
 --- !u!212 &212395875130543926
 SpriteRenderer:
   m_ObjectHideFlags: 1
