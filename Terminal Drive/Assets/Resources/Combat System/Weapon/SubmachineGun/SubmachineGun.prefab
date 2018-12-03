@@ -81,9 +81,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64511a61b4e9712489bd48c241d98796, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a3bdc665a9a25e5428c21c7207bd1290, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.78
   m_Pitch: 3
   Loop: 0
   Mute: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   PPM: 90
   ProjDamage: 3
   ProjSpeed: 1000
+  bulletTargetTag: 
   bullet: {fileID: 1589067156259212, guid: aca049bcd91cb2143933ecfb4291d829, type: 2}
   cap: {fileID: 1776106174615102, guid: 4bba349992cb39a42892a32aa7eaf01a, type: 2}
   charger: {fileID: 1534910872895022, guid: bc80b50e44b9fca49bac9381bcdd8cf0, type: 2}
