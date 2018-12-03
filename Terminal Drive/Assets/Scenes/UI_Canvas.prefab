@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 224821414436042464}
   - component: {fileID: 222793687505236376}
   - component: {fileID: 114772274715127210}
+  - component: {fileID: 114207230801456928}
   m_Layer: 5
   m_Name: UI_Life
   m_TagString: Untagged
@@ -520,6 +521,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114207230801456928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244375135097990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e941d24a11449548a2ecc426c139588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
+  - {fileID: 21300002, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
+  - {fileID: 21300004, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
+  - {fileID: 21300006, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
+  - {fileID: 21300008, guid: 37e3e50ab1df37f49b9a235c2d95c72e, type: 3}
 --- !u!114 &114224962429991992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1567,11 +1585,11 @@ RectTransform:
   m_Father: {fileID: 224122141192243108}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1204, y: -21}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -20, y: -20}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 1, y: 1}
 --- !u!224 &224467428371888904
 RectTransform:
   m_ObjectHideFlags: 1
