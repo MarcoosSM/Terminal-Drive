@@ -18,7 +18,10 @@ public class AmmoRefill : MonoBehaviour {
 				WeaponController wController = weapon.GetComponent<WeaponController>();
 				if (wController.reserveAmmo != wController.maxReserveAmmo) {
 					wController.reserveAmmo = wController.maxReserveAmmo;
-					audioSource.Play();
+					if(!audioSource.isPlaying){
+							audioSource.Play();
+					}
+				
 				}
 
 			}

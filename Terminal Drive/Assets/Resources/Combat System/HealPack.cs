@@ -14,7 +14,7 @@ public class HealPack : MonoBehaviour {
 		if (Input.GetButtonDown("Use") && other.gameObject.tag == "Player") {
 			InventoryControl IC = other.GetComponent<InventoryControl>();
 			IC.Health = IC.MaxHealth;
-				if(!audioSource.isPlaying){
+			if(!audioSource.isPlaying){
 				audioSource.Play();
 			}
 		}
