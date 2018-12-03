@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edccff806bb3fc34997d7827722ef74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPanelController: {fileID: 0}
   currentMagazineAmmo: 0
   magazineSize: 10
   RecharingTime: 1

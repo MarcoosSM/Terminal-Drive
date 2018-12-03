@@ -56028,7 +56028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ff49b5bb98ea2438e3b08cec429214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenScene: {fileID: 102900000, guid: c40737c3a49868b428b44873d174134d, type: 3}
+  choosenScene: CreditsScene
   open: {fileID: 21300002, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
   close: {fileID: 21300000, guid: 1c308bfff49845148b07b7dd2c8a3195, type: 3}
 --- !u!4 &1694699242 stripped
@@ -58770,6 +58770,10 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: 1.499
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357952017829906, guid: b179f8539ae0e9a468d2dd803aaacbb7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b179f8539ae0e9a468d2dd803aaacbb7, type: 2}

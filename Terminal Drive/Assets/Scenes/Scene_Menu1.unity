@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581900d3ed4b9644abadbf58508f2fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenScene: {fileID: 0}
+  choosenScene: 
 --- !u!1 &299509447
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581900d3ed4b9644abadbf58508f2fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenScene: {fileID: 102900000, guid: 32aba0100bd51a94bae7b6f542e51ef4, type: 3}
+  choosenScene: Cinematic
 --- !u!1 &932492087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581900d3ed4b9644abadbf58508f2fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenScene: {fileID: 102900000, guid: c40737c3a49868b428b44873d174134d, type: 3}
+  choosenScene: CreditsScene
 --- !u!1 &1372471802
 GameObject:
   m_ObjectHideFlags: 0

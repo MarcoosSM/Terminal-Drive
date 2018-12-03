@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581900d3ed4b9644abadbf58508f2fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenScene: {fileID: 102900000, guid: c9662d9d7f74f894c90f1c0fcdaab1e9, type: 3}
+  choosenScene: Scene_menu1
 --- !u!114 &1406557507
 MonoBehaviour:
   m_ObjectHideFlags: 0

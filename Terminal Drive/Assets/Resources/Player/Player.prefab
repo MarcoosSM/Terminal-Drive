@@ -378,7 +378,7 @@ MonoBehaviour:
   guns: []
   health: 500
   maxHealth: 500
-  GameOverScene: {fileID: 102900000, guid: 119cba08eca00724e9f24623c72d5e84, type: 3}
+  GameOverScene: GameOverScene
 --- !u!114 &114771525791694250
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ChangeSceneScript : MonoBehaviour {
-	[SerializeField] private Object choosenScene;
+	[SerializeField] private string choosenScene;
 
 	public void ChangeScene() {
-		SceneManager.LoadScene(choosenScene.name);
+		SceneManager.LoadScene(choosenScene);
 	}
 
 	public void CloseGame(){

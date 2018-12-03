@@ -11,7 +11,7 @@ public class InventoryControl : MonoBehaviour {
 	HandControl handControl;
 	[SerializeField] float health;
 	[SerializeField] float maxHealth;
-	[SerializeField] Object GameOverScene;
+	[SerializeField] string GameOverScene;
 	BulletPanelController bulletPanelController;
 
 	void Awake() {
@@ -103,7 +103,7 @@ public class InventoryControl : MonoBehaviour {
 	private void checkLife() {
 		if (health <= 0) {
 			//Activar para que el jugador pueda morir: 
-			SceneManager.LoadScene(GameOverScene.name);
+			SceneManager.LoadScene(GameOverScene);
 		}if(health>MaxHealth){
 			health=MaxHealth;
 		}

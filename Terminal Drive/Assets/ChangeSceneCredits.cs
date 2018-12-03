@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChangeSceneCredits : MonoBehaviour {
 
-	[SerializeField] private Object choosenScene;
+	[SerializeField] private string choosenScene;
 	[SerializeField] Sprite open;
 	[SerializeField] Sprite close;
 	SpriteRenderer sr;
@@ -31,7 +31,7 @@ public class ChangeSceneCredits : MonoBehaviour {
 	}
 
 	public void ChangeScene() {
-		SceneManager.LoadScene(choosenScene.name);
+		SceneManager.LoadScene(choosenScene);
 	}
 
 	
