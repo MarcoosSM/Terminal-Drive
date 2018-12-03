@@ -17,10 +17,10 @@ public class EnergyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("asdasd");
+	//	Debug.Log("asdasd");
 		float percentOfEnergy = playerEnergia.CurrentEnergy/playerEnergia.MaxEnergy;
-		Debug.Log("asdasd");
-		Debug.Log(percentOfEnergy +"="+ playerEnergia.CurrentEnergy+"/"+playerEnergia.MaxEnergy);
+	//	Debug.Log("asdasd");
+	//	Debug.Log(percentOfEnergy +"="+ playerEnergia.CurrentEnergy+"/"+playerEnergia.MaxEnergy);
 		
 		int index = (int)((sprites.Length-1)*(1-percentOfEnergy));
 		if(index>=0 & index<sprites.Length){

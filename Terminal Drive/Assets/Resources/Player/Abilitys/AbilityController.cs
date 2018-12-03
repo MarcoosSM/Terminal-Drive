@@ -6,7 +6,7 @@ public class AbilityController : MonoBehaviour {
 
 	[SerializeField] float currentEnergy;
 	[SerializeField] float EnergyRegen;
-	[SerializeField] float MaxEnergy;
+	[SerializeField] float maxEnergy;
 	private Ability currentAbility;
 	private bool AbilityActivated;
 
@@ -40,8 +40,8 @@ public class AbilityController : MonoBehaviour {
 			if (AbilityActivated) {
 				currentEnergy -= currentAbility.PowerConsuptionPerSeg * segs;
 			} else {
-				if (currentEnergy >= MaxEnergy) {
-					currentEnergy = MaxEnergy;
+				if (currentEnergy >= maxEnergy) {
+					currentEnergy = maxEnergy;
 
 				} else {
 					currentEnergy += EnergyRegen * segs;
@@ -51,5 +51,22 @@ public class AbilityController : MonoBehaviour {
 			yield return new WaitForSeconds(segs);
 		}
 
+	}
+
+	public float CurrentEnergy{
+		get{
+			return currentEnergy;
+		}
+		set{
+			currentEnergy=value;
+		}
+	}
+		public float MaxEnergy{
+		get{
+			return  maxEnergy;
+		}
+		set{
+			 maxEnergy=value;
+		}
 	}
 }
