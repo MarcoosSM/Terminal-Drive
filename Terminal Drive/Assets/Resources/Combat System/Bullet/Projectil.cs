@@ -49,20 +49,20 @@ public class Projectil : MonoBehaviour {
 
 		GameObject hittedObj = col.gameObject;
 		//Debug.Log(hittedObj.name);
-
-		if (hittedObj.tag.Equals("Enemy") && hittedObj.tag.Equals(targerTag)) {
-			EnemyAI eAI = (EnemyAI) hittedObj.GetComponent("EnemyAI");
-			eAI.takeDamage(damage);
-			Destroy(gameObject);
-		}
-		if (hittedObj.tag.Equals("Player") && hittedObj.tag.Equals(targerTag)) {
-
-			if (rigidbody2d.velocity.magnitude > minSpeedToDoDamage) {
-				InventoryControl IC = hittedObj.GetComponent<InventoryControl>();
-				IC.takeDamage(damage);
+		if (rigidbody2d.velocity.magnitude > minSpeedToDoDamage) {
+		
+			if (hittedObj.tag.Equals("Enemy") && hittedObj.tag.Equals(targerTag)) {
+				EnemyAI eAI = (EnemyAI) hittedObj.GetComponent("EnemyAI");
+				eAI.takeDamage(damage);
+				Destroy(gameObject);
 			}
-
-			Destroy(gameObject);
+			if (hittedObj.tag.Equals("Player") && hittedObj.tag.Equals(targerTag)) {
+				
+					InventoryControl IC = hittedObj.GetComponent<InventoryControl>();
+					IC.takeDamage(damage);
+			
+				Destroy(gameObject);
+			}
 		}
 		//Comprobar si la puerta esta abierta o cerrada
 		if (hittedObj.GetComponent<Door>()) {

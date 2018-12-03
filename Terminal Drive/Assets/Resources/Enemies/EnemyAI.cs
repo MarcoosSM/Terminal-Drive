@@ -145,7 +145,12 @@ public class EnemyAI : MonoBehaviour {
 			} else {
 				arm.GetComponent<SpriteRenderer>().sortingOrder = 5;
 			}
-			weapon.fire();
+			if(weapon.GetType() == typeof(SubmachineGunController)){
+				((SubmachineGunController)weapon).fire();
+			}else{
+				weapon.fire();
+			}
+			
 		} else {
 			folowingplayer = false;
 		}
