@@ -54866,7 +54866,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.039215688, g: 0.054901965, b: 0.06666667, a: 0}
+  m_BackGroundColor: {r: 0.10980393, g: 0.1254902, b: 0.17254902, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -55073,11 +55073,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4842001497929048, guid: 854987f107a5886468262a90899805a1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.22
+      value: 18.25
       objectReference: {fileID: 0}
     - target: {fileID: 4842001497929048, guid: 854987f107a5886468262a90899805a1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25.06
+      value: 24.002
       objectReference: {fileID: 0}
     - target: {fileID: 4842001497929048, guid: 854987f107a5886468262a90899805a1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -57959,11 +57959,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4527600987101688, guid: 3d8fba034ad6c44409514bbfafe643ba, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 16.99
+      value: 16.953
       objectReference: {fileID: 0}
     - target: {fileID: 4527600987101688, guid: 3d8fba034ad6c44409514bbfafe643ba, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24.31
+      value: 24.001
       objectReference: {fileID: 0}
     - target: {fileID: 4527600987101688, guid: 3d8fba034ad6c44409514bbfafe643ba, type: 2}
       propertyPath: m_LocalPosition.z

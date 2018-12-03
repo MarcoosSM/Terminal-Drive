@@ -278,7 +278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -581, y: 233}
+  m_AnchoredPosition: {x: -560, y: 190}
   m_SizeDelta: {x: 162, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1057819017
@@ -302,7 +302,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 57d353df217c2284e9387826d0bc15f4, type: 3}
-    m_FontSize: 32
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -312,10 +312,18 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 2
-  m_Text: "Programaci\xF3n: <Ponerlos Aqui>\n\nDise\xF1o: <Ponerlos aqui>\n\nIA:<Ponerlos
-    Aqui>\n\nUI:<Ponerlos Aqui>\n\nArte:<Ponerlos Aqui>\n\nControl de c\xE1mara:<Ponerlos
-    Aqui>\n\nControl del personaje:<Ponerlos Aqui>"
+    m_LineSpacing: 3
+  m_Text: 'Realizado por:
+
+    Yevgen Chaynykov
+
+    MIGUEL ANGEL DIAZ RODRIGUEZ
+
+    OLEKSANDR MALYGA
+
+    ISMAEL PEREZ LOZANO
+
+    MARCOS SOLANCE MARTIN'
 --- !u!222 &1057819018
 CanvasRenderer:
   m_ObjectHideFlags: 0
