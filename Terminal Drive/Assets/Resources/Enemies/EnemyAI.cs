@@ -79,7 +79,7 @@ public class EnemyAI : MonoBehaviour {
 	 */
 	[Task]
 	void MoveToPlayer() {
-		Debug.Log(gameObject.name);
+//		Debug.Log(gameObject.name);
 		float armOffset = 180;
 		playerSeen = false;
 		RaycastHit2D[] hits;
@@ -90,7 +90,7 @@ public class EnemyAI : MonoBehaviour {
 		foreach (RaycastHit2D hit in hits) {
 			GameObject colliderGO = hit.collider.gameObject;
 			if (colliderGO.Equals(player)) {
-				Debug.Log("Player seen");
+				//Debug.Log("Player seen");
 				playerSeen = true;
 				break;
 
