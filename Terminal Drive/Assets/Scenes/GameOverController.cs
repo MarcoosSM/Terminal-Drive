@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour {
 
-    [SerializeField] private Object MenuEscene;
+    [SerializeField] private string MenuEscene;
 
     void Update() {
         if (Input.GetKeyDown("space")) {
-            SceneManager.LoadScene(MenuEscene.name);
+            SceneManager.LoadScene(MenuEscene);
         }
     }
 }
