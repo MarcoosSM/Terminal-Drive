@@ -16,13 +16,14 @@ public class BulletBubble : Ability {
 	}
 
 	public override void activate() {
+		Debug.Log("activated");
 		shield.enabled = true;
 		player.GetComponent<PlayerControl>().canMove = false;
 		audioRuniteStart();
 	}
 
 	public override void desactivate() {
-		Debug.Log(projectilesRB.Count);
+		Debug.Log("deactivated");
 		foreach (Rigidbody2D ProjRB in projectilesRB) {
 			if (ProjRB != null) {
 				ProjRB.gravityScale = 1;

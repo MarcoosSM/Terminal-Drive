@@ -26,23 +26,30 @@ public abstract class Ability : MonoBehaviour {
 	}
 
 	
-	protected void audioRuniteStop(){
-		audioSource.clip = EndClip;
-		audioSource.Play();
-	}
+
 
 	protected void audioRuniteStart(){
-		if(!audioSource.isPlaying){
-			Debug.Log(StartClip);
-			audioSource.clip = StartClip;
-			audioSource.Play();
-			StartCoroutine(MidAudioRutine());
-		}
+		
+		Debug.Log("started");
+		audioSource.clip = StartClip;
+		audioSource.Play();
+		StartCoroutine(MidAudioRutine());
+		
 
 	}
 	protected IEnumerator MidAudioRutine(){
 		yield return new WaitForSeconds(StartClip.length);
-		audioSource.clip = MidClip;
+		if(!audioSource.clip.Equals(EndClip)){
+			audioSource.clip = MidClip;
+			audioSource.Play();
+			Debug.Log("Mid");
+		}
+		
+	}
+
+	protected void audioRuniteStop(){
+		audioSource.clip = EndClip;
 		audioSource.Play();
+		Debug.Log("Ended");
 	}
 }
