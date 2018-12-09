@@ -17,7 +17,7 @@ public class AbilityController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (Input.GetButton("Ability") && currentEnergy >= currentAbility.PowerConsuptionPerSeg) {
+		if (Input.GetButton("Ability") && currentEnergy >= 0) {
 			//Para que solo se active una vez
 			if (!AbilityActivated) {
 				currentAbility.activate();

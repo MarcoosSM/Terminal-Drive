@@ -18,6 +18,7 @@ public class BulletBubble : Ability {
 	public override void activate() {
 		shield.enabled = true;
 		player.GetComponent<PlayerControl>().canMove = false;
+		audioRuniteStart();
 	}
 
 	public override void desactivate() {
@@ -30,6 +31,7 @@ public class BulletBubble : Ability {
 		projectilesRB.Clear();
 		shield.enabled = false;
 		player.GetComponent<PlayerControl>().canMove = true;
+		audioRuniteStop();
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
