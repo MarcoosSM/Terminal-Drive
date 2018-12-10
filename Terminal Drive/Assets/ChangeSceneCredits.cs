@@ -11,6 +11,10 @@ public class ChangeSceneCredits : MonoBehaviour {
 	SpriteRenderer sr;
 	AudioSource audioSource;
 	
+	void Awake() {
+		Cursor.visible = true;
+	}
+
 	void Start() {
 		sr = GetComponent<SpriteRenderer>();
 		audioSource = GetComponent<AudioSource>();
