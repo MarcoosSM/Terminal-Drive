@@ -6,10 +6,12 @@ public class BulletBubble : Ability {
 
 	Collider2D shield;
 	List<Rigidbody2D> projectilesRB;
+    private Animator animator;
 	GameObject player;
 
 	void Awake() {
 		shield = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
 		shield.enabled = false;
 		projectilesRB = new List<Rigidbody2D>();
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -17,6 +19,7 @@ public class BulletBubble : Ability {
 
 	public override void activate() {
 		Debug.Log("activated");
+		animator.SetBool("usingShield", true);
 		shield.enabled = true;
 		player.GetComponent<PlayerControl>().canMove = false;
 		audioRuniteStart();
@@ -30,6 +33,7 @@ public class BulletBubble : Ability {
 			}
 		}
 		projectilesRB.Clear();
+		animator.SetBool("usingShield", false);
 		shield.enabled = false;
 		player.GetComponent<PlayerControl>().canMove = true;
 		audioRuniteStop();
