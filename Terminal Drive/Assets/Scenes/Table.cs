@@ -17,7 +17,7 @@ public class Table : MonoBehaviour {
 		if (Input.GetButtonDown("Use") && other.gameObject.tag == "Player") {
 			collider.enabled = true;
 			GameObject player = other.gameObject;
-
+			this.tag="Untagged";
 			if (animator.GetBool("isRight")) {
 				transform.localEulerAngles = new Vector3(0, 0, -90);
 			} else {
