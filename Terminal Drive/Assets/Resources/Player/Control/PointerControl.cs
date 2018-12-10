@@ -8,6 +8,10 @@ public class PointerControl : MonoBehaviour {
 	GameObject player;
 	Animator animator;
 
+	void Awake() {
+		Cursor.visible = false;
+	}
+
 	// Use this for initialization
 	void Start() {
 		mainCamera = Camera.main;
