@@ -10,10 +10,6 @@ public class ChangeSceneCredits : MonoBehaviour {
 	[SerializeField] Sprite close;
 	SpriteRenderer sr;
 	AudioSource audioSource;
-	
-	void Awake() {
-		Cursor.visible = true;
-	}
 
 	void Start() {
 		sr = GetComponent<SpriteRenderer>();
@@ -31,6 +27,7 @@ public class ChangeSceneCredits : MonoBehaviour {
 	IEnumerator pause(Collider2D other) {
 		yield return new WaitForSeconds(1f);
 		sr.sprite = close;
+		Cursor.visible = true;
 		ChangeScene();
 	}
 
